@@ -24,6 +24,25 @@ Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porq
 - **Node.js**: versão 22.13 ou superior
 - **npm**: gerenciador de pacotes do Node.js (instalado junto com o Node.js)
 
+Para instalar no Linux, macOS ou Windows com WSL, use o [nvm](https://github.com/nvm-sh/nvm#installing-and-updating):
+
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+```
+
+Na pasta do projeto, instale e ative a versão definida em `.nvmrc`. O npm será instalado junto:
+
+```sh
+nvm install
+nvm use
+node -v
+npm -v
+```
+
+No Windows sem WSL, use o [instalador oficial do Node.js](https://nodejs.org/en/download), que também inclui o npm. Depois, reabra o terminal e confira com `node -v` e `npm -v`.
+
 ## Scripts
 
 | Comando                | Uso                                                 |
