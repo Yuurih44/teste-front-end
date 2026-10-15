@@ -24,7 +24,6 @@ Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porq
 - **Node.js**: versão 22.13 ou superior
 - **npm**: gerenciador de pacotes do Node.js (instalado junto com o Node.js)
 
-
 ## Scripts
 
 | Comando                | Uso                                                 |
