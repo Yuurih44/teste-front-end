@@ -23,6 +23,30 @@ Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porq
 
 Requer Node.js 22.13 ou superior e npm. Com nvm, execute `nvm use` para carregar a versão definida em `.nvmrc`.
 
+## Instalar o Node.js
+
+Abra o PowerShell ou terminal do VS Code e execute:
+
+winget install OpenJS.NodeJS.22
+
+Após a instalação, reinicie o terminal.
+
+## Verificar a instalação
+
+node -v
+npm -v
+
+## Instalar as dependências
+
+Abra a pasta do projeto no VS Code e execute:
+
+npm install
+
+## Executar o projeto
+
+npm run dev
+
+
 ## Scripts
 
 | Comando                | Uso                                                 |
