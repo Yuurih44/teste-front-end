@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Product } from "../services/products";
+import type { Product } from "../model/product";
 export default function ProductImage({ product }: { product: Product }) {
   const [failed, setFailed] = useState(false);
   return failed ? (

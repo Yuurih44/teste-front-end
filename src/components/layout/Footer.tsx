@@ -1,5 +1,5 @@
-import Logo from "./Logo";
-import Icon, { type IconName } from "./Icon";
+import Logo from "../ui/Logo";
+import Icon, { type IconName } from "../ui/Icon";
 const columns = [
   {
     title: "Institucional",

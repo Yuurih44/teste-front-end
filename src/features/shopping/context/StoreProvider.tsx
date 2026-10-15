@@ -1,7 +1,13 @@
+import {
+  buildCart,
+  cartTotal,
+  getSavedQuantity,
+  normalizeQuantity,
+} from "../model/cart";
 import { useEffect, useState, type ReactNode } from "react";
-import type { Product, CatalogMode } from "../services/products";
+import type { Product, CatalogMode } from "../../catalog/model/product";
 import { StoreContext } from "./StoreContext";
-import { readStore } from "./storage";
+import { readStore } from "../model/storage";
 export default function StoreProvider({
   children,
   products,
@@ -20,11 +26,7 @@ export default function StoreProvider({
       /* A loja continua funcionando em memória quando o armazenamento não está disponível. */
     }
   }, [key, saved]);
-  const cart = products.flatMap((product) =>
-    saved.cart[product.productName]
-      ? [{ product, quantity: saved.cart[product.productName] }]
-      : [],
-  );
+  const cart = buildCart(products, saved.cart);
   const favorites = products.filter((product) =>
     saved.favorites.includes(product.productName),
   );
@@ -34,12 +36,7 @@ export default function StoreProvider({
         cart,
         favorites,
         cartCount: cart.reduce((sum, line) => sum + line.quantity, 0),
-        total:
-          cart.reduce(
-            (sum, line) =>
-              sum + Math.round(line.product.price * 100) * line.quantity,
-            0,
-          ) / 100,
+        total: cartTotal(cart),
         isFavorite: (product) => saved.favorites.includes(product.productName),
         toggleFavorite: (product) =>
           setSaved((previous) => ({
@@ -55,10 +52,9 @@ export default function StoreProvider({
             ...previous,
             cart: {
               ...previous.cart,
-              [product.productName]: Math.min(
-                99,
-                (previous.cart[product.productName] || 0) +
-                  Math.max(1, Math.floor(quantity)),
+              [product.productName]: normalizeQuantity(
+                getSavedQuantity(previous.cart, product.productName) +
+                  normalizeQuantity(quantity),
               ),
             },
           })),
@@ -67,10 +63,7 @@ export default function StoreProvider({
             ...previous,
             cart: {
               ...previous.cart,
-              [product.productName]: Math.min(
-                99,
-                Math.max(1, Math.floor(quantity)),
-              ),
+              [product.productName]: normalizeQuantity(quantity),
             },
           })),
         removeFromCart: (product) =>

@@ -1,8 +1,9 @@
+import { sortProducts, type ProductSort } from "../model/queries";
 import ProductSkeleton from "./ProductSkeleton";
 import { useCarousel } from "../hooks/useCarousel";
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-import type { Product } from "../services/products";
+import type { Product } from "../model/product";
 const categories = [
   "Celular",
   "Acessórios",
@@ -32,20 +33,10 @@ export default function Showcase({
   query = "",
 }: Props) {
   const [category, setCategory] = useState("Celular");
-  const [sort, setSort] = useState("relevance");
+  const [sort, setSort] = useState<ProductSort>("relevance");
   const filtered =
     category === "Celular" || category === "Ver todos" ? products : [];
-  const visible = [...filtered].sort((a, b) =>
-    sort === "price-asc"
-      ? a.price - b.price
-      : sort === "price-desc"
-        ? b.price - a.price
-        : sort === "name"
-          ? a.productName.localeCompare(b.productName, "pt-BR", {
-              numeric: true,
-            })
-          : 0,
-  );
+  const visible = sortProducts(filtered, sort);
   const { track, canScroll, scroll } = useCarousel(visible.length);
   return (
     <section
@@ -95,7 +86,7 @@ export default function Showcase({
               id={`${id}-sort`}
               value={sort}
               onChange={(event) => {
-                setSort(event.target.value);
+                setSort(event.target.value as ProductSort);
                 track.current?.scrollTo({ left: 0 });
               }}
             >

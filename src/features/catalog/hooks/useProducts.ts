@@ -1,9 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  getProducts,
-  type Product,
-  type CatalogMode,
-} from "../services/products";
+import { getProducts } from "../api/products";
+import type { Product, CatalogMode } from "../model/product";
 type Status = "loading" | "success" | "error";
 export function useProducts(mode: CatalogMode = "assessment") {
   const [catalog, setCatalog] = useState<{

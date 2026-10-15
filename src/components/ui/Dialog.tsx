@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useDialog } from "../hooks/useDialog";
+import { useDialog } from "./useDialog";
 interface Props {
   children: ReactNode;
   titleId: string;

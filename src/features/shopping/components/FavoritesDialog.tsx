@@ -1,8 +1,9 @@
 import { useStore } from "../hooks/useStore";
-import { money, type Product } from "../services/products";
-import Dialog from "./Dialog";
-import ProductImage from "./ProductImage";
-import Icon from "./Icon";
+import { money } from "../../../utils/currency";
+import type { Product } from "../../catalog/model/product";
+import Dialog from "../../../components/ui/Dialog";
+import ProductImage from "../../catalog/components/ProductImage";
+import Icon from "../../../components/ui/Icon";
 export default function FavoritesDialog({
   onClose,
   onSelect,

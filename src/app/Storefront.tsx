@@ -1,39 +1,21 @@
+import { searchProducts } from "../features/catalog/model/queries";
 import { useState } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import { goToProducts } from "./utils/navigation";
-import { useProducts } from "./hooks/useProducts";
-import DepartmentTiles from "./components/DepartmentTiles";
-import Showcase from "./components/Showcase";
-import Partners from "./components/Partners";
-import Brands from "./components/Brands";
-import Newsletter from "./components/Newsletter";
-import Footer from "./components/Footer";
-import InfoModal from "./components/InfoModal";
-import ProductModal from "./components/ProductModal";
-import { type Product } from "./services/products";
-import StoreProvider from "./store/StoreProvider";
-import { useStore } from "./hooks/useStore";
-import CartDialog from "./components/CartDialog";
-import FavoritesDialog from "./components/FavoritesDialog";
-export default function App() {
-  const mode =
-    new URLSearchParams(window.location.search).get("catalog") === "real"
-      ? "real"
-      : "assessment";
-  const { products, loading, error, retry } = useProducts(mode);
-  return (
-    <StoreProvider key={mode} mode={mode} products={products}>
-      <Storefront
-        products={products}
-        loading={loading}
-        error={error}
-        retry={retry}
-      />
-    </StoreProvider>
-  );
-}
-function Storefront({
+import Header from "../components/layout/Header";
+import Hero from "../components/sections/Hero";
+import { goToProducts } from "../utils/navigation";
+import DepartmentTiles from "../components/sections/DepartmentTiles";
+import Showcase from "../features/catalog/components/Showcase";
+import Partners from "../components/sections/Partners";
+import Brands from "../components/sections/Brands";
+import Newsletter from "../components/sections/Newsletter";
+import Footer from "../components/layout/Footer";
+import InfoModal from "../components/ui/InfoModal";
+import ProductModal from "../features/catalog/components/ProductModal";
+import type { Product } from "../features/catalog/model/product";
+import { useStore } from "../features/shopping/hooks/useStore";
+import CartDialog from "../features/shopping/components/CartDialog";
+import FavoritesDialog from "../features/shopping/components/FavoritesDialog";
+export default function Storefront({
   products,
   loading,
   error,
@@ -50,16 +32,7 @@ function Storefront({
   const [selected, setSelected] = useState<Product | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const normalize = (value: string) =>
-    value
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase("pt-BR");
-  const filtered = products.filter((product) =>
-    normalize(product.productName + " " + product.descriptionShort).includes(
-      normalize(query),
-    ),
-  );
+  const filtered = searchProducts(products, query);
   const showcaseProps = {
     products,
     loading,

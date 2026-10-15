@@ -1,5 +1,5 @@
-import Logo from "./Logo";
-import { goToProducts } from "../utils/navigation";
+import Logo from "../ui/Logo";
+import { goToProducts } from "../../utils/navigation";
 export default function Brands() {
   return (
     <section className="brands container" aria-labelledby="brands-title">

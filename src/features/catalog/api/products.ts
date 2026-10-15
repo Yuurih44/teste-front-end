@@ -1,16 +1,4 @@
-export type CatalogMode = "assessment" | "real";
-export interface ProductReference {
-  url: string;
-  checkedAt: string;
-  available: boolean;
-}
-export interface Product {
-  productName: string;
-  descriptionShort: string;
-  photo: string;
-  price: number;
-  reference?: ProductReference;
-}
+import type { Product, ProductReference, CatalogMode } from "../model/product";
 export const PRODUCTS_URL = "/api/products";
 export async function getProducts(
   signal?: AbortSignal,
@@ -74,6 +62,3 @@ export async function getProducts(
     };
   });
 }
-// O contrato informa valores numéricos sem indicar centavos; os preços são tratados em reais.
-export const money = (price: number) =>
-  price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });

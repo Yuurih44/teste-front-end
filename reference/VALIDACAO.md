@@ -33,8 +33,12 @@ Esses valores são referências registradas na coleta, sem promessa de atualiza�
 
 ## Ampliação da experiência e fidelidade visual
 
-A revisão atual tem 16 testes unitários e 15 casos de navegador executados com sucesso. Um caso adicional, de geometria desktop em 1440px, é intencionalmente ignorado no projeto mobile.
+A revisão da estrutura tem 26 testes unitários e 15 casos de navegador executados com sucesso. Um caso adicional, de geometria desktop em 1440px, é intencionalmente ignorado no projeto mobile.
 
 Os fluxos adicionais verificam carrinho, totais, quantidades, persistência após recarregar, favoritos, ordenação e ações diretas nos cartões da visualização com fotos reais. Os dados de carrinho/favoritos são separados entre os catálogos e não incluem dados pessoais. Nenhum checkout ou pedido real é enviado.
 
 O teste de geometria verifica os parâmetros observados no protótipo: cabeçalho 144px, banner 390px, campo de busca 630 × 48px em x=405, primeiro cartão em y=947 e cores primárias dos botões. Isso impede regressões nesses pontos, mas não substitui a comparação integral com o Figma.
+
+## Organização do código
+
+A divisão das responsabilidades está em `docs/ARCHITECTURE.md`. Os testes das regras de busca verificam acentos, espaços e preservação da ordem original. Os de carrinho verificam cálculo em centavos, produtos removidos, quantidades inválidas e nomes coincidentes com propriedades herdadas do JavaScript.

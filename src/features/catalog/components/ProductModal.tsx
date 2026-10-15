@@ -1,8 +1,9 @@
-import { useStore } from "../hooks/useStore";
-import QuantityControl from "./QuantityControl";
-import Dialog from "./Dialog";
+import { useStore } from "../../shopping/hooks/useStore";
+import QuantityControl from "../../../components/ui/QuantityControl";
+import Dialog from "../../../components/ui/Dialog";
 import { useState } from "react";
-import { money, type Product } from "../services/products";
+import { money } from "../../../utils/currency";
+import type { Product } from "../model/product";
 import ProductImage from "./ProductImage";
 export default function ProductModal({
   product,

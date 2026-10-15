@@ -1,4 +1,4 @@
-import { goToProducts } from "../utils/navigation";
+import { goToProducts } from "../../utils/navigation";
 export default function Partners({ id }: { id: string }) {
   return (
     <section className="partners container" aria-label="Parceiros" id={id}>

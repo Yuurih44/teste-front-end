@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useStore } from "../hooks/useStore";
-import { money } from "../services/products";
-import Dialog from "./Dialog";
-import ProductImage from "./ProductImage";
-import QuantityControl from "./QuantityControl";
-import Icon from "./Icon";
+import { money } from "../../../utils/currency";
+import Dialog from "../../../components/ui/Dialog";
+import ProductImage from "../../catalog/components/ProductImage";
+import QuantityControl from "../../../components/ui/QuantityControl";
+import Icon from "../../../components/ui/Icon";
 export default function CartDialog({ onClose }: { onClose: () => void }) {
   const { cart, total, cartCount, setQuantity, removeFromCart, clearCart } =
     useStore();

@@ -1,4 +1,4 @@
-import { goToProducts } from "../utils/navigation";
+import { goToProducts } from "../../utils/navigation";
 const departments = [
   ["Tecnologia", "tecnologia"],
   ["Supermercado", "supermercado"],

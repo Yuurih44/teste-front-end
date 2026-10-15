@@ -1,9 +1,6 @@
 import { createContext } from "react";
-import type { Product } from "../services/products";
-export interface CartLine {
-  product: Product;
-  quantity: number;
-}
+import type { Product } from "../../catalog/model/product";
+import type { CartLine } from "../model/cart";
 export interface StoreValue {
   cart: CartLine[];
   favorites: Product[];

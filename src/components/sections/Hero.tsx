@@ -1,4 +1,4 @@
-import { goToProducts } from "../utils/navigation";
+import { goToProducts } from "../../utils/navigation";
 export default function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">

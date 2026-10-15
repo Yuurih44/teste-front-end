@@ -1,6 +1,7 @@
-import { useStore } from "../hooks/useStore";
-import Icon from "./Icon";
-import { money, type Product } from "../services/products";
+import { useStore } from "../../shopping/hooks/useStore";
+import Icon from "../../../components/ui/Icon";
+import { money } from "../../../utils/currency";
+import type { Product } from "../model/product";
 import ProductImage from "./ProductImage";
 export default function ProductCard({
   product,

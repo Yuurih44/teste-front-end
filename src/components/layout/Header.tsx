@@ -1,7 +1,7 @@
-import { useStore } from "../hooks/useStore";
+import { useStore } from "../../features/shopping/hooks/useStore";
 import { type FormEvent } from "react";
-import Icon, { type IconName } from "./Icon";
-import Logo from "./Logo";
+import Icon, { type IconName } from "../ui/Icon";
+import Logo from "../ui/Logo";
 export default function Header({
   onSearch,
   onInfo,

@@ -61,20 +61,24 @@ A versão também foi verificada no Chromium com a API real, nas larguras de 320
 
 ```text
 src/
-  components/       Cabeçalho, banner, vitrines, cartões, modal e demais seções
-  services/         Tipos, consulta e validação do catálogo, moeda em pt-BR
-  hooks/            Carregamento/cancelamento, ciclo de vida do modal e carrossel
-  store/            Carrinho e favoritos com persistência validada por catálogo
-  styles/partials/  Tokens, fontes, estilos por seção e breakpoints
-  App.tsx           Composição da página e estado compartilhado do catálogo
-e2e/                Testes de navegador e fixture isolada da aplicação
-public/
-  fonts/            Poppins local com licença SIL Open Font License
-  images/           Imagens do protótipo, disponíveis localmente
-reference/          Enunciado, procedência dos recursos e validação
-docs/screenshots/   Capturas da implementação
-server.mjs          Servidor de produção e proxy restrito ao endpoint do teste
+  app/                Inicialização, providers e composição da página
+  components/
+    layout/           Cabeçalho e rodapé
+    sections/         Banner, departamentos, parceiros, marcas e newsletter
+    ui/               Diálogo, ícones, logo e controle de quantidade
+  features/
+    catalog/          API, modelos, busca, ordenação, hooks e componentes
+    shopping/         Carrinho, favoritos, contexto e persistência
+  utils/              Moeda e navegação
+  styles/             Sass por seção, tokens e responsividade
+e2e/                  Testes de navegador e fixture da API
+public/               Fontes, imagens e catálogo opcional
+docs/                 Arquitetura e capturas da implementação
+reference/            Enunciado, fontes dos recursos e validação
+server.mjs            Servidor de produção e proxy do catálogo
 ```
+
+Os testes unitários ficam próximos dos módulos que verificam. `App` inicializa a aplicação e `Storefront` compõe a página. Regras de busca, ordenação, quantidades e total são funções independentes da interface. Veja as responsabilidades, o fluxo dos dados e as decisões em [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## API e decisões
 
