@@ -21,47 +21,8 @@ Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porq
 
 ## Requisitos
 
-Para executar o projeto no Windows, é necessário ter instalado:
-
 - **Node.js**: versão 22.13 ou superior
 - **npm**: gerenciador de pacotes do Node.js (instalado junto com o Node.js)
-
-Caso não tenha o Node.js instalado, abra o PowerShell e execute:
-
-```powershell
-winget install OpenJS.NodeJS.22
-```
-
-Após a instalação, reinicie o terminal e verifique as versões:
-
-```powershell
-node -v
-npm -v
-```
-
-> **Nota:** Caso utilize o NVM, selecione a versão do Node.js indicada no arquivo `.nvmrc` do projeto:
->
-> ```powershell
-> nvm use
-> ```
-
-## Instalar as dependências
-
-Abra a pasta do projeto no Visual Studio Code, acesse o terminal e execute:
-
-```bash
-npm install
-```
-
-Esse comando instalará todas as dependências necessárias para o funcionamento do projeto.
-
-## Executar o projeto
-
-Após instalar as dependências, inicie o servidor de desenvolvimento com:
-
-```bash
-npm run dev
-```
 
 
 ## Scripts
