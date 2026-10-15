@@ -9,9 +9,9 @@ import StoreProvider from "../features/shopping/context/StoreProvider";
 import Storefront from "./Storefront";
 export default function App() {
   const mode =
-    new URLSearchParams(window.location.search).get("catalog") === "real"
-      ? "real"
-      : "assessment";
+    new URLSearchParams(window.location.search).get("catalog") === "assessment"
+      ? "assessment"
+      : "real";
   const [department, setDepartment] = useState(
     () =>
       getDepartment(

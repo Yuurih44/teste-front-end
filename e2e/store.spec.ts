@@ -16,7 +16,7 @@ test.beforeEach(async ({ page }) => {
       contentType: "image/png",
     }),
   );
-  await page.goto("/");
+  await page.goto("/?catalog=assessment");
   await expect(page.locator("#produtos .product-card")).toHaveCount(
     catalog.products.length,
   );
@@ -119,6 +119,47 @@ test("carrossel respeita os limites, layout não transborda e alto contraste pas
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();
   expect(result.violations).toEqual([]);
+});
+
+test("abre com os iPhones reais e fotos correspondentes sem consultar a API genérica", async ({
+  page,
+}) => {
+  let apiRequests = 0;
+  await page.route("**/api/products", (route) => {
+    apiRequests++;
+    return route.abort();
+  });
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/");
+  const colors = await page.evaluate(() => ({
+    scheme: getComputedStyle(document.documentElement).colorScheme,
+    background: getComputedStyle(document.body).backgroundColor,
+  }));
+  expect(colors.scheme).toBe("light only");
+  expect(colors.background).toBe("rgb(255, 255, 255)");
+  const cards = page.locator("#produtos .product-card");
+  await expect(cards).toHaveCount(10);
+  await expect(cards.nth(0)).toContainText(
+    "iPhone 11 Pro Max 64GB Prateado Muito Bom",
+  );
+  await expect(cards.nth(0)).toContainText("1.849,00");
+  await expect(cards.nth(0).locator("img")).toHaveAttribute(
+    "src",
+    "/images/phones/26008.webp",
+  );
+  await expect(cards.nth(1)).toContainText("iPhone 13 Mini 256GB Verde");
+  await expect(cards.nth(1).locator("img")).toHaveAttribute(
+    "src",
+    "/images/phones/39492.webp",
+  );
+  await expect(cards.nth(0).locator("img")).toHaveJSProperty("complete", true);
+  expect(
+    await cards
+      .nth(0)
+      .locator("img")
+      .evaluate((img: HTMLImageElement) => img.naturalWidth),
+  ).toBeGreaterThan(0);
+  expect(apiRequests).toBe(0);
 });
 
 test("catálogo de referência mantém fontes e fotos separadas da API do teste", async ({

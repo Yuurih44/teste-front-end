@@ -103,21 +103,22 @@ Cada funcionalidade mantém seus dados, regras, componentes e testes próximos. 
 
 ## API e decisões
 
-O catálogo é consultado em:
+O catálogo da API exigida pelo teste está em:
 
 ```text
 https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json
 ```
 
-Como esse endpoint não permite consultas de outra origem por CORS, a interface utiliza `/api/products`. O proxy do Vite no desenvolvimento e `server.mjs` em produção encaminham a consulta ao endereço fixo da empresa, com timeout de 10 segundos. O projeto deve ser hospedado com esse servidor Node ou um proxy equivalente, e não somente como arquivos estáticos.
+Abra `/?catalog=assessment` para validar essa integração. Como o endpoint não permite consultas de outra origem por CORS, o app usa `/api/products`; o proxy do Vite no desenvolvimento e `server.mjs` em produção encaminham a consulta ao endereço fixo da empresa, com timeout de 10 segundos. Hospede com esse servidor Node ou um proxy equivalente, não apenas como arquivos estáticos.
 
-- Uma única consulta abastece Tecnologia. As três vitrines exibem o departamento selecionado; a busca filtra a primeira, enquanto as demais mantêm todos os itens daquele departamento.
-- O JSON da empresa contém somente celulares e não possui campo de categoria. Em Tecnologia, a categoria Celular continua mostrando os itens originais da API; Acessórios, Tablets, Notebooks e TVs têm produtos locais demonstrativos. Esses itens extras não substituem nem alteram os celulares, fotos ou preços recebidos da empresa.
-- Nomes, descrições, fotos e preços dos produtos vêm da API. Valores são tratados em reais, pois o contrato não informa centavos. O JSON não contém preço anterior, portanto não foi inventado desconto para preencher o preço riscado ilustrativo do Figma.
+- A página inicial usa o catálogo de referência com nomes, preços consultados e fotos locais correspondentes a cada variante de iPhone. A cópia não consulta a loja em tempo real; origem e data da coleta ficam em `reference/precos-fontes.json`.
+- No modo `?catalog=assessment`, uma consulta abastece Tecnologia. As três vitrines mostram o departamento selecionado; a busca filtra a primeira, enquanto as demais mantêm todos os itens daquele departamento.
+- O JSON da empresa contém somente celulares e não possui categoria; sua URL de imagem é igual para todos os registros. No modo de avaliação, os nomes, preços e fotos permanecem exatamente como fornecidos pela API. Acessórios, Tablets, Notebooks e TVs usam produtos locais demonstrativos.
+- A API não fornece preço anterior, portanto não foi inventado desconto para preencher o preço riscado ilustrativo do Figma.
 - Parcelamento e frete grátis seguem os textos do layout. O botão Comprar adiciona ao carrinho local. O carrinho permite alterar quantidades, remover itens, esvaziar e conferir o total; não realiza cobrança ou envio de pedido. O teste não fornece checkout, login ou serviço de pedidos.
 - A newsletter valida nome, e-mail e consentimento localmente e informa que a inscrição é demonstrativa. Não armazena nem envia dados.
 - Links institucionais e pedidos exibem uma mensagem de indisponibilidade. Conta e assinatura têm fluxos demonstrativos próprios, descritos abaixo. Carrinho e favoritos são funcionais e guardam apenas identificadores e quantidades no navegador, em chaves separadas para cada catálogo. Não há integração externa para essas áreas no enunciado.
-- Banner, parceiros e ícones de departamentos foram extraídos do protótipo e servidos localmente. As fontes Poppins são servidas localmente, com licença em `public/fonts/OFL.txt`. O logotipo foi capturado do protótipo em resolução 4× e é servido localmente, sem depender da fonte para renderizar. As imagens dos produtos no modo padrão continuam usando as URLs da API; esse catálogo depende de conexão à internet.
+- Banner, parceiros e ícones de departamentos foram extraídos do protótipo e servidos localmente. As fontes Poppins são servidas localmente, com licença em `public/fonts/OFL.txt`. O logotipo foi capturado do protótipo em resolução 4× e é servido localmente. O catálogo inicial e suas fotos ficam no próprio projeto; o modo `?catalog=assessment` consulta a API externa e precisa de conexão.
 
 ## Layout e acessibilidade
 
@@ -137,16 +138,16 @@ O modal utiliza `dialog`, com contenção de foco com ciclo explícito de Tab, f
 
 As capturas foram comparadas em 1440 × 1000. Foram corrigidos o amarelo `#F7CA11`, o campo de busca em x=405 com 630 × 48 px, a área do cabeçalho de 144 px, o banner de 390 px e o início dos cartões em y=947. O Playwright verifica esses parâmetros da referência no desktop; o caso é intencionalmente desconsiderado no projeto mobile, que usa outra resolução.
 
-A composição da página preserva a referência; os cartões recebem a ação de favoritos como extensão. Conta e assinatura abrem em diálogos, sem acrescentar seções à landing page. Os tons cinza padrão do protótipo foram preservados conforme solicitado. A preferência de sistema `prefers-contrast: more` aumenta o contraste desses textos, e é nesse modo que os testes automáticos axe são executados. Preservar as medidas principais não comprova igualdade de todos os pixels: alguns ícones ainda são reconstruções, e o conteúdo dos produtos obedece ao JSON em vez dos exemplos estáticos da imagem.
+A composição da página preserva a referência; os cartões recebem a ação de favoritos como extensão. Conta e assinatura abrem em diálogos, sem acrescentar seções à landing page. Os tons cinza padrão do protótipo foram preservados conforme solicitado. A preferência de sistema `prefers-contrast: more` aumenta o contraste desses textos, e é nesse modo que os testes automáticos axe são executados. Preservar as medidas principais não comprova igualdade de todos os pixels: alguns ícones ainda são reconstruções, e no modo `?catalog=assessment` os produtos seguem o JSON da API em vez dos exemplos estáticos da imagem.
 
 ## Departamentos funcionais
 
 Os sete ícones existentes alternam o conteúdo das vitrines na mesma landing page, sem rolagem automática. Somente o ícone selecionado fica azul. Livros abre pelo botão já existente no menu superior, mantendo as sete posições da faixa de ícones. Banner, fontes, cores, dimensões dos cartões e botões mantêm os estilos da página inicial. As seis posições da barra de categorias recebem os filtros correspondentes ao departamento escolhido.
 
-- **Tecnologia:** API original da empresa na categoria Celular; Acessórios (8), Tablets (3), Notebooks (5) e TVs (4) usam 20 produtos demonstrativos locais. A aba Ver todos reúne os celulares da API e os itens demonstrativos.
+- **Tecnologia:** sem parâmetro, abre os dez iPhones do catálogo de referência, com nomes, condições, preços e fotos por variante. Em `?catalog=assessment`, a categoria Celular usa os registros originais da API; Acessórios (8), Tablets (3), Notebooks (5) e TVs (4) têm 20 itens demonstrativos. Ver todos reúne os celulares da API e esses exemplos.
 - **Supermercado, Bebidas, Ferramentas, Saúde, Esportes e Fitness, Moda e Livros:** 44 produtos demonstrativos com imagens locais. Ao todo, há 64 itens demonstrativos nos departamentos. Os preços são fictícios e aparecem identificados como demonstrativos nos cartões e no modal. Saúde apresenta cuidados pessoais, sem medicamentos.
 - **Navegação:** a URL registra o departamento, por exemplo `/?department=ferramentas`. Recarregar, voltar e avançar preservam o departamento. Supermercado, Moda e Livros no menu superior abrem suas vitrines.
-- **Compras:** carrinho e favoritos são compartilhados entre os departamentos, com persistência. A busca e os filtros atuam no departamento selecionado. A lupa e Enter executam a pesquisa; ao pesquisar, a página leva o usuário aos resultados. Trocar o departamento não provoca essa rolagem. Os modos padrão e `?catalog=real` continuam com armazenamento separado.
+- **Compras:** carrinho e favoritos são compartilhados entre os departamentos, com persistência. A busca e os filtros atuam no departamento selecionado. A lupa e Enter executam a pesquisa; ao pesquisar, a página leva o usuário aos resultados. Trocar o departamento não provoca essa rolagem. Os modos `?catalog=real` e `?catalog=assessment` continuam com armazenamento separado; sem parâmetro, a página abre o catálogo de referência.
 - **Disponibilidade:** os departamentos demonstrativos funcionam mesmo se a API de Tecnologia estiver indisponível. Não há substituição silenciosa do catálogo original.
 
 Os dados estão em `src/features/catalog/data/departments.json`. A procedência das fotos e suas licenças estão em [docs/IMAGE-CREDITS.md](docs/IMAGE-CREDITS.md) e `reference/departamentos-fontes.json`. Não é necessário consultar serviços de imagens para usar esses departamentos depois da instalação.
@@ -157,18 +158,18 @@ O ícone **Minha conta** permite salvar nome e e-mail, editar o perfil e sair. O
 
 Esses fluxos utilizam `sessionStorage`: continuam disponíveis após recarregar a página na mesma sessão. Não há senha, autenticação real, envio de dados, e-mails ou cobrança. Sair do perfil não apaga carrinho e favoritos. A assinatura é independente do perfil e pode ser cancelada no próprio diálogo. A API do teste não fornece serviços de autenticação ou assinatura; uma versão comercial exigiria essas integrações.
 
-## Visualização com modelos e preços de referência
+## Catálogo inicial com modelos e preços de referência
 
-Como demonstração opcional, existe uma visualização em **http://localhost:5173/?catalog=real**. Ela usa uma cópia de consulta de dez variantes de iPhone 11 Pro Max e iPhone 13 mini: capacidade, cor, condição de seminovo, foto correspondente e preço fornecido pelo catálogo público da Trocafone.
+A página inicial usa uma cópia de consulta de dez variantes de iPhone 11 Pro Max e iPhone 13 mini: capacidade, cor, condição de seminovo, foto correspondente e preço fornecido pelo catálogo público da Trocafone. Assim cada cartão exibe a imagem correspondente ao modelo e à variante indicados no nome.
 
 Nesta visualização, os cartões têm coração para favoritar e botão para adicionar diretamente ao carrinho. As mesmas ações também continuam disponíveis pelo modal e pelos ícones do cabeçalho.
 
 As fontes, SKUs, fotos originais e horários da consulta estão em `reference/precos-fontes.json`. As referências externas ficam na documentação, sem links de lojas na interface. O modal informa a data e a disponibilidade registrada na consulta. Preços e estoque podem mudar; esta página não representa uma oferta de venda nem atualiza esses preços continuamente.
 
-**Para avaliação do teste, utilize a URL padrão**, sem parâmetros: ela continua consumindo o JSON da Econverse, sem substituição ou alteração de seus preços e fotos. Não há troca silenciosa de catálogo em caso de falha.
+**Para avaliação do teste, utilize `/?catalog=assessment`**: essa rota consome o JSON da Econverse sem substituir ou alterar nomes, preços e fotos. A página inicial usa o catálogo de referência solicitado posteriormente.
 
 Veja o escopo detalhado dos testes em `reference/VALIDACAO.md`.
 
 ## Entrega
 
-O enunciado original está em `reference/ENUNCIADO.md`. Esta implementação deve ser avaliada pela URL padrão, que consome a API solicitada. Para entrega à empresa, utilize o link deste repositório conforme as instruções do enunciado.
+O enunciado original está em `reference/ENUNCIADO.md`. Para demonstrar os dados exigidos no teste, abra `/?catalog=assessment`; a rota sem parâmetros mostra os modelos e as fotos por variante solicitados posteriormente. Para entregar à empresa, utilize o link deste repositório conforme as instruções do enunciado.

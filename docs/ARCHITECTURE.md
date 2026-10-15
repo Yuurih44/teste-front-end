@@ -25,7 +25,7 @@ A aplicação usa React, TypeScript e Sass. A organização separa composição 
 
 ## Fluxo dos dados
 
-1. `App` escolhe o modo de catálogo a partir da URL e chama `useProducts` para Tecnologia. O departamento ativo também é registrado na URL, com suporte ao histórico do navegador.
+1. `App` abre o catálogo local com modelos e preços de referência por padrão. Com `?catalog=assessment`, chama `useProducts` para consultar a API da empresa. O departamento ativo também é registrado na URL, com suporte ao histórico do navegador.
 2. O módulo `catalog/api` consulta o endpoint, valida o contrato e devolve produtos tipados. O hook controla carregamento, erro, cancelamento e nova tentativa.
 3. `Storefront` compõe as seções, seleciona os produtos do departamento e controla a busca e os diálogos. As funções de busca e ordenação não modificam a sequência original do catálogo.
 4. `StoreProvider` recebe a união dos produtos de Tecnologia e dos departamentos demonstrativos, compartilhando as ações da loja entre os departamentos. O navegador guarda identificadores e quantidades; preços e fotos sempre vêm do catálogo carregado.
@@ -35,7 +35,7 @@ A aplicação usa React, TypeScript e Sass. A organização separa composição 
 
 O JSON não oferece ID nem categoria. O nome identifica o produto na persistência, o que pressupõe nomes únicos no catálogo fornecido. Uma API com IDs permitiria substituir essa chave sem depender do nome. Em Tecnologia, os celulares da API são associados à categoria Celular, sem alterar seus dados. Acessórios, Tablets, Notebooks e TVs são exemplos locais com categorias explícitas; Ver todos reúne ambos os catálogos. Os departamentos demonstrativos usam seis filtros cada.
 
-O catálogo opcional de referência usa a mesma interface e uma chave de armazenamento distinta. A página padrão continua consumindo a API exigida pelo teste.
+Os dois catálogos usam a mesma interface e chaves de armazenamento distintas. A rota `?catalog=assessment` consome a API e mantém os valores recebidos intactos; o catálogo inicial usa a cópia local com imagens específicas por variante.
 
 Context é suficiente para o volume atual de estado compartilhado. Não há camada global para busca ou diálogos, nem abstração genérica de repositórios para um único endpoint. A interface do catálogo usa o hook de compras para ações do usuário; o modelo de compras depende apenas dos tipos do produto e não importa componentes de catálogo.
 

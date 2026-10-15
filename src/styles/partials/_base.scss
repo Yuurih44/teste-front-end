@@ -5,11 +5,14 @@
   box-sizing: border-box;
 }
 html {
+  color-scheme: only light;
   scroll-behavior: smooth;
+  background-color: #fff;
 }
 body {
   margin: 0;
   background: #fff;
+  color-scheme: only light;
   color: $text;
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
