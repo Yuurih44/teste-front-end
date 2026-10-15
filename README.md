@@ -4,16 +4,24 @@ Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End 
 
 ![Página inicial em desktop](docs/screenshots/desktop.png)
 
-## Começar
-
-Requer Node.js 22.13 ou superior e npm. Com nvm, use `nvm use` para carregar a versão definida em `.nvmrc`.
+## Executar o teste
 
 ```sh
 npm ci
 npm run dev
 ```
 
-O Vite informa o endereço local, normalmente `http://localhost:5173`.
+Abra a URL informada pelo Vite com `?catalog=assessment` no final. Por exemplo:
+
+```text
+http://localhost:5173/?catalog=assessment
+```
+
+Esse modo consulta o JSON da Econverse pelo proxy `/api/products` e apresenta os produtos retornados pela API. Ao abrir sem o parâmetro, a página mostra o catálogo local de iPhones descrito abaixo. A captura de tela e os departamentos adicionais também usam dados locais.
+
+## Requisitos
+
+Requer Node.js 22.13 ou superior e npm. Com nvm, execute `nvm use` para carregar a versão definida em `.nvmrc`.
 
 ## Scripts
 
@@ -30,9 +38,9 @@ Para rodar os testes de navegador pela primeira vez, instale o Chromium com `npx
 
 ## Catálogos
 
-A página inicial exibe dez modelos de iPhone com nomes, preços e fotos por variante. O registro da consulta, com SKUs, origem e data, está em [`reference/precos-fontes.json`](reference/precos-fontes.json); a aplicação usa a cópia em `public/data/products-real.json`.
+A página sem parâmetros exibe dez modelos de iPhone com nomes, preços e fotos por variante. Os SKUs, a origem e a data da consulta estão em [`reference/precos-fontes.json`](reference/precos-fontes.json); a aplicação usa a cópia em `public/data/products-real.json`.
 
-O parâmetro `?catalog=assessment` consulta o endpoint fornecido no teste: `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, `/api/products` encaminha a solicitação. O proxy funciona no Vite durante o desenvolvimento e no servidor Node em produção; a aplicação precisa ser hospedada com um servidor ou proxy equivalente.
+O modo de avaliação consulta o endpoint do teste: `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, `/api/products` encaminha a solicitação. O proxy está configurado no Vite e no servidor Node de produção; a aplicação precisa ser servida com Node ou um proxy equivalente.
 
 Os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente; não há checkout, autenticação ou envio de dados a serviços externos.
 
