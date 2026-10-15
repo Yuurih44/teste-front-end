@@ -314,5 +314,55 @@
       "category": "Furadeiras",
       "demonstration": true
     }
+  ],
+  "livros": [
+    {
+      "productName": "Dom Casmurro",
+      "descriptionShort": "Dom Casmurro, de Machado de Assis. Capa ilustrativa criada para esta demonstração, sem representar uma edição comercial. Produto e preço demonstrativos.",
+      "photo": "/images/catalog/dom-casmurro.svg",
+      "price": 34.9,
+      "category": "Romances",
+      "demonstration": true
+    },
+    {
+      "productName": "Memórias Póstumas de Brás Cubas",
+      "descriptionShort": "Memórias Póstumas de Brás Cubas, de Machado de Assis. Capa ilustrativa criada para esta demonstração, sem representar uma edição comercial. Produto e preço demonstrativos.",
+      "photo": "/images/catalog/memorias-postumas.svg",
+      "price": 39.9,
+      "category": "Romances",
+      "demonstration": true
+    },
+    {
+      "productName": "O Cortiço",
+      "descriptionShort": "O Cortiço, de Aluísio Azevedo. Capa ilustrativa criada para esta demonstração, sem representar uma edição comercial. Produto e preço demonstrativos.",
+      "photo": "/images/catalog/o-cortico.svg",
+      "price": 29.9,
+      "category": "Romances",
+      "demonstration": true
+    },
+    {
+      "productName": "Contos de Machado de Assis",
+      "descriptionShort": "Contos de Machado de Assis, de Machado de Assis. Capa ilustrativa criada para esta demonstração, sem representar uma edição comercial. Produto e preço demonstrativos.",
+      "photo": "/images/catalog/contos.svg",
+      "price": 32.9,
+      "category": "Contos",
+      "demonstration": true
+    },
+    {
+      "productName": "Mensagem",
+      "descriptionShort": "Mensagem, de Fernando Pessoa. Capa ilustrativa criada para esta demonstração, sem representar uma edição comercial. Produto e preço demonstrativos.",
+      "photo": "/images/catalog/mensagem.svg",
+      "price": 24.9,
+      "category": "Poesia",
+      "demonstration": true
+    },
+    {
+      "productName": "Iracema",
+      "descriptionShort": "Iracema, de José de Alencar. Capa ilustrativa criada para esta demonstração, sem representar uma edição comercial. Produto e preço demonstrativos.",
+      "photo": "/images/catalog/iracema.svg",
+      "price": 27.9,
+      "category": "Literatura",
+      "demonstration": true
+    }
   ]
 }

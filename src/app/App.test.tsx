@@ -1,4 +1,10 @@
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  within,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi, test, expect } from "vitest";
 import App from "./App";
@@ -150,7 +156,7 @@ test("adiciona ao carrinho, recalcula quantidade e restaura os itens salvos", as
   expect(dialog).toHaveTextContent("Seu carrinho está vazio");
 });
 
-test("salva um favorito pelos detalhes sem acrescentar controles à vitrine inicial", async () => {
+test("sincroniza favoritos entre detalhes, cartões e lista", async () => {
   vi.stubGlobal("fetch", vi.fn(success));
   const user = userEvent.setup();
   render(<App />);
@@ -175,7 +181,9 @@ test("salva um favorito pelos detalhes sem acrescentar controles à vitrine inic
     screen.getByRole("dialog", { name: "Meus favoritos" }),
   ).toHaveTextContent("Iphone branco");
   await user.click(
-    screen.getByRole("button", { name: "Remover Iphone branco dos favoritos" }),
+    within(screen.getByRole("dialog")).getByRole("button", {
+      name: "Remover Iphone branco dos favoritos",
+    }),
   );
   expect(screen.getByRole("dialog")).toHaveTextContent(
     "Sua lista começa com um favorito",

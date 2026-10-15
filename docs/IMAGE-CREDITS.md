@@ -15,3 +15,7 @@ Fotografias do Wikimedia Commons, fornecidas como miniaturas, sem edição. Os c
 - **Trena retrátil** — [多多123](https://commons.wikimedia.org/wiki/File:B%26Q_Tape_Measure.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0). Arquivo: `public/images/catalog/trena.jpg`.
 - **Martelo de unha** — [Evan-Amos](https://commons.wikimedia.org/wiki/File:Claw-hammer.jpg), Public domain. Arquivo: `public/images/catalog/martelo.jpg`.
 - **Parafusadeira sem fio** — [LoMit](https://commons.wikimedia.org/wiki/File:MacAllister_cordless_screwdriver_01.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Arquivo: `public/images/catalog/parafusadeira.jpg`.
+
+## Livros
+
+As seis capas em SVG foram criadas para esta demonstração com formas e texto. São ilustrações originais, sem reproduzir capas de editoras ou representar edições comerciais. Os títulos e autores identificam as obras literárias; preços e produtos são demonstrativos.

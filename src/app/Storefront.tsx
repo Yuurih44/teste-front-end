@@ -1,3 +1,5 @@
+import AccountDialog from "../features/account/components/AccountDialog";
+import SubscriptionDialog from "../features/account/components/SubscriptionDialog";
 import {
   getDepartment,
   getDepartmentProducts,
@@ -36,7 +38,9 @@ export default function Storefront({
   retry: () => void;
 }) {
   const { addToCart } = useStore();
-  const [panel, setPanel] = useState<"cart" | "favorites" | null>(null);
+  const [panel, setPanel] = useState<
+    "cart" | "favorites" | "account" | "subscription" | null
+  >(null);
   const [searchInput, setSearchInput] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
   const [info, setInfo] = useState<string | null>(null);
@@ -60,7 +64,6 @@ export default function Storefront({
     setSearchInput("");
     setSelected(null);
     onDepartmentChange(id);
-    goToProducts();
   }
   const showcaseProps = {
     products: departmentProducts,
@@ -81,6 +84,8 @@ export default function Storefront({
         onQueryChange={setSearchInput}
         onCart={() => setPanel("cart")}
         onFavorites={() => setPanel("favorites")}
+        onAccount={() => setPanel("account")}
+        onSubscription={() => setPanel("subscription")}
         onInfo={setInfo}
         onSearch={(value) => {
           setQuery(value);
@@ -135,6 +140,10 @@ export default function Storefront({
             setSelected(product);
           }}
         />
+      )}
+      {panel === "account" && <AccountDialog onClose={() => setPanel(null)} />}
+      {panel === "subscription" && (
+        <SubscriptionDialog onClose={() => setPanel(null)} />
       )}
       {info && <InfoModal title={info} onClose={() => setInfo(null)} />}
     </>

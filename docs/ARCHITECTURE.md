@@ -4,22 +4,23 @@ A aplicação usa React, TypeScript e Sass. A organização separa composição 
 
 ## Áreas
 
-| Diretório                          | Responsabilidade                                                        |
-| ---------------------------------- | ----------------------------------------------------------------------- |
-| `src/app`                          | Inicialização dos providers e composição da página em `Storefront`      |
-| `src/components/layout`            | Cabeçalho e rodapé                                                      |
-| `src/components/sections`          | Seções institucionais e promocionais da página                          |
-| `src/components/ui`                | Elementos reutilizáveis: diálogo, ícones, logo e controle de quantidade |
-| `src/features/catalog/api`         | Consulta HTTP e validação da resposta externa                           |
-| `src/features/catalog/model`       | Contrato do produto, busca e ordenação                                  |
-| `src/features/catalog/hooks`       | Carregamento assíncrono e comportamento do carrossel                    |
-| `src/features/catalog/components`  | Vitrine, cartão, imagem, skeleton e modal do produto                    |
-| `src/features/shopping/model`      | Persistência, quantidades, montagem do carrinho e total                 |
-| `src/features/shopping/context`    | Estado compartilhado e ações de carrinho/favoritos                      |
-| `src/features/shopping/hooks`      | Acesso ao contexto da loja                                              |
-| `src/features/shopping/components` | Diálogos do carrinho e dos favoritos                                    |
-| `src/utils`                        | Formatação monetária e navegação compartilhadas                         |
-| `src/styles`                       | Sass por seção, tokens e regras responsivas                             |
+| Diretório                          | Responsabilidade                                                                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------ |
+| `src/app`                          | Inicialização dos providers e composição da página em `Storefront`                   |
+| `src/components/layout`            | Cabeçalho e rodapé                                                                   |
+| `src/components/sections`          | Seções institucionais e promocionais da página                                       |
+| `src/components/ui`                | Elementos reutilizáveis: diálogo, ícones, logo e controle de quantidade              |
+| `src/features/catalog/api`         | Consulta HTTP e validação da resposta externa                                        |
+| `src/features/catalog/model`       | Contrato do produto, busca e ordenação                                               |
+| `src/features/catalog/hooks`       | Carregamento assíncrono e comportamento do carrossel                                 |
+| `src/features/catalog/components`  | Vitrine, cartão, imagem, skeleton e modal do produto                                 |
+| `src/features/account`             | Diálogos de perfil e assinatura demonstrativos, com preferências validadas na sessão |
+| `src/features/shopping/model`      | Persistência, quantidades, montagem do carrinho e total                              |
+| `src/features/shopping/context`    | Estado compartilhado e ações de carrinho/favoritos                                   |
+| `src/features/shopping/hooks`      | Acesso ao contexto da loja                                                           |
+| `src/features/shopping/components` | Diálogos do carrinho e dos favoritos                                                 |
+| `src/utils`                        | Formatação monetária e navegação compartilhadas                                      |
+| `src/styles`                       | Sass por seção, tokens e regras responsivas                                          |
 
 ## Fluxo dos dados
 
@@ -46,3 +47,7 @@ Testes unitários ficam próximos do código que verificam; os testes de integra
 ## Departamentos demonstrativos
 
 `model/departments.ts` centraliza identificadores, títulos, filtros e seleção dos dados. `data/departments.json` contém os produtos adicionais; o contrato inclui categoria e indicação de demonstração. Essa extensão não altera a validação nem os valores da resposta da API original. As imagens são locais e têm créditos em `docs/IMAGE-CREDITS.md`. As três vitrines reutilizam os mesmos componentes e estilos ao alternar o departamento.
+
+## Perfil e assinatura
+
+`features/account` separa os diálogos e a leitura/validação de `sessionStorage`. Os fluxos não representam autenticação nem assinatura comercial: não há senha, servidor de identidade, envio de e-mail ou cobrança. Nome, e-mail e preferência de frequência ficam somente na sessão. Carrinho e favoritos continuam separados e usam `localStorage`. Os diálogos reutilizam a contenção de foco e o fechamento acessível da interface compartilhada.

@@ -86,6 +86,18 @@ export const departments = [
       "Ver todos",
     ],
   },
+  {
+    id: "livros",
+    title: "Livros",
+    categories: [
+      "Livros",
+      "Romances",
+      "Contos",
+      "Poesia",
+      "Literatura",
+      "Ver todos",
+    ],
+  },
 ] as const;
 
 export type DepartmentId = (typeof departments)[number]["id"];

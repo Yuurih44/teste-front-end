@@ -95,7 +95,7 @@ Como esse endpoint não permite consultas de outra origem por CORS, a interface 
 - Nomes, descrições, fotos e preços dos produtos vêm da API. Valores são tratados em reais, pois o contrato não informa centavos. O JSON não contém preço anterior, portanto não foi inventado desconto para preencher o preço riscado ilustrativo do Figma.
 - Parcelamento e frete grátis seguem os textos do layout. O botão Comprar adiciona ao carrinho local. O carrinho permite alterar quantidades, remover itens, esvaziar e conferir o total; não realiza cobrança ou envio de pedido. O teste não fornece checkout, login ou serviço de pedidos.
 - A newsletter valida nome, e-mail e consentimento localmente e informa que a inscrição é demonstrativa. Não armazena nem envia dados.
-- Links institucionais, pedidos e conta exibem uma mensagem de indisponibilidade. Carrinho e favoritos são funcionais e guardam apenas identificadores e quantidades no navegador, em chaves separadas para cada catálogo. Não há integração externa para essas áreas no enunciado.
+- Links institucionais e pedidos exibem uma mensagem de indisponibilidade. Conta e assinatura têm fluxos demonstrativos próprios, descritos abaixo. Carrinho e favoritos são funcionais e guardam apenas identificadores e quantidades no navegador, em chaves separadas para cada catálogo. Não há integração externa para essas áreas no enunciado.
 - Banner, parceiros e ícones de departamentos foram extraídos do protótipo e servidos localmente. As fontes Poppins são servidas localmente, com licença em `public/fonts/OFL.txt`. O logotipo foi capturado do protótipo em resolução 4× e é servido localmente, sem depender da fonte para renderizar. As imagens dos produtos no modo padrão continuam usando as URLs da API; esse catálogo depende de conexão à internet.
 
 ## Layout e acessibilidade
@@ -107,7 +107,7 @@ O modal utiliza `dialog`, com contenção de foco com ciclo explícito de Tab, f
 ## Interações adicionais preservando a composição do Figma
 
 - **Carrinho:** abra um produto, escolha a quantidade e clique em Comprar. “Ver meu carrinho” ou o ícone do cabeçalho abre a lista com controles de quantidade, remoção e total. Há limite de 99 unidades por produto.
-- **Favoritos:** no modal, abra “Veja mais detalhes do produto” e use “Salvar nos favoritos”. O coração do cabeçalho abre a lista; dela é possível abrir ou remover um produto salvo.
+- **Favoritos:** use o coração no canto de qualquer cartão, em todos os departamentos, ou a ação nos detalhes do modal. Os cartões das três vitrines ficam sincronizados. O coração do cabeçalho abre a lista de produtos salvos.
 - **Busca:** após pesquisar, os resultados oferecem ordenação por relevância, preço crescente, preço decrescente e nome. A vitrine inicial mantém a sequência do JSON e não recebe uma barra de filtros adicional.
 - **Persistência:** carrinho e favoritos voltam ao recarregar a página. Os preços são sempre lidos do catálogo atual, não do armazenamento do navegador. Se o armazenamento estiver indisponível, as interações continuam funcionando em memória.
 - **Carregamento:** skeletons ocupam a área das vitrines durante a consulta, com animação desativada quando o sistema pede movimento reduzido.
@@ -116,19 +116,25 @@ O modal utiliza `dialog`, com contenção de foco com ciclo explícito de Tab, f
 
 As capturas foram comparadas em 1440 × 1000. Foram corrigidos o amarelo `#F7CA11`, o campo de busca em x=405 com 630 × 48 px, a área do cabeçalho de 144 px, o banner de 390 px e o início dos cartões em y=947. O Playwright verifica esses parâmetros da referência no desktop; o caso é intencionalmente desconsiderado no projeto mobile, que usa outra resolução.
 
-A composição inicial segue a referência; os recursos novos ficam nos fluxos acionados pelo usuário. Os tons cinza padrão do protótipo foram preservados conforme solicitado. A preferência de sistema `prefers-contrast: more` aumenta o contraste desses textos, e é nesse modo que os testes automáticos axe são executados. Preservar as medidas principais não comprova igualdade de todos os pixels: alguns ícones ainda são reconstruções, e o conteúdo dos produtos obedece ao JSON em vez dos exemplos estáticos da imagem.
+A composição da página preserva a referência; os cartões recebem a ação de favoritos como extensão. Conta e assinatura abrem em diálogos, sem acrescentar seções à landing page. Os tons cinza padrão do protótipo foram preservados conforme solicitado. A preferência de sistema `prefers-contrast: more` aumenta o contraste desses textos, e é nesse modo que os testes automáticos axe são executados. Preservar as medidas principais não comprova igualdade de todos os pixels: alguns ícones ainda são reconstruções, e o conteúdo dos produtos obedece ao JSON em vez dos exemplos estáticos da imagem.
 
 ## Departamentos funcionais
 
-Os sete botões existentes alternam o conteúdo das vitrines na mesma landing page. Banner, fontes, cores, dimensões dos cartões e botões mantêm os estilos da página inicial. As seis posições da barra de categorias recebem os filtros correspondentes ao departamento escolhido.
+Os sete ícones existentes alternam o conteúdo das vitrines na mesma landing page, sem rolagem automática. Somente o ícone selecionado fica azul. Livros abre pelo botão já existente no menu superior, mantendo as sete posições da faixa de ícones. Banner, fontes, cores, dimensões dos cartões e botões mantêm os estilos da página inicial. As seis posições da barra de categorias recebem os filtros correspondentes ao departamento escolhido.
 
 - **Tecnologia:** API original da empresa, ou catálogo de celulares de referência quando `?catalog=real` está presente.
-- **Supermercado, Bebidas, Ferramentas, Saúde, Esportes e Fitness e Moda:** 38 produtos demonstrativos com imagens locais. Os preços são fictícios e são identificados como demonstrativos nos cartões e no modal. Saúde apresenta cuidados pessoais, sem medicamentos.
-- **Navegação:** a URL registra o departamento, por exemplo `/?department=ferramentas`. Recarregar, voltar e avançar preservam o departamento. Supermercado e Moda no menu superior também abrem suas vitrines.
-- **Compras:** carrinho e favoritos são compartilhados entre os departamentos, com persistência. A busca e os filtros atuam no departamento selecionado. Os modos padrão e `?catalog=real` continuam com armazenamento separado.
+- **Supermercado, Bebidas, Ferramentas, Saúde, Esportes e Fitness, Moda e Livros:** 44 produtos demonstrativos com imagens locais. Os preços são fictícios e são identificados como demonstrativos nos cartões e no modal. Saúde apresenta cuidados pessoais, sem medicamentos.
+- **Navegação:** a URL registra o departamento, por exemplo `/?department=ferramentas`. Recarregar, voltar e avançar preservam o departamento. Supermercado, Moda e Livros no menu superior abrem suas vitrines.
+- **Compras:** carrinho e favoritos são compartilhados entre os departamentos, com persistência. A busca e os filtros atuam no departamento selecionado. A lupa e Enter executam a pesquisa; ao pesquisar, a página leva o usuário aos resultados. Trocar o departamento não provoca essa rolagem. Os modos padrão e `?catalog=real` continuam com armazenamento separado.
 - **Disponibilidade:** os departamentos demonstrativos funcionam mesmo se a API de Tecnologia estiver indisponível. Não há substituição silenciosa do catálogo original.
 
 Os dados estão em `src/features/catalog/data/departments.json`. A procedência das fotos e suas licenças estão em [docs/IMAGE-CREDITS.md](docs/IMAGE-CREDITS.md) e `reference/departamentos-fontes.json`. Não é necessário consultar serviços de imagens para usar esses departamentos depois da instalação.
+
+## Conta e assinatura demonstrativas
+
+O ícone **Minha conta** permite salvar nome e e-mail, editar o perfil e sair. O botão **Assinatura** permite escolher e-mail e frequência, confirmar consentimento, ativar a demonstração, alterar preferências e cancelar.
+
+Esses fluxos utilizam `sessionStorage`: continuam disponíveis após recarregar a página na mesma sessão. Não há senha, autenticação real, envio de dados, e-mails ou cobrança. Sair do perfil não apaga carrinho e favoritos. A assinatura é independente do perfil e pode ser cancelada no próprio diálogo. A API do teste não fornece serviços de autenticação ou assinatura; uma versão comercial exigiria essas integrações.
 
 ## Visualização com modelos e preços de referência
 

@@ -1,3 +1,4 @@
+import DepartmentIcon from "./DepartmentIcon";
 import {
   departments,
   type DepartmentId,
@@ -15,19 +16,21 @@ export default function DepartmentTiles({
       className="department-tiles container"
       aria-label="Navegar por departamento"
     >
-      {departments.map(({ id, title }) => (
-        <button
-          className={active === id ? "active" : ""}
-          key={id}
-          aria-pressed={active === id}
-          onClick={() => onSelect(id)}
-        >
-          <span>
-            <img src={`/images/${id}.png`} alt="" width="64" height="64" />
-          </span>
-          {title}
-        </button>
-      ))}
+      {departments
+        .filter(({ id }) => id !== "livros")
+        .map(({ id, title }) => (
+          <button
+            className={active === id ? "active" : ""}
+            key={id}
+            aria-pressed={active === id}
+            onClick={() => onSelect(id)}
+          >
+            <span>
+              <DepartmentIcon image={id} />
+            </span>
+            {title}
+          </button>
+        ))}
     </nav>
   );
 }

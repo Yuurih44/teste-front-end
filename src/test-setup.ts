@@ -14,5 +14,6 @@ HTMLElement.prototype.scrollIntoView = function () {};
 
 beforeEach(() => {
   localStorage.clear();
+  sessionStorage.clear();
   window.history.replaceState(null, "", "/");
 });

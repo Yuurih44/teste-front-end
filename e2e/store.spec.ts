@@ -153,12 +153,12 @@ test("catálogo de referência mantém fontes e fotos separadas da API do teste"
   expect(assessmentRequests).toBe(0);
 });
 
-test("carrinho e favoritos persistem sem modificar a vitrine inicial", async ({
+test("carrinho e favoritos persistem entre o modal e os cartões", async ({
   page,
 }) => {
   const first = page.locator("#produtos");
   await expect(first.getByRole("combobox")).toHaveCount(0);
-  await expect(first.locator(".favorite-button")).toHaveCount(0);
+  await expect(first.locator(".favorite-button")).toHaveCount(10);
   const name = "Iphone 11 PRO MAX BRANCO 1";
   await first
     .getByRole("button", { name: `Ver detalhes de ${name}`, exact: true })
@@ -216,6 +216,7 @@ test("carrinho e favoritos persistem sem modificar a vitrine inicial", async ({
     page.getByRole("dialog", { name: "Meus favoritos", exact: true }),
   ).toContainText(name);
   await page
+    .getByRole("dialog")
     .getByRole("button", { name: `Remover ${name} dos favoritos`, exact: true })
     .click();
   await expect(page.getByRole("dialog")).toContainText(
@@ -472,4 +473,157 @@ test("filtros e carrinho funcionam entre departamentos com histórico e persist�
     navigation.getByRole("button", { name: "Ferramentas", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
   await expect(first.locator(".product-card")).toHaveCount(5);
+});
+
+test("ícones selecionados ficam azuis e a troca de departamento não rola a página", async ({
+  page,
+}) => {
+  const navigation = page.getByRole("navigation", {
+    name: "Navegar por departamento",
+  });
+  const tools = navigation.getByRole("button", {
+    name: "Ferramentas",
+    exact: true,
+  });
+  await tools.scrollIntoViewIfNeeded();
+  const previousScroll = await page.evaluate(() => window.scrollY);
+  await tools.click();
+  await expect(tools).toHaveAttribute("aria-pressed", "true");
+  await expect(tools.locator(".department-icon")).toHaveCSS(
+    "color",
+    "rgb(52, 66, 181)",
+  );
+  await expect(
+    navigation
+      .getByRole("button", { name: "Tecnologia", exact: true })
+      .locator(".department-icon"),
+  ).toHaveCSS("color", "rgb(22, 22, 22)");
+  await page.waitForTimeout(250);
+  expect(await page.evaluate(() => window.scrollY)).toBeCloseTo(
+    previousScroll,
+    0,
+  );
+  await expect(page.locator("#produtos .favorite-button")).toHaveCount(5);
+});
+
+test("Livros abre o catálogo, permite favoritar pelo cartão e pesquisar por Enter", async ({
+  page,
+}) => {
+  await page
+    .getByRole("navigation", { name: "Departamentos", exact: true })
+    .getByRole("button", { name: "Livros", exact: true })
+    .click();
+  const first = page.locator("#produtos");
+  await expect(first.locator(".product-card")).toHaveCount(6);
+  const favorite = first.getByRole("button", {
+    name: "Adicionar Dom Casmurro aos favoritos",
+    exact: true,
+  });
+  await favorite.click();
+  await expect(
+    first.getByRole("button", {
+      name: "Remover Dom Casmurro dos favoritos",
+      exact: true,
+    }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Meus favoritos", exact: true })
+    .click();
+  await expect(page.getByRole("dialog")).toContainText("Dom Casmurro");
+  await page
+    .getByRole("button", { name: "Fechar favoritos", exact: true })
+    .click();
+  await page.getByRole("searchbox").fill("mensagem");
+  await page.getByRole("searchbox").press("Enter");
+  await expect(first.locator(".product-card")).toHaveCount(1);
+  await expect(first).toContainText("Mensagem");
+  await first
+    .getByRole("button", { name: "Ver detalhes de Mensagem", exact: true })
+    .click();
+  await expect(page.getByRole("dialog")).toContainText("Fernando Pessoa");
+  await expect(page.getByRole("dialog")).toContainText("24,90");
+});
+
+test("conta e assinatura validam, persistem na sessão e permitem editar e cancelar", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Minha conta", exact: true }).click();
+  let dialog = page.getByRole("dialog", { name: "Minha conta", exact: true });
+  await expect(dialog).toContainText("sem autenticação real");
+  await dialog
+    .getByRole("button", { name: "Salvar perfil", exact: true })
+    .click();
+  await expect(dialog.getByLabel("Nome", { exact: true })).toBeVisible();
+  await dialog.getByLabel("Nome", { exact: true }).fill("Yuri Silva");
+  await dialog.getByLabel("E-mail", { exact: true }).fill("yuri@example.com");
+  await dialog
+    .getByRole("button", { name: "Salvar perfil", exact: true })
+    .click();
+  await expect(dialog).toContainText("Olá, Yuri Silva!");
+  await dialog
+    .getByRole("button", { name: "Editar perfil", exact: true })
+    .click();
+  await dialog.getByLabel("Nome", { exact: true }).fill("Yuri");
+  await dialog
+    .getByRole("button", { name: "Salvar perfil", exact: true })
+    .click();
+  await expect(dialog).toContainText("Olá, Yuri!");
+  await page.emulateMedia({ contrast: "more" });
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await dialog
+    .getByRole("button", { name: "Fechar minha conta", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Assinatura", exact: true }).click();
+  dialog = page.getByRole("dialog", { name: "Assinatura", exact: true });
+  await expect(
+    dialog.getByLabel("E-mail da assinatura", { exact: true }),
+  ).toHaveValue("yuri@example.com");
+  await dialog.getByLabel("Frequência", { exact: true }).selectOption("mensal");
+  await dialog
+    .getByRole("button", {
+      name: "Ativar assinatura demonstrativa",
+      exact: true,
+    })
+    .click();
+  await expect(dialog.getByRole("checkbox")).not.toBeChecked();
+  await dialog.getByRole("checkbox").check();
+  await dialog
+    .getByRole("button", {
+      name: "Ativar assinatura demonstrativa",
+      exact: true,
+    })
+    .click();
+  await expect(dialog).toContainText("Assinatura demonstrativa ativa");
+  await expect(dialog).toContainText("Frequência: mensal");
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.reload();
+  await page.getByRole("button", { name: "Assinatura", exact: true }).click();
+  dialog = page.getByRole("dialog", { name: "Assinatura", exact: true });
+  await expect(dialog).toContainText("Assinatura demonstrativa ativa");
+  await dialog
+    .getByRole("button", { name: "Cancelar assinatura", exact: true })
+    .click();
+  await expect(dialog.getByRole("status")).toContainText("cancelada");
+  await dialog
+    .getByRole("button", { name: "Fechar assinatura", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Minha conta", exact: true }).click();
+  dialog = page.getByRole("dialog", { name: "Minha conta", exact: true });
+  await expect(dialog).toContainText("Olá, Yuri!");
+  await dialog
+    .getByRole("button", { name: "Sair do perfil", exact: true })
+    .click();
+  await expect(dialog.getByLabel("Nome", { exact: true })).toHaveValue("");
 });

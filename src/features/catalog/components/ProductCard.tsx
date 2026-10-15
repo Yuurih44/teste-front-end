@@ -17,16 +17,14 @@ export default function ProductCard({
   const favorite = isFavorite(product);
   return (
     <article className="product-card">
-      {product.reference && (
-        <button
-          className={`favorite-button${favorite ? " is-favorite" : ""}`}
-          aria-label={`${favorite ? "Remover" : "Adicionar"} ${product.productName} ${favorite ? "dos" : "aos"} favoritos`}
-          aria-pressed={favorite}
-          onClick={() => toggleFavorite(product)}
-        >
-          <Icon name="heart" size={21} />
-        </button>
-      )}
+      <button
+        className={`favorite-button${favorite ? " is-favorite" : ""}`}
+        aria-label={`${favorite ? "Remover" : "Adicionar"} ${product.productName} ${favorite ? "dos" : "aos"} favoritos`}
+        aria-pressed={favorite}
+        onClick={() => toggleFavorite(product)}
+      >
+        <Icon name="heart" size={21} />
+      </button>
       <button
         className="product-card__details"
         onClick={() => onSelect(product)}

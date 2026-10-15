@@ -11,6 +11,8 @@ export default function Header({
   onQueryChange,
   onCart,
   onFavorites,
+  onAccount,
+  onSubscription,
 }: {
   onDepartment: (id: DepartmentId) => void;
   onSearch: (value: string) => void;
@@ -19,6 +21,8 @@ export default function Header({
   onQueryChange: (query: string) => void;
   onCart: () => void;
   onFavorites: () => void;
+  onAccount: () => void;
+  onSubscription: () => void;
 }) {
   const { cartCount, favorites } = useStore();
   function submit(event: FormEvent) {
@@ -75,7 +79,9 @@ export default function Header({
                   ? onCart()
                   : icon === "heart"
                     ? onFavorites()
-                    : onInfo(title)
+                    : icon === "user"
+                      ? onAccount()
+                      : onInfo(title)
               }
               aria-label={title}
             >
@@ -108,11 +114,15 @@ export default function Header({
                 ? onDepartment("tecnologia")
                 : item === "Supermercado"
                   ? onDepartment("supermercado")
-                  : item === "Moda"
-                    ? onDepartment("moda")
-                    : index === 4 || index === 5
-                      ? onSearch("")
-                      : onInfo(item)
+                  : item === "Livros"
+                    ? onDepartment("livros")
+                    : item === "Assinatura"
+                      ? onSubscription()
+                      : item === "Moda"
+                        ? onDepartment("moda")
+                        : index === 4 || index === 5
+                          ? onSearch("")
+                          : onInfo(item)
             }
           >
             {index === 6 && <Icon name="crown" size={21} />} {item}
