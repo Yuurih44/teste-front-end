@@ -317,5 +317,161 @@
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "changes": "Nenhuma edição; miniatura fornecida pelo Wikimedia Commons."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Fone de ouvido sem fio",
+    "image": "tecnologia-100.webp",
+    "source": "https://dummyjson.com/products/100",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Fone Bluetooth over-ear",
+    "image": "tecnologia-101.webp",
+    "source": "https://dummyjson.com/products/101",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Carregador sem fio",
+    "image": "tecnologia-102.webp",
+    "source": "https://dummyjson.com/products/102",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Cabo carregador para celular",
+    "image": "tecnologia-104.webp",
+    "source": "https://dummyjson.com/products/104",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Bateria magnética portátil",
+    "image": "tecnologia-105.webp",
+    "source": "https://dummyjson.com/products/105",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Fone esportivo Bluetooth",
+    "image": "tecnologia-107.webp",
+    "source": "https://dummyjson.com/products/107",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Capa protetora para celular",
+    "image": "tecnologia-108.webp",
+    "source": "https://dummyjson.com/products/108",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Bastão de selfie ajustável",
+    "image": "tecnologia-111.webp",
+    "source": "https://dummyjson.com/products/111",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Tablet compacto",
+    "image": "tecnologia-159.webp",
+    "source": "https://dummyjson.com/products/159",
+    "originalImage": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Tablet para leitura e estudo",
+    "image": "tecnologia-160.webp",
+    "source": "https://dummyjson.com/products/160",
+    "originalImage": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Tablet com tela ampla",
+    "image": "tecnologia-161.webp",
+    "source": "https://dummyjson.com/products/161",
+    "originalImage": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Notebook para tarefas diárias",
+    "image": "tecnologia-78.webp",
+    "source": "https://dummyjson.com/products/78",
+    "originalImage": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Notebook leve para estudo",
+    "image": "tecnologia-79.webp",
+    "source": "https://dummyjson.com/products/79",
+    "originalImage": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Notebook com tela ampla",
+    "image": "tecnologia-80.webp",
+    "source": "https://dummyjson.com/products/80",
+    "originalImage": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Notebook para produtividade",
+    "image": "tecnologia-81.webp",
+    "source": "https://dummyjson.com/products/81",
+    "originalImage": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Notebook de alto desempenho",
+    "image": "tecnologia-82.webp",
+    "source": "https://dummyjson.com/products/82",
+    "originalImage": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+    "note": "Imagem de produto de exemplo para demonstração; nome e preço em reais são ilustrativos e definidos nesta aplicação."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Smart TV de 32 polegadas",
+    "image": "tv-1.svg",
+    "source": "Ilustração SVG original criada para este projeto.",
+    "note": "Imagem, nome e preço são demonstrativos; não representam produto comercial ou oferta de venda."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Smart TV de 43 polegadas",
+    "image": "tv-2.svg",
+    "source": "Ilustração SVG original criada para este projeto.",
+    "note": "Imagem, nome e preço são demonstrativos; não representam produto comercial ou oferta de venda."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Smart TV de 50 polegadas",
+    "image": "tv-3.svg",
+    "source": "Ilustração SVG original criada para este projeto.",
+    "note": "Imagem, nome e preço são demonstrativos; não representam produto comercial ou oferta de venda."
+  },
+  {
+    "department": "tecnologia",
+    "productName": "Smart TV de 55 polegadas",
+    "image": "tv-4.svg",
+    "source": "Ilustração SVG original criada para este projeto.",
+    "note": "Imagem, nome e preço são demonstrativos; não representam produto comercial ou oferta de venda."
   }
 ]

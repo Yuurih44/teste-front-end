@@ -77,9 +77,9 @@ test("busca, categorias e nova tentativa funcionam no navegador", async ({
   await page.getByRole("searchbox").fill("");
   await page.getByRole("button", { name: "Buscar", exact: true }).click();
   await first.getByRole("button", { name: "Tablets", exact: true }).click();
-  await expect(first.getByRole("status")).toContainText("Nenhum produto");
+  await expect(first.locator(".product-card")).toHaveCount(3);
   await first.getByRole("button", { name: "Ver todos", exact: true }).click();
-  await expect(first.locator(".product-card")).toHaveCount(10);
+  await expect(first.locator(".product-card")).toHaveCount(30);
   await page.route("**/api/products", (route) =>
     route.fulfill({ status: 502, json: { error: "Indisponível" } }),
   );
@@ -397,6 +397,32 @@ test("departamentos trocam as três vitrines e preservam as dimensões dos cart�
   await expect(first.locator(".product-card").first()).not.toContainText(
     "Preço demonstrativo",
   );
+});
+
+test("Tecnologia mostra acessórios, tablets, notebooks e TVs com imagens locais", async ({
+  page,
+}) => {
+  const first = page.locator("#produtos");
+  const categories = [
+    ["Acessórios", 8],
+    ["Tablets", 3],
+    ["Notebooks", 5],
+    ["TVs", 4],
+  ] as const;
+  for (const [name, count] of categories) {
+    const button = first.getByRole("button", { name, exact: true });
+    await button.click();
+    await expect(button).toHaveAttribute("aria-pressed", "true");
+    await expect(first.locator(".product-card")).toHaveCount(count);
+    const image = first.locator(".product-card img").first();
+    await expect(image).toHaveJSProperty("complete", true);
+    expect(
+      await image.evaluate((img: HTMLImageElement) => img.naturalWidth),
+    ).toBeGreaterThan(0);
+    await expect(first.locator(".product-card").first()).toContainText(
+      "Preço demonstrativo",
+    );
+  }
 });
 
 test("filtros e carrinho funcionam entre departamentos com histórico e persistência", async ({

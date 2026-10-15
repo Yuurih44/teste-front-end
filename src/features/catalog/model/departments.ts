@@ -113,5 +113,9 @@ export function getDepartmentProducts(
   id: DepartmentId,
   technology: Product[],
 ): Product[] {
-  return id === "tecnologia" ? technology : demoCatalog[id];
+  if (id !== "tecnologia") return demoCatalog[id];
+  return [
+    ...technology.map((product) => ({ ...product, category: "Celular" })),
+    ...Object.values(demoCatalog.tecnologia).flat(),
+  ];
 }

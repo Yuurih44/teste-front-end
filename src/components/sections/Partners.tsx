@@ -7,8 +7,8 @@ export default function Partners({ id }: { id: string }) {
           <div>
             <h2>Parceiros</h2>
             <p>
-              Lorem ipsum dolor sit
-              <br /> amet, consectetur
+              Encontre tudo o que precisa
+              <br /> em um só lugar.
             </p>
             <button className="yellow-button" onClick={goToProducts}>
               Confira

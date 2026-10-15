@@ -32,8 +32,8 @@ export default function Footer({
               <Logo />
             </a>
             <p>
-              Lorem ipsum dolor sit amet, consectetur
-              <br className="desktop-break" /> adipiscing elit.
+              Tecnologia, conteúdo e boas experiências
+              <br className="desktop-break" /> para aproximar pessoas e marcas.
             </p>
             <nav aria-label="Redes sociais">
               {(["instagram", "facebook", "linkedin"] as IconName[]).map(
@@ -66,7 +66,7 @@ export default function Footer({
         </div>
       </div>
       <p className="copyright">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        © 2026 Econverse. Conteúdo demonstrativo deste projeto.
       </p>
     </footer>
   );

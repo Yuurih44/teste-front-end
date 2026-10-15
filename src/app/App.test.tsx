@@ -78,16 +78,17 @@ test("mostra erro e permite tentar novamente", async () => {
     )[0],
   ).toBeInTheDocument();
 });
-test("não atribui produtos a categorias ausentes do JSON", async () => {
+test("mostra itens demonstrativos nas categorias de Tecnologia sem itens na API", async () => {
   vi.stubGlobal("fetch", vi.fn(success));
   render(<App />);
   await screen.findAllByRole("button", {
     name: "Ver detalhes de Iphone branco",
   });
   fireEvent.click(screen.getByRole("button", { name: "Tablets" }));
-  expect(screen.getByRole("status")).toHaveTextContent("Nenhum produto");
+  expect(document.querySelectorAll("#produtos .product-card")).toHaveLength(3);
+  expect(screen.getAllByText("Tablet compacto")[0]).toBeInTheDocument();
   fireEvent.click(screen.getAllByRole("button", { name: "Ver todos" })[0]);
-  expect(document.querySelectorAll(".product-card")).toHaveLength(6);
+  expect(document.querySelectorAll(".product-card")).toHaveLength(26);
 });
 test("aborta a requisição pendente ao desmontar", async () => {
   let signal: AbortSignal | undefined;

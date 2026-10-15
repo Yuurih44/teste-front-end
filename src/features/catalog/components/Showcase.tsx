@@ -30,7 +30,8 @@ export default function Showcase({
   const [category, setCategory] = useState(categories[0]);
   const [sort, setSort] = useState<ProductSort>("relevance");
   const filtered =
-    category === categories[0] || category === "Ver todos"
+    category === "Ver todos" ||
+    (categories[0] !== "Celular" && category === categories[0])
       ? products
       : products.filter((product) => product.category === category);
   const visible = sortProducts(filtered, sort);

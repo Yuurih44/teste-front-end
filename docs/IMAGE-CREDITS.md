@@ -6,6 +6,11 @@ Produtos e preços são demonstrativos. Os valores foram definidos para este pro
 
 [DummyJSON](https://dummyjson.com/docs/products): imagens dos exemplos de mercado, bebidas, cuidados pessoais, esportes e moda. Arquivos locais identificados como `product-ID.webp`; origem individual em `reference/departamentos-fontes.json`.
 
+## Tecnologia
+
+- **Acessórios, tablets e notebooks** — fotografias de produtos do catálogo de exemplo [DummyJSON](https://dummyjson.com/docs/products), salvas localmente como `tecnologia-ID.webp`. Os nomes e preços em reais são fictícios e foram definidos para esta demonstração; as imagens são ilustrativas.
+- **Televisores** — ilustrações SVG originais criadas para este projeto (`tv-1.svg` a `tv-4.svg`), sem marca ou modelo comercial.
+
 ## Ferramentas
 
 Fotografias do Wikimedia Commons, fornecidas como miniaturas, sem edição. Os créditos e licenças abaixo se aplicam às respectivas fotografias.

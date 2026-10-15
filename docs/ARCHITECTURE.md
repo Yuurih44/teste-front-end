@@ -32,7 +32,7 @@ A aplicação usa React, TypeScript e Sass. A organização separa composição 
 
 ## Decisões de escopo
 
-O JSON não oferece ID nem categoria. O nome identifica o produto na persistência, o que pressupõe nomes únicos no catálogo fornecido. Uma API com IDs permitiria substituir essa chave sem depender do nome. Em Tecnologia, categorias sem itens exibem estado vazio. Os catálogos demonstrativos têm categorias explícitas e seis filtros por departamento.
+O JSON não oferece ID nem categoria. O nome identifica o produto na persistência, o que pressupõe nomes únicos no catálogo fornecido. Uma API com IDs permitiria substituir essa chave sem depender do nome. Em Tecnologia, os celulares da API são associados à categoria Celular, sem alterar seus dados. Acessórios, Tablets, Notebooks e TVs são exemplos locais com categorias explícitas; Ver todos reúne ambos os catálogos. Os departamentos demonstrativos usam seis filtros cada.
 
 O catálogo opcional de referência usa a mesma interface e uma chave de armazenamento distinta. A página padrão continua consumindo a API exigida pelo teste.
 
@@ -46,7 +46,7 @@ Testes unitários ficam próximos do código que verificam; os testes de integra
 
 ## Departamentos demonstrativos
 
-`model/departments.ts` centraliza identificadores, títulos, filtros e seleção dos dados. `data/departments.json` contém os produtos adicionais; o contrato inclui categoria e indicação de demonstração. Essa extensão não altera a validação nem os valores da resposta da API original. As imagens são locais e têm créditos em `docs/IMAGE-CREDITS.md`. As três vitrines reutilizam os mesmos componentes e estilos ao alternar o departamento.
+`model/departments.ts` centraliza identificadores, títulos, filtros e seleção dos dados. `data/departments.json` contém os produtos adicionais; o contrato inclui categoria e indicação de demonstração. Tecnologia inclui 20 exemplos entre acessórios, tablets, notebooks e TVs. Essa extensão não altera a validação nem os valores da resposta da API original. As imagens são locais e têm créditos em `docs/IMAGE-CREDITS.md`. As três vitrines reutilizam os mesmos componentes e estilos ao alternar o departamento.
 
 ## Perfil e assinatura
 

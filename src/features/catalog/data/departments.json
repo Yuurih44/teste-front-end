@@ -364,5 +364,167 @@
       "category": "Literatura",
       "demonstration": true
     }
+  ],
+  "tecnologia": [
+    {
+      "productName": "Fone de ouvido sem fio",
+      "descriptionShort": "Fone de ouvido sem fio. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-100.webp",
+      "price": 129.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Fone Bluetooth over-ear",
+      "descriptionShort": "Fone Bluetooth over-ear. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-101.webp",
+      "price": 179.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Carregador sem fio",
+      "descriptionShort": "Carregador sem fio. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-102.webp",
+      "price": 89.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Cabo carregador para celular",
+      "descriptionShort": "Cabo carregador para celular. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-104.webp",
+      "price": 39.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Bateria magnética portátil",
+      "descriptionShort": "Bateria magnética portátil. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-105.webp",
+      "price": 79.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Fone esportivo Bluetooth",
+      "descriptionShort": "Fone esportivo Bluetooth. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-107.webp",
+      "price": 149.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Capa protetora para celular",
+      "descriptionShort": "Capa protetora para celular. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-108.webp",
+      "price": 219.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Bastão de selfie ajustável",
+      "descriptionShort": "Bastão de selfie ajustável. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-111.webp",
+      "price": 49.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Tablet compacto",
+      "descriptionShort": "Tablet compacto. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-159.webp",
+      "price": 899.9,
+      "category": "Tablets",
+      "demonstration": true
+    },
+    {
+      "productName": "Tablet para leitura e estudo",
+      "descriptionShort": "Tablet para leitura e estudo. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-160.webp",
+      "price": 1199.9,
+      "category": "Tablets",
+      "demonstration": true
+    },
+    {
+      "productName": "Tablet com tela ampla",
+      "descriptionShort": "Tablet com tela ampla. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-161.webp",
+      "price": 1599.9,
+      "category": "Tablets",
+      "demonstration": true
+    },
+    {
+      "productName": "Notebook para tarefas diárias",
+      "descriptionShort": "Notebook para tarefas diárias. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-78.webp",
+      "price": 2499.9,
+      "category": "Notebooks",
+      "demonstration": true
+    },
+    {
+      "productName": "Notebook leve para estudo",
+      "descriptionShort": "Notebook leve para estudo. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-79.webp",
+      "price": 2899.9,
+      "category": "Notebooks",
+      "demonstration": true
+    },
+    {
+      "productName": "Notebook com tela ampla",
+      "descriptionShort": "Notebook com tela ampla. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-80.webp",
+      "price": 3299.9,
+      "category": "Notebooks",
+      "demonstration": true
+    },
+    {
+      "productName": "Notebook para produtividade",
+      "descriptionShort": "Notebook para produtividade. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-81.webp",
+      "price": 3799.9,
+      "category": "Notebooks",
+      "demonstration": true
+    },
+    {
+      "productName": "Notebook de alto desempenho",
+      "descriptionShort": "Notebook de alto desempenho. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tecnologia-82.webp",
+      "price": 4999.9,
+      "category": "Notebooks",
+      "demonstration": true
+    },
+    {
+      "productName": "Smart TV de 32 polegadas",
+      "descriptionShort": "Smart TV de 32 polegadas. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tv-1.svg",
+      "price": 1199.9,
+      "category": "TVs",
+      "demonstration": true
+    },
+    {
+      "productName": "Smart TV de 43 polegadas",
+      "descriptionShort": "Smart TV de 43 polegadas. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tv-2.svg",
+      "price": 1899.9,
+      "category": "TVs",
+      "demonstration": true
+    },
+    {
+      "productName": "Smart TV de 50 polegadas",
+      "descriptionShort": "Smart TV de 50 polegadas. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tv-3.svg",
+      "price": 2599.9,
+      "category": "TVs",
+      "demonstration": true
+    },
+    {
+      "productName": "Smart TV de 55 polegadas",
+      "descriptionShort": "Smart TV de 55 polegadas. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/tv-4.svg",
+      "price": 3299.9,
+      "category": "TVs",
+      "demonstration": true
+    }
   ]
 }
