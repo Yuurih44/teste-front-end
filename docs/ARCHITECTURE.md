@@ -1,54 +1,33 @@
-# Estrutura e responsabilidades
+# Arquitetura
 
-A aplicação usa React, TypeScript e Sass. A organização separa composição da página, apresentação, acesso a dados e regras de negócio, sem acrescentar dependências.
+A aplicação separa a composição da página, os componentes compartilhados e as funcionalidades de catálogo, conta e compras.
 
-## Áreas
+| Diretório                 | Responsabilidade                                       |
+| ------------------------- | ------------------------------------------------------ |
+| `src/app`                 | Inicialização dos providers e composição da página.    |
+| `src/components/layout`   | Cabeçalho e rodapé.                                    |
+| `src/components/sections` | Banner, departamentos, parceiros, marcas e newsletter. |
+| `src/components/ui`       | Diálogos, ícones, logo e controles reutilizáveis.      |
+| `src/features/catalog`    | Catálogos, consulta à API, busca, filtros e vitrines.  |
+| `src/features/account`    | Perfil e preferências de assinatura.                   |
+| `src/features/shopping`   | Estado, regras e interface de carrinho e favoritos.    |
+| `src/styles`              | Tokens, estilos Sass e regras responsivas.             |
+| `src/utils`               | Formatação monetária e navegação.                      |
 
-| Diretório                          | Responsabilidade                                                        |
-| ---------------------------------- | ----------------------------------------------------------------------- |
-| `src/app`                          | Inicialização dos providers e composição da página em `Storefront`      |
-| `src/components/layout`            | Cabeçalho e rodapé                                                      |
-| `src/components/sections`          | Seções institucionais e promocionais da página                          |
-| `src/components/ui`                | Elementos reutilizáveis: diálogo, ícones, logo e controle de quantidade |
-| `src/features/catalog/api`         | Consulta HTTP e validação da resposta externa                           |
-| `src/features/catalog/model`       | Contrato do produto, busca e ordenação                                  |
-| `src/features/catalog/hooks`       | Carregamento assíncrono e comportamento do carrossel                    |
-| `src/features/catalog/components`  | Vitrine, cartão, imagem, skeleton e modal do produto                    |
-| `src/features/account/components`  | Diálogos de perfil e assinatura demonstrativos                          |
-| `src/features/account/model`       | Leitura e validação das preferências guardadas na sessão                |
-| `src/features/shopping/model`      | Persistência, quantidades, montagem do carrinho e total                 |
-| `src/features/shopping/context`    | Estado compartilhado e ações de carrinho/favoritos                      |
-| `src/features/shopping/hooks`      | Acesso ao contexto da loja                                              |
-| `src/features/shopping/components` | Diálogos do carrinho e dos favoritos                                    |
-| `src/utils`                        | Formatação monetária e navegação compartilhadas                         |
-| `src/styles`                       | Sass por seção, tokens e regras responsivas                             |
+## Dados e estado
 
-## Fluxo dos dados
+Sem parâmetros, `App` carrega o catálogo local de iPhones. Com `?catalog=assessment`, o hook do catálogo consulta a API da Econverse pelo proxy `/api/products`. A resposta é validada antes de chegar à página. O departamento ativo fica na URL, permitindo usar voltar e avançar no navegador.
 
-1. `App` abre o catálogo local com modelos e preços de referência por padrão. Com `?catalog=assessment`, chama `useProducts` para consultar a API da empresa. O departamento ativo também é registrado na URL, com suporte ao histórico do navegador.
-2. O módulo `catalog/api` consulta o endpoint, valida o contrato e devolve produtos tipados. O hook controla carregamento, erro, cancelamento e nova tentativa.
-3. `Storefront` compõe as seções, seleciona os produtos do departamento e controla a busca e os diálogos. As funções de busca e ordenação não modificam a sequência original do catálogo.
-4. `StoreProvider` recebe a união dos produtos de Tecnologia e dos departamentos demonstrativos, compartilhando as ações da loja entre os departamentos. O navegador guarda identificadores e quantidades; preços e fotos sempre vêm do catálogo carregado.
-5. As regras de carrinho derivam os itens válidos e calculam totais em centavos. Produtos removidos do catálogo não entram no total; quantidades ficam entre 1 e 99.
+`Storefront` monta as seções, seleciona os produtos do departamento e controla busca e diálogos. Busca, filtros e ordenação são funções separadas da apresentação. `StoreProvider` compartilha carrinho e favoritos entre departamentos; o navegador armazena identificadores e quantidades, enquanto preços e imagens vêm do catálogo carregado.
 
-## Decisões de escopo
+O endpoint não inclui identificador ou categoria. Por isso, o nome do produto identifica o item persistido e os celulares recebem a categoria Celular na interface. Essa associação não altera os dados da resposta. Categorias adicionais e os demais departamentos usam produtos locais.
 
-O JSON não oferece ID nem categoria. O nome identifica o produto na persistência, o que pressupõe nomes únicos no catálogo fornecido. Uma API com IDs permitiria substituir essa chave sem depender do nome. Em Tecnologia, os celulares da API são associados à categoria Celular, sem alterar seus dados. Acessórios, Tablets, Notebooks e TVs são exemplos locais com categorias explícitas; Ver todos reúne ambos os catálogos. Os departamentos demonstrativos usam seis filtros cada.
+## Compras e conta
 
-Os dois catálogos usam a mesma interface e chaves de armazenamento distintas. A rota `?catalog=assessment` consome a API e mantém os valores recebidos intactos; o catálogo inicial usa a cópia local com imagens específicas por variante.
+As regras do carrinho calculam valores em centavos e limitam quantidades a 99. Itens que não existem mais no catálogo não entram no total. Carrinho e favoritos usam `localStorage`; perfil e preferências de assinatura ficam em `sessionStorage`.
 
-Context é suficiente para o volume atual de estado compartilhado. Não há camada global para busca ou diálogos, nem abstração genérica de repositórios para um único endpoint. A interface do catálogo usa o hook de compras para ações do usuário; o modelo de compras depende apenas dos tipos do produto e não importa componentes de catálogo.
+Perfil e assinatura não estão ligados a um serviço externo. O fluxo de compra termina na conferência do carrinho, sem cobrança ou envio de pedido.
 
-O proxy tem destino fixo para resolver o CORS da API fornecida. Desenvolvimento e preview compartilham a configuração; o servidor Node implementa o encaminhamento no build de produção.
+## Desenvolvimento e testes
 
-## Verificação
-
-Testes unitários ficam próximos do código que verificam; os testes de integração da página estão em `src/app`. Playwright em `e2e` verifica os fluxos no navegador, teclado, persistência, medidas principais do desktop e acessibilidade automática em alto contraste. O workflow do GitHub executa formatação, lint, tipos, testes e build.
-
-## Departamentos demonstrativos
-
-`model/departments.ts` centraliza identificadores, títulos, filtros e seleção dos dados. `data/departments.json` contém os produtos adicionais; o contrato inclui categoria e indicação de demonstração. Tecnologia inclui 20 exemplos entre acessórios, tablets, notebooks e TVs. Essa extensão não altera a validação nem os valores da resposta da API original. As imagens são locais e têm créditos em `docs/IMAGE-CREDITS.md`. As três vitrines reutilizam os mesmos componentes e estilos ao alternar o departamento.
-
-## Perfil e assinatura
-
-`features/account` separa os diálogos e a leitura/validação de `sessionStorage`. Os fluxos não representam autenticação nem assinatura comercial: não há senha, servidor de identidade, envio de e-mail ou cobrança. Nome, e-mail e preferência de frequência ficam somente na sessão. Carrinho e favoritos continuam separados e usam `localStorage`. Os diálogos reutilizam a contenção de foco e o fechamento acessível da interface compartilhada.
+Os testes unitários ficam próximos dos módulos. Os cenários completos do navegador ficam em `e2e/`. O proxy do Vite atende o desenvolvimento; `server.mjs` fornece o mesmo encaminhamento na versão de produção. O workflow do GitHub executa formatação, lint, tipos, testes e build.

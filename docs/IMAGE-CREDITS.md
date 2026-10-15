@@ -1,26 +1,23 @@
-# Imagens dos departamentos demonstrativos
+# Créditos das imagens
 
-Produtos e preços são demonstrativos. Os valores foram definidos para este projeto; não são cotações de fornecedores. As fotos são ilustrativas e não comprovam marcas, medidas ou disponibilidade.
+## Protótipo e identidade visual
 
-## Catálogo de exemplo
+Banner, ícones de departamentos e imagens de parceiros vieram do [protótipo do teste no Figma](https://www.figma.com/design/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0-1). O logo local foi extraído da renderização do protótipo. As fontes Poppins são distribuídas sob a licença SIL Open Font License, incluída em `public/fonts/OFL.txt`.
 
-[DummyJSON](https://dummyjson.com/docs/products): imagens dos exemplos de mercado, bebidas, cuidados pessoais, esportes e moda. Arquivos locais identificados como `product-ID.webp`; origem individual em `reference/departamentos-fontes.json`.
+## Produtos
 
-## Tecnologia
+- **iPhones:** fotos e preços consultados no catálogo público da [Trocafone](https://www.trocafone.com.br/). SKUs, links e data da consulta estão em `reference/precos-fontes.json`.
+- **Mercado, bebidas, cuidados pessoais, esportes e moda:** imagens do [DummyJSON](https://dummyjson.com/docs/products), armazenadas localmente. A origem de cada arquivo consta em `reference/departamentos-fontes.json`.
+- **Acessórios, tablets e notebooks:** imagens do catálogo de produtos do DummyJSON, armazenadas em `public/images/catalog/`.
+- **Ferramentas:** fotos do Wikimedia Commons. Autor e licença de cada arquivo estão listados abaixo.
+- **Televisores e livros:** ilustrações SVG feitas para este projeto.
 
-- **Acessórios, tablets e notebooks** — fotografias de produtos do catálogo de exemplo [DummyJSON](https://dummyjson.com/docs/products), salvas localmente como `tecnologia-ID.webp`. Os nomes e preços em reais são fictícios e foram definidos para esta demonstração; as imagens são ilustrativas.
-- **Televisores** — ilustrações SVG originais criadas para este projeto (`tv-1.svg` a `tv-4.svg`), sem marca ou modelo comercial.
+## Wikimedia Commons
 
-## Ferramentas
+- Furadeira — [TaurusEmerald](https://commons.wikimedia.org/wiki/File:DeWalt_20_Volt_Max_Cordless_Drill.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- Alicate — [Mansurbiohazard](https://commons.wikimedia.org/wiki/File:05-02_combination_pliers_big.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+- Trena — [多多123](https://commons.wikimedia.org/wiki/File:B%26Q_Tape_Measure.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0).
+- Martelo — [Evan-Amos](https://commons.wikimedia.org/wiki/File:Claw-hammer.jpg), domínio público.
+- Parafusadeira — [LoMit](https://commons.wikimedia.org/wiki/File:MacAllister_cordless_screwdriver_01.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
 
-Fotografias do Wikimedia Commons, fornecidas como miniaturas, sem edição. Os créditos e licenças abaixo se aplicam às respectivas fotografias.
-
-- **Furadeira sem fio** — [TaurusEmerald](https://commons.wikimedia.org/wiki/File:DeWalt_20_Volt_Max_Cordless_Drill.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Arquivo: `public/images/catalog/furadeira.jpg`.
-- **Alicate universal** — [Mansurbiohazard](https://commons.wikimedia.org/wiki/File:05-02_combination_pliers_big.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Arquivo: `public/images/catalog/alicate.jpg`.
-- **Trena retrátil** — [多多123](https://commons.wikimedia.org/wiki/File:B%26Q_Tape_Measure.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0). Arquivo: `public/images/catalog/trena.jpg`.
-- **Martelo de unha** — [Evan-Amos](https://commons.wikimedia.org/wiki/File:Claw-hammer.jpg), Public domain. Arquivo: `public/images/catalog/martelo.jpg`.
-- **Parafusadeira sem fio** — [LoMit](https://commons.wikimedia.org/wiki/File:MacAllister_cordless_screwdriver_01.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). Arquivo: `public/images/catalog/parafusadeira.jpg`.
-
-## Livros
-
-As seis capas em SVG foram criadas para esta demonstração com formas e texto. São ilustrações originais, sem reproduzir capas de editoras ou representar edições comerciais. Os títulos e autores identificam as obras literárias; preços e produtos são demonstrativos.
+Os demais produtos e preços são exemplos do catálogo local, não ofertas de fornecedores.

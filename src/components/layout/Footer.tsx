@@ -65,9 +65,7 @@ export default function Footer({
           </nav>
         </div>
       </div>
-      <p className="copyright">
-        © 2026 Econverse. Conteúdo demonstrativo deste projeto.
-      </p>
+      <p className="copyright">© {new Date().getFullYear()} Econverse.</p>
     </footer>
   );
 }
