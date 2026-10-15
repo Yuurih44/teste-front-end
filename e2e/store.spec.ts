@@ -130,7 +130,7 @@ test("abre com os iPhones reais e fotos correspondentes sem consultar a API genÃ
     return route.abort();
   });
   await page.emulateMedia({ colorScheme: "dark" });
-  await page.goto("/");
+  await page.goto("/?catalog=real");
   const colors = await page.evaluate(() => ({
     scheme: getComputedStyle(document.documentElement).colorScheme,
     background: getComputedStyle(document.body).backgroundColor,

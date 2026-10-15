@@ -20,14 +20,14 @@ npm run format:check
 - Limites das setas do carrossel e navegação pelo teclado.
 - Ausência de transbordamento horizontal em desktop e celular.
 - Auditoria axe-core da página, do modal e do carrinho, com regras WCAG 2 A/AA e 2.1 AA no modo `prefers-contrast: more`. O modo padrão preserva os tons cinza do protótipo, que não atendem ao contraste AA em alguns textos.
-- Catálogo inicial com nomes, preços e imagens por variante, sem consulta à API genérica; modo escuro do sistema preserva a página clara.
+- Catálogo local de iPhones com nomes, preços e imagens por variante; modo escuro do sistema preserva a página clara.
 - Separação do catálogo de referência, fotos por variante e ausência de links de lojas no modal. As fontes permanecem na documentação.
 
-Os testes usam a cópia do JSON em `e2e/fixtures/` exclusivamente para tornar a execução independente do serviço externo. A aplicação consulta a API da empresa em `/?catalog=assessment`. A página inicial apresenta o catálogo de referência local, com nomes e fotos específicos por variante. A auditoria automática auxilia a encontrar problemas, mas não substitui uma avaliação manual completa de acessibilidade.
+Os testes usam a cópia do JSON em `e2e/fixtures/` exclusivamente para tornar a execução independente do serviço externo. A página inicial consulta a API da Econverse; os testes do catálogo local usam `?catalog=real`. A auditoria automática auxilia a encontrar problemas, mas não substitui uma avaliação manual completa de acessibilidade.
 
 ## Referência comercial
 
-`reference/precos-fontes.json` registra SKU, preço retornado pelo catálogo da Trocafone, URL, foto original, estoque na coleta e data/hora. A cópia de apresentação está em `public/data/products-real.json` e abastece a página inicial. O parâmetro opcional `?catalog=real` mantém esse catálogo; o modo de avaliação da API fica em `?catalog=assessment`.
+`reference/precos-fontes.json` registra SKU, preço retornado pelo catálogo da Trocafone, URL, foto original, estoque na coleta e data/hora. A cópia de apresentação está em `public/data/products-real.json` e abastece `?catalog=real`. A página inicial consulta a API da Econverse.
 
 Esses valores são referências registradas na coleta, sem promessa de atualização contínua ou de disponibilidade. A capacidade, cor e condição são parte do nome do aparelho. As fotos são ilustrativas dos modelos e cores, conforme o anúncio do fornecedor, e não fotografias individuais de cada aparelho seminovo.
 

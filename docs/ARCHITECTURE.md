@@ -16,7 +16,7 @@ A aplicação separa a composição da página, os componentes compartilhados e 
 
 ## Dados e estado
 
-Sem parâmetros, `App` carrega o catálogo local de iPhones. Com `?catalog=assessment`, o hook do catálogo consulta a API da Econverse pelo proxy `/api/products`. A resposta é validada antes de chegar à página. O departamento ativo fica na URL, permitindo usar voltar e avançar no navegador.
+Sem parâmetros, `App` consulta a API da Econverse pelo proxy `/api/products`. Com `?catalog=real`, carrega o catálogo local de iPhones. A resposta da API é validada antes de chegar à página. O departamento ativo fica na URL, permitindo usar voltar e avançar no navegador.
 
 `Storefront` monta as seções, seleciona os produtos do departamento e controla busca e diálogos. Busca, filtros e ordenação são funções separadas da apresentação. `StoreProvider` compartilha carrinho e favoritos entre departamentos; o navegador armazena identificadores e quantidades, enquanto preços e imagens vêm do catálogo carregado.
 

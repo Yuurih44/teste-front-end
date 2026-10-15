@@ -2,7 +2,7 @@
 
 Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End Jr.](https://www.figma.com/proto/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=1-1248&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A1248), feita com React, TypeScript e Sass.
 
-![Página inicial em desktop](docs/screenshots/desktop.png)
+![Página inicial em desktop com produtos da API da Econverse](docs/screenshots/desktop.png)
 
 ## Executar o teste
 
@@ -11,13 +11,13 @@ npm ci
 npm run dev
 ```
 
-Abra a URL informada pelo Vite com `?catalog=assessment` no final. Por exemplo:
+O catálogo oficial da Econverse é carregado por padrão. Abra a URL informada pelo Vite, normalmente:
 
 ```text
-http://localhost:5173/?catalog=assessment
+http://localhost:5173/
 ```
 
-Esse modo consulta o JSON da Econverse pelo proxy `/api/products` e apresenta os produtos retornados pela API. Ao abrir sem o parâmetro, a página mostra o catálogo local de iPhones descrito abaixo. A captura de tela e os departamentos adicionais também usam dados locais.
+Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porque esse já é o modo padrão. A página consulta o JSON da Econverse pelo proxy `/api/products`. O catálogo local de iPhones continua disponível em `?catalog=real`. A captura de tela e os departamentos adicionais usam dados locais.
 
 ## Requisitos
 
@@ -38,9 +38,9 @@ Para rodar os testes de navegador pela primeira vez, instale o Chromium com `npx
 
 ## Catálogos
 
-A página sem parâmetros exibe dez modelos de iPhone com nomes, preços e fotos por variante. Os SKUs, a origem e a data da consulta estão em [`reference/precos-fontes.json`](reference/precos-fontes.json); a aplicação usa a cópia em `public/data/products-real.json`.
+A página sem parâmetros consome o JSON oficial da Econverse. Para consultar os dez modelos de iPhone com nomes, preços e fotos por variante, abra `?catalog=real`. Os SKUs, a origem e a data da consulta estão em [`reference/precos-fontes.json`](reference/precos-fontes.json); a aplicação usa a cópia em `public/data/products-real.json`.
 
-O modo de avaliação consulta o endpoint do teste: `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, `/api/products` encaminha a solicitação. O proxy está configurado no Vite e no servidor Node de produção; a aplicação precisa ser servida com Node ou um proxy equivalente.
+O endpoint consultado é `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, `/api/products` encaminha a solicitação. O proxy está configurado no Vite e no servidor Node de produção; a aplicação precisa ser servida com Node ou um proxy equivalente.
 
 Os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente; não há checkout, autenticação ou envio de dados a serviços externos.
 

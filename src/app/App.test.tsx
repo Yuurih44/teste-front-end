@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 import { beforeEach, vi, test, expect } from "vitest";
 import App from "./App";
 beforeEach(() => {
-  window.history.replaceState(null, "", "/?catalog=assessment");
+  window.history.replaceState(null, "", "/");
 });
 
 const products = [
@@ -31,8 +31,9 @@ const success = () =>
     ok: true,
     json: async () => ({ success: true, products }),
   });
-test("abre o produto selecionado, calcula quantidade e devolve o foco ao fechar", async () => {
-  vi.stubGlobal("fetch", vi.fn(success));
+test("usa a API da Econverse por padrão e abre o produto selecionado", async () => {
+  const fetchMock = vi.fn(success);
+  vi.stubGlobal("fetch", fetchMock);
   const user = userEvent.setup();
   render(<App />);
   const trigger = (
@@ -40,6 +41,10 @@ test("abre o produto selecionado, calcula quantidade e devolve o foco ao fechar"
       name: "Ver detalhes de Iphone mini",
     })
   )[0];
+  expect(fetchMock).toHaveBeenCalledWith(
+    "/api/products",
+    expect.objectContaining({ signal: expect.any(AbortSignal) }),
+  );
   await user.click(trigger);
   const dialog = screen.getByRole("dialog", { name: "Iphone mini" });
   expect(dialog).toHaveTextContent("Descrição do mini");
