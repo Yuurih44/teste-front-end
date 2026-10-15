@@ -33,7 +33,7 @@ Esses valores são referências registradas na coleta, sem promessa de atualiza�
 
 ## Ampliação da experiência e fidelidade visual
 
-A revisão da estrutura tem 26 testes unitários e 15 casos de navegador executados com sucesso. Um caso adicional, de geometria desktop em 1440px, é intencionalmente ignorado no projeto mobile.
+A revisão da estrutura tem 28 testes unitários e 19 casos de navegador executados com sucesso. Um caso adicional, de geometria desktop em 1440px, é intencionalmente ignorado no projeto mobile.
 
 Os fluxos adicionais verificam carrinho, totais, quantidades, persistência após recarregar, favoritos, ordenação e ações diretas nos cartões da visualização com fotos reais. Os dados de carrinho/favoritos são separados entre os catálogos e não incluem dados pessoais. Nenhum checkout ou pedido real é enviado.
 
@@ -42,3 +42,7 @@ O teste de geometria verifica os parâmetros observados no protótipo: cabeçalh
 ## Organização do código
 
 A divisão das responsabilidades está em `docs/ARCHITECTURE.md`. Os testes das regras de busca verificam acentos, espaços e preservação da ordem original. Os de carrinho verificam cálculo em centavos, produtos removidos, quantidades inválidas e nomes coincidentes com propriedades herdadas do JavaScript.
+
+## Departamentos
+
+Os testes de navegador percorrem os seis departamentos demonstrativos em desktop e celular, verificam produtos e fotos nas três vitrines e comparam as dimensões dos cartões com as de Tecnologia. Também verificam filtros de ferramentas, carrinho misto, total, favoritos, recarga e retorno pelo histórico. Os testes unitários verificam a seleção do departamento, os seis filtros e as identidades dos produtos demonstrativos.

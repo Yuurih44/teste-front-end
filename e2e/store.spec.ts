@@ -343,3 +343,133 @@ test("favorita e adiciona ao carrinho diretamente no catálogo com fotos reais",
     page.getByRole("dialog", { name: "Meus favoritos", exact: true }),
   ).toContainText(name);
 });
+
+test("departamentos trocam as três vitrines e preservam as dimensões dos cartões", async ({
+  page,
+}) => {
+  const navigation = page.getByRole("navigation", {
+    name: "Navegar por departamento",
+  });
+  const first = page.locator("#produtos");
+  const initialBox = await first.locator(".product-card").first().boundingBox();
+  const cases = [
+    ["Supermercado", "Maçãs frescas", 8],
+    ["Bebidas", "Água mineral", 5],
+    ["Ferramentas", "Furadeira sem fio", 5],
+    ["Saúde", "Sabonete líquido para as mãos", 6],
+    ["Esportes e Fitness", "Bola de futebol", 6],
+    ["Moda", "Camisa xadrez azul e preta", 8],
+  ] as const;
+  for (const [department, name, count] of cases) {
+    await navigation
+      .getByRole("button", { name: department, exact: true })
+      .click();
+    await expect(
+      navigation.getByRole("button", { name: department, exact: true }),
+    ).toHaveAttribute("aria-pressed", "true");
+    for (const id of ["produtos", "destaques", "mais-produtos"]) {
+      const section = page.locator(`#${id}`);
+      await expect(section.locator(".product-card")).toHaveCount(count);
+      await expect(section.locator(".product-card").first()).toContainText(
+        name,
+      );
+    }
+    const card = first.locator(".product-card").first();
+    await expect(card).toContainText("Preço demonstrativo");
+    await expect(card.locator("img")).toHaveJSProperty("complete", true);
+    expect(
+      await card
+        .locator("img")
+        .evaluate((img: HTMLImageElement) => img.naturalWidth),
+    ).toBeGreaterThan(0);
+    const box = await card.boundingBox();
+    expect(box!.width).toBeCloseTo(initialBox!.width, 0);
+    expect(box!.height).toBeCloseTo(initialBox!.height, 0);
+  }
+  await navigation
+    .getByRole("button", { name: "Tecnologia", exact: true })
+    .click();
+  await expect(first.locator(".product-card")).toHaveCount(10);
+  await expect(first.locator(".product-card").first()).toContainText(
+    "Iphone 11 PRO MAX BRANCO 1",
+  );
+  await expect(first.locator(".product-card").first()).not.toContainText(
+    "Preço demonstrativo",
+  );
+});
+
+test("filtros e carrinho funcionam entre departamentos com histórico e persistência", async ({
+  page,
+}) => {
+  const navigation = page.getByRole("navigation", {
+    name: "Navegar por departamento",
+  });
+  const first = page.locator("#produtos");
+  await navigation
+    .getByRole("button", { name: "Ferramentas", exact: true })
+    .click();
+  await first.getByRole("button", { name: "Furadeiras", exact: true }).click();
+  await expect(first.locator(".product-card")).toHaveCount(2);
+  await first
+    .getByRole("button", {
+      name: "Ver detalhes de Furadeira sem fio",
+      exact: true,
+    })
+    .click();
+  let dialog = page.getByRole("dialog");
+  await expect(dialog).toContainText("Preço demonstrativo");
+  await dialog
+    .getByRole("button", {
+      name: "Veja mais detalhes do produto >",
+      exact: true,
+    })
+    .click();
+  await dialog
+    .getByRole("button", { name: "Salvar nos favoritos", exact: true })
+    .click();
+  await dialog.getByRole("button", { name: "Comprar", exact: true }).click();
+  await dialog
+    .getByRole("button", { name: "Fechar detalhes do produto", exact: true })
+    .click();
+  await navigation
+    .getByRole("button", { name: "Esportes e Fitness", exact: true })
+    .click();
+  await first
+    .getByRole("button", {
+      name: "Ver detalhes de Bola de futebol",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Comprar", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Ver meu carrinho →", exact: true })
+    .click();
+  dialog = page.getByRole("dialog", { name: "Meu carrinho", exact: true });
+  await expect(dialog).toContainText("Furadeira sem fio");
+  await expect(dialog).toContainText("Bola de futebol");
+  await expect(dialog).toContainText("319,80");
+  await page.reload();
+  await expect(
+    navigation.getByRole("button", { name: "Esportes e Fitness", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "Meu carrinho", exact: true }).click();
+  await expect(page.getByRole("dialog")).toContainText("319,80");
+  await page
+    .getByRole("button", { name: "Fechar carrinho", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Meus favoritos", exact: true })
+    .click();
+  await expect(page.getByRole("dialog")).toContainText("Furadeira sem fio");
+  await page
+    .getByRole("button", { name: "Fechar favoritos", exact: true })
+    .click();
+  await page.goBack();
+  await expect(
+    navigation.getByRole("button", { name: "Ferramentas", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(first.locator(".product-card")).toHaveCount(5);
+});

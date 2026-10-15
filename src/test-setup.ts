@@ -12,4 +12,7 @@ HTMLElement.prototype.scrollTo = function () {};
 
 HTMLElement.prototype.scrollIntoView = function () {};
 
-beforeEach(() => localStorage.clear());
+beforeEach(() => {
+  localStorage.clear();
+  window.history.replaceState(null, "", "/");
+});

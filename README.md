@@ -90,8 +90,8 @@ https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/pr
 
 Como esse endpoint não permite consultas de outra origem por CORS, a interface utiliza `/api/products`. O proxy do Vite no desenvolvimento e `server.mjs` em produção encaminham a consulta ao endereço fixo da empresa, com timeout de 10 segundos. O projeto deve ser hospedado com esse servidor Node ou um proxy equivalente, e não somente como arquivos estáticos.
 
-- Uma única consulta abastece as três vitrines. A busca filtra a primeira; as demais mantêm o catálogo completo.
-- O JSON contém somente celulares e não possui campo de categoria. As demais categorias da vitrine exibem estado vazio.
+- Uma única consulta abastece Tecnologia. As três vitrines exibem o departamento selecionado; a busca filtra a primeira, enquanto as demais mantêm todos os itens daquele departamento.
+- O JSON da empresa contém somente celulares e não possui campo de categoria. Em Tecnologia, as demais categorias da vitrine exibem estado vazio. Os outros departamentos utilizam produtos demonstrativos locais, sem substituir ou alterar a resposta da API.
 - Nomes, descrições, fotos e preços dos produtos vêm da API. Valores são tratados em reais, pois o contrato não informa centavos. O JSON não contém preço anterior, portanto não foi inventado desconto para preencher o preço riscado ilustrativo do Figma.
 - Parcelamento e frete grátis seguem os textos do layout. O botão Comprar adiciona ao carrinho local. O carrinho permite alterar quantidades, remover itens, esvaziar e conferir o total; não realiza cobrança ou envio de pedido. O teste não fornece checkout, login ou serviço de pedidos.
 - A newsletter valida nome, e-mail e consentimento localmente e informa que a inscrição é demonstrativa. Não armazena nem envia dados.
@@ -118,6 +118,18 @@ As capturas foram comparadas em 1440 × 1000. Foram corrigidos o amarelo `#F7CA1
 
 A composição inicial segue a referência; os recursos novos ficam nos fluxos acionados pelo usuário. Os tons cinza padrão do protótipo foram preservados conforme solicitado. A preferência de sistema `prefers-contrast: more` aumenta o contraste desses textos, e é nesse modo que os testes automáticos axe são executados. Preservar as medidas principais não comprova igualdade de todos os pixels: alguns ícones ainda são reconstruções, e o conteúdo dos produtos obedece ao JSON em vez dos exemplos estáticos da imagem.
 
+## Departamentos funcionais
+
+Os sete botões existentes alternam o conteúdo das vitrines na mesma landing page. Banner, fontes, cores, dimensões dos cartões e botões mantêm os estilos da página inicial. As seis posições da barra de categorias recebem os filtros correspondentes ao departamento escolhido.
+
+- **Tecnologia:** API original da empresa, ou catálogo de celulares de referência quando `?catalog=real` está presente.
+- **Supermercado, Bebidas, Ferramentas, Saúde, Esportes e Fitness e Moda:** 38 produtos demonstrativos com imagens locais. Os preços são fictícios e são identificados como demonstrativos nos cartões e no modal. Saúde apresenta cuidados pessoais, sem medicamentos.
+- **Navegação:** a URL registra o departamento, por exemplo `/?department=ferramentas`. Recarregar, voltar e avançar preservam o departamento. Supermercado e Moda no menu superior também abrem suas vitrines.
+- **Compras:** carrinho e favoritos são compartilhados entre os departamentos, com persistência. A busca e os filtros atuam no departamento selecionado. Os modos padrão e `?catalog=real` continuam com armazenamento separado.
+- **Disponibilidade:** os departamentos demonstrativos funcionam mesmo se a API de Tecnologia estiver indisponível. Não há substituição silenciosa do catálogo original.
+
+Os dados estão em `src/features/catalog/data/departments.json`. A procedência das fotos e suas licenças estão em [docs/IMAGE-CREDITS.md](docs/IMAGE-CREDITS.md) e `reference/departamentos-fontes.json`. Não é necessário consultar serviços de imagens para usar esses departamentos depois da instalação.
+
 ## Visualização com modelos e preços de referência
 
 Como demonstração opcional, existe uma visualização em **http://localhost:5173/?catalog=real**. Ela usa uma cópia de consulta de dez variantes de iPhone 11 Pro Max e iPhone 13 mini: capacidade, cor, condição de seminovo, foto correspondente e preço fornecido pelo catálogo público da Trocafone.
@@ -126,7 +138,7 @@ Nesta visualização, os cartões têm coração para favoritar e botão para ad
 
 As fontes, SKUs, fotos originais e horários da consulta estão em `reference/precos-fontes.json`. As referências externas ficam na documentação, sem links de lojas na interface. O modal informa a data e a disponibilidade registrada na consulta. Preços e estoque podem mudar; esta página não representa uma oferta de venda nem atualiza esses preços continuamente.
 
-**Para avaliação do teste, utilize a URL padrão**, sem `?catalog=real`: ela continua consumindo o JSON da Econverse, sem substituição ou alteração de seus preços e fotos. Não há troca silenciosa de catálogo em caso de falha.
+**Para avaliação do teste, utilize a URL padrão**, sem parâmetros: ela continua consumindo o JSON da Econverse, sem substituição ou alteração de seus preços e fotos. Não há troca silenciosa de catálogo em caso de falha.
 
 Veja o escopo detalhado dos testes em `reference/VALIDACAO.md`.
 

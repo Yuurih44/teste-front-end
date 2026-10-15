@@ -23,15 +23,15 @@ A aplicação usa React, TypeScript e Sass. A organização separa composição 
 
 ## Fluxo dos dados
 
-1. `App` escolhe o catálogo a partir da URL e chama `useProducts`.
+1. `App` escolhe o modo de catálogo a partir da URL e chama `useProducts` para Tecnologia. O departamento ativo também é registrado na URL, com suporte ao histórico do navegador.
 2. O serviço consulta o endpoint, valida o contrato e devolve produtos tipados. O hook controla carregamento, erro, cancelamento e nova tentativa.
-3. `Storefront` compõe as seções e controla a busca e os diálogos. As funções de busca e ordenação não modificam a sequência original do catálogo.
-4. `StoreProvider` compartilha as ações da loja. O navegador guarda identificadores e quantidades; preços e fotos sempre vêm do catálogo carregado.
+3. `Storefront` compõe as seções, seleciona os produtos do departamento e controla a busca e os diálogos. As funções de busca e ordenação não modificam a sequência original do catálogo.
+4. `StoreProvider` recebe a união dos produtos de Tecnologia e dos departamentos demonstrativos, compartilhando as ações da loja entre os departamentos. O navegador guarda identificadores e quantidades; preços e fotos sempre vêm do catálogo carregado.
 5. As regras de carrinho derivam os itens válidos e calculam totais em centavos. Produtos removidos do catálogo não entram no total; quantidades ficam entre 1 e 99.
 
 ## Decisões de escopo
 
-O JSON não oferece ID nem categoria. O nome identifica o produto na persistência, o que pressupõe nomes únicos no catálogo fornecido. Uma API com IDs permitiria substituir essa chave sem depender do nome. As categorias sem itens exibem estado vazio.
+O JSON não oferece ID nem categoria. O nome identifica o produto na persistência, o que pressupõe nomes únicos no catálogo fornecido. Uma API com IDs permitiria substituir essa chave sem depender do nome. Em Tecnologia, categorias sem itens exibem estado vazio. Os catálogos demonstrativos têm categorias explícitas e seis filtros por departamento.
 
 O catálogo opcional de referência usa a mesma interface e uma chave de armazenamento distinta. A página padrão continua consumindo a API exigida pelo teste.
 
@@ -42,3 +42,7 @@ O proxy tem destino fixo para resolver o CORS da API fornecida. Desenvolvimento 
 ## Verificação
 
 Testes unitários ficam próximos do código que verificam; os testes de integração da página estão em `src/app`. Playwright em `e2e` verifica os fluxos no navegador, teclado, persistência, medidas principais do desktop e acessibilidade automática em alto contraste. O workflow do GitHub executa formatação, lint, tipos, testes e build.
+
+## Departamentos demonstrativos
+
+`model/departments.ts` centraliza identificadores, títulos, filtros e seleção dos dados. `data/departments.json` contém os produtos adicionais; o contrato inclui categoria e indicação de demonstração. Essa extensão não altera a validação nem os valores da resposta da API original. As imagens são locais e têm créditos em `docs/IMAGE-CREDITS.md`. As três vitrines reutilizam os mesmos componentes e estilos ao alternar o departamento.

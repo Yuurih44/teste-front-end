@@ -1,5 +1,10 @@
+import {
+  getDepartment,
+  getDepartmentProducts,
+  type DepartmentId,
+} from "../features/catalog/model/departments";
 import { searchProducts } from "../features/catalog/model/queries";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/layout/Header";
 import Hero from "../components/sections/Hero";
 import { goToProducts } from "../utils/navigation";
@@ -16,11 +21,15 @@ import { useStore } from "../features/shopping/hooks/useStore";
 import CartDialog from "../features/shopping/components/CartDialog";
 import FavoritesDialog from "../features/shopping/components/FavoritesDialog";
 export default function Storefront({
+  departmentId,
+  onDepartmentChange,
   products,
   loading,
   error,
   retry,
 }: {
+  departmentId: DepartmentId;
+  onDepartmentChange: (id: DepartmentId) => void;
   products: Product[];
   loading: boolean;
   error: boolean;
@@ -32,11 +41,32 @@ export default function Storefront({
   const [selected, setSelected] = useState<Product | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const filtered = searchProducts(products, query);
+  useEffect(() => {
+    const resetNavigation = () => {
+      setSearchInput("");
+      setQuery("");
+      setSelected(null);
+      setPanel(null);
+      setInfo(null);
+    };
+    window.addEventListener("popstate", resetNavigation);
+    return () => window.removeEventListener("popstate", resetNavigation);
+  }, []);
+  const department = getDepartment(departmentId);
+  const departmentProducts = getDepartmentProducts(departmentId, products);
+  const filtered = searchProducts(departmentProducts, query);
+  function selectDepartment(id: DepartmentId) {
+    setQuery("");
+    setSearchInput("");
+    setSelected(null);
+    onDepartmentChange(id);
+    goToProducts();
+  }
   const showcaseProps = {
-    products,
-    loading,
-    error,
+    products: departmentProducts,
+    loading: departmentId === "tecnologia" && loading,
+    error: departmentId === "tecnologia" && error,
+    categories: department.categories,
     onRetry: retry,
     onSelect: setSelected,
   };
@@ -46,6 +76,7 @@ export default function Storefront({
         Pular para o conteúdo
       </a>
       <Header
+        onDepartment={selectDepartment}
         query={searchInput}
         onQueryChange={setSearchInput}
         onCart={() => setPanel("cart")}
@@ -59,9 +90,9 @@ export default function Storefront({
       />
       <main id="conteudo">
         <Hero />
-        <DepartmentTiles onInfo={setInfo} />
+        <DepartmentTiles active={departmentId} onSelect={selectDepartment} />
         <Showcase
-          key={query}
+          key={`${departmentId}:${query}`}
           {...showcaseProps}
           products={filtered}
           query={query}
@@ -69,10 +100,18 @@ export default function Storefront({
           withCategories
         />
         <Partners id="parceiros" />
-        <Showcase {...showcaseProps} id="destaques" />
+        <Showcase
+          key={`destaques:${departmentId}`}
+          {...showcaseProps}
+          id="destaques"
+        />
         <Partners id="mais-parceiros" />
         <Brands />
-        <Showcase {...showcaseProps} id="mais-produtos" />
+        <Showcase
+          key={`mais:${departmentId}`}
+          {...showcaseProps}
+          id="mais-produtos"
+        />
         <Newsletter onTerms={() => setInfo("Termos e Condições")} />
       </main>
       <Footer onInfo={setInfo} />

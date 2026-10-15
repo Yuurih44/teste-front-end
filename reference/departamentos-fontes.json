@@ -1,0 +1,321 @@
+[
+  {
+    "department": "supermercado",
+    "productName": "Maçãs frescas",
+    "image": "product-16.webp",
+    "source": "https://dummyjson.com/products/16",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Arroz branco",
+    "image": "product-38.webp",
+    "source": "https://dummyjson.com/products/38",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/rice/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Óleo de cozinha",
+    "image": "product-20.webp",
+    "source": "https://dummyjson.com/products/20",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Leite integral",
+    "image": "product-32.webp",
+    "source": "https://dummyjson.com/products/32",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/milk/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Ovos frescos",
+    "image": "product-23.webp",
+    "source": "https://dummyjson.com/products/23",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Carne de frango",
+    "image": "product-19.webp",
+    "source": "https://dummyjson.com/products/19",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Mel em pote",
+    "image": "product-27.webp",
+    "source": "https://dummyjson.com/products/27",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "supermercado",
+    "productName": "Filé de peixe",
+    "image": "product-24.webp",
+    "source": "https://dummyjson.com/products/24",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "bebidas",
+    "productName": "Água mineral",
+    "image": "product-42.webp",
+    "source": "https://dummyjson.com/products/42",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/water/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "bebidas",
+    "productName": "Suco de frutas",
+    "image": "product-29.webp",
+    "source": "https://dummyjson.com/products/29",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "bebidas",
+    "productName": "Café solúvel",
+    "image": "product-34.webp",
+    "source": "https://dummyjson.com/products/34",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "bebidas",
+    "productName": "Refrigerantes variados",
+    "image": "product-39.webp",
+    "source": "https://dummyjson.com/products/39",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "bebidas",
+    "productName": "Leite para o café",
+    "image": "product-32.webp",
+    "source": "https://dummyjson.com/products/32",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/milk/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "saude",
+    "productName": "Sabonete líquido para as mãos",
+    "image": "product-118.webp",
+    "source": "https://dummyjson.com/products/118",
+    "originalImage": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "saude",
+    "productName": "Sabonete corporal hidratante",
+    "image": "product-119.webp",
+    "source": "https://dummyjson.com/products/119",
+    "originalImage": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "saude",
+    "productName": "Loção para rosto e corpo",
+    "image": "product-120.webp",
+    "source": "https://dummyjson.com/products/120",
+    "originalImage": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "saude",
+    "productName": "Lenços de papel em caixa",
+    "image": "product-41.webp",
+    "source": "https://dummyjson.com/products/41",
+    "originalImage": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "saude",
+    "productName": "Pó facial compacto",
+    "image": "product-3.webp",
+    "source": "https://dummyjson.com/products/3",
+    "originalImage": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "saude",
+    "productName": "Batom vermelho",
+    "image": "product-4.webp",
+    "source": "https://dummyjson.com/products/4",
+    "originalImage": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "esportes",
+    "productName": "Bola de futebol",
+    "image": "product-147.webp",
+    "source": "https://dummyjson.com/products/147",
+    "originalImage": "https://cdn.dummyjson.com/product-images/sports-accessories/football/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "esportes",
+    "productName": "Bola de basquete",
+    "image": "product-140.webp",
+    "source": "https://dummyjson.com/products/140",
+    "originalImage": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "esportes",
+    "productName": "Raquete de tênis",
+    "image": "product-152.webp",
+    "source": "https://dummyjson.com/products/152",
+    "originalImage": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-racket/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "esportes",
+    "productName": "Bola de vôlei",
+    "image": "product-153.webp",
+    "source": "https://dummyjson.com/products/153",
+    "originalImage": "https://cdn.dummyjson.com/product-images/sports-accessories/volleyball/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "esportes",
+    "productName": "Bola de tênis",
+    "image": "product-151.webp",
+    "source": "https://dummyjson.com/products/151",
+    "originalImage": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-ball/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "esportes",
+    "productName": "Aro de basquete",
+    "image": "product-141.webp",
+    "source": "https://dummyjson.com/products/141",
+    "originalImage": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball-rim/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Camisa xadrez azul e preta",
+    "image": "product-83.webp",
+    "source": "https://dummyjson.com/products/83",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Camisa de manga curta",
+    "image": "product-86.webp",
+    "source": "https://dummyjson.com/products/86",
+    "originalImage": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Vestido longo preto",
+    "image": "product-177.webp",
+    "source": "https://dummyjson.com/products/177",
+    "originalImage": "https://cdn.dummyjson.com/product-images/womens-dresses/black-women's-gown/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Vestido estampado",
+    "image": "product-180.webp",
+    "source": "https://dummyjson.com/products/180",
+    "originalImage": "https://cdn.dummyjson.com/product-images/womens-dresses/dress-pea/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Sandália preta e marrom",
+    "image": "product-185.webp",
+    "source": "https://dummyjson.com/products/185",
+    "originalImage": "https://cdn.dummyjson.com/product-images/womens-shoes/black-&-brown-slipper/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Sapatos vermelhos",
+    "image": "product-189.webp",
+    "source": "https://dummyjson.com/products/189",
+    "originalImage": "https://cdn.dummyjson.com/product-images/womens-shoes/red-shoes/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Bolsa feminina azul",
+    "image": "product-172.webp",
+    "source": "https://dummyjson.com/products/172",
+    "originalImage": "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "moda",
+    "productName": "Mochila branca",
+    "image": "product-175.webp",
+    "source": "https://dummyjson.com/products/175",
+    "originalImage": "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/thumbnail.webp",
+    "note": "Dados de exemplo; nome em português e preço demonstrativo definidos nesta aplicação."
+  },
+  {
+    "department": "ferramentas",
+    "productName": "Furadeira sem fio",
+    "image": "furadeira.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:DeWalt_20_Volt_Max_Cordless_Drill.jpg",
+    "originalImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/DeWalt_20_Volt_Max_Cordless_Drill.jpg/960px-DeWalt_20_Volt_Max_Cordless_Drill.jpg",
+    "author": "TaurusEmerald",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Nenhuma edição; miniatura fornecida pelo Wikimedia Commons."
+  },
+  {
+    "department": "ferramentas",
+    "productName": "Alicate universal",
+    "image": "alicate.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:05-02_combination_pliers_big.jpg",
+    "originalImage": "https://upload.wikimedia.org/wikipedia/commons/2/23/05-02_combination_pliers_big.jpg",
+    "author": "Mansurbiohazard",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Nenhuma edição; miniatura fornecida pelo Wikimedia Commons."
+  },
+  {
+    "department": "ferramentas",
+    "productName": "Trena retrátil",
+    "image": "trena.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:B%26Q_Tape_Measure.jpg",
+    "originalImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/B%26Q_Tape_Measure.jpg/960px-B%26Q_Tape_Measure.jpg",
+    "author": "多多123",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "changes": "Nenhuma edição; miniatura fornecida pelo Wikimedia Commons."
+  },
+  {
+    "department": "ferramentas",
+    "productName": "Martelo de unha",
+    "image": "martelo.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Claw-hammer.jpg",
+    "originalImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Claw-hammer.jpg/960px-Claw-hammer.jpg",
+    "author": "Evan-Amos",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "changes": "Nenhuma edição; miniatura fornecida pelo Wikimedia Commons."
+  },
+  {
+    "department": "ferramentas",
+    "productName": "Parafusadeira sem fio",
+    "image": "parafusadeira.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:MacAllister_cordless_screwdriver_01.jpg",
+    "originalImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/MacAllister_cordless_screwdriver_01.jpg/960px-MacAllister_cordless_screwdriver_01.jpg",
+    "author": "LoMit",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Nenhuma edição; miniatura fornecida pelo Wikimedia Commons."
+  }
+]

@@ -1,8 +1,10 @@
+import type { DepartmentId } from "../../features/catalog/model/departments";
 import { useStore } from "../../features/shopping/hooks/useStore";
 import { type FormEvent } from "react";
 import Icon, { type IconName } from "../ui/Icon";
 import Logo from "../ui/Logo";
 export default function Header({
+  onDepartment,
   onSearch,
   onInfo,
   query,
@@ -10,6 +12,7 @@ export default function Header({
   onCart,
   onFavorites,
 }: {
+  onDepartment: (id: DepartmentId) => void;
   onSearch: (value: string) => void;
   onInfo: (title: string) => void;
   query: string;
@@ -101,9 +104,15 @@ export default function Header({
             className={index === 5 ? "highlight" : ""}
             key={item}
             onClick={() =>
-              index === 0 || index === 4 || index === 5
-                ? onSearch("")
-                : onInfo(item)
+              index === 0
+                ? onDepartment("tecnologia")
+                : item === "Supermercado"
+                  ? onDepartment("supermercado")
+                  : item === "Moda"
+                    ? onDepartment("moda")
+                    : index === 4 || index === 5
+                      ? onSearch("")
+                      : onInfo(item)
             }
           >
             {index === 6 && <Icon name="crown" size={21} />} {item}

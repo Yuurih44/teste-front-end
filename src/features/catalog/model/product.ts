@@ -10,4 +10,6 @@ export interface Product {
   photo: string;
   price: number;
   reference?: ProductReference;
+  category?: string;
+  demonstration?: boolean;
 }

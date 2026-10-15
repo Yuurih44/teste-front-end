@@ -1,0 +1,318 @@
+{
+  "supermercado": [
+    {
+      "productName": "Maçãs frescas",
+      "descriptionShort": "Maçãs frescas. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-16.webp",
+      "price": 8.9,
+      "category": "Frutas",
+      "demonstration": true
+    },
+    {
+      "productName": "Arroz branco",
+      "descriptionShort": "Arroz branco. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-38.webp",
+      "price": 24.9,
+      "category": "Despensa",
+      "demonstration": true
+    },
+    {
+      "productName": "Óleo de cozinha",
+      "descriptionShort": "Óleo de cozinha. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-20.webp",
+      "price": 7.9,
+      "category": "Despensa",
+      "demonstration": true
+    },
+    {
+      "productName": "Leite integral",
+      "descriptionShort": "Leite integral. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-32.webp",
+      "price": 5.49,
+      "category": "Laticínios",
+      "demonstration": true
+    },
+    {
+      "productName": "Ovos frescos",
+      "descriptionShort": "Ovos frescos. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-23.webp",
+      "price": 12.9,
+      "category": "Despensa",
+      "demonstration": true
+    },
+    {
+      "productName": "Carne de frango",
+      "descriptionShort": "Carne de frango. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-19.webp",
+      "price": 19.9,
+      "category": "Carnes",
+      "demonstration": true
+    },
+    {
+      "productName": "Mel em pote",
+      "descriptionShort": "Mel em pote. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-27.webp",
+      "price": 22.9,
+      "category": "Despensa",
+      "demonstration": true
+    },
+    {
+      "productName": "Filé de peixe",
+      "descriptionShort": "Filé de peixe. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-24.webp",
+      "price": 32.9,
+      "category": "Carnes",
+      "demonstration": true
+    }
+  ],
+  "bebidas": [
+    {
+      "productName": "Água mineral",
+      "descriptionShort": "Água mineral. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-42.webp",
+      "price": 3.49,
+      "category": "Água",
+      "demonstration": true
+    },
+    {
+      "productName": "Suco de frutas",
+      "descriptionShort": "Suco de frutas. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-29.webp",
+      "price": 8.9,
+      "category": "Sucos",
+      "demonstration": true
+    },
+    {
+      "productName": "Café solúvel",
+      "descriptionShort": "Café solúvel. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-34.webp",
+      "price": 18.9,
+      "category": "Cafés",
+      "demonstration": true
+    },
+    {
+      "productName": "Refrigerantes variados",
+      "descriptionShort": "Refrigerantes variados. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-39.webp",
+      "price": 7.9,
+      "category": "Refrigerantes",
+      "demonstration": true
+    },
+    {
+      "productName": "Leite para o café",
+      "descriptionShort": "Leite para o café. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-32.webp",
+      "price": 5.49,
+      "category": "Cafés",
+      "demonstration": true
+    }
+  ],
+  "saude": [
+    {
+      "productName": "Sabonete líquido para as mãos",
+      "descriptionShort": "Sabonete líquido para as mãos. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-118.webp",
+      "price": 19.9,
+      "category": "Higiene",
+      "demonstration": true
+    },
+    {
+      "productName": "Sabonete corporal hidratante",
+      "descriptionShort": "Sabonete corporal hidratante. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-119.webp",
+      "price": 32.9,
+      "category": "Corpo",
+      "demonstration": true
+    },
+    {
+      "productName": "Loção para rosto e corpo",
+      "descriptionShort": "Loção para rosto e corpo. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-120.webp",
+      "price": 29.9,
+      "category": "Hidratação",
+      "demonstration": true
+    },
+    {
+      "productName": "Lenços de papel em caixa",
+      "descriptionShort": "Lenços de papel em caixa. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-41.webp",
+      "price": 9.9,
+      "category": "Higiene",
+      "demonstration": true
+    },
+    {
+      "productName": "Pó facial compacto",
+      "descriptionShort": "Pó facial compacto. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-3.webp",
+      "price": 24.9,
+      "category": "Rosto",
+      "demonstration": true
+    },
+    {
+      "productName": "Batom vermelho",
+      "descriptionShort": "Batom vermelho. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-4.webp",
+      "price": 18.9,
+      "category": "Rosto",
+      "demonstration": true
+    }
+  ],
+  "esportes": [
+    {
+      "productName": "Bola de futebol",
+      "descriptionShort": "Bola de futebol. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-147.webp",
+      "price": 69.9,
+      "category": "Futebol",
+      "demonstration": true
+    },
+    {
+      "productName": "Bola de basquete",
+      "descriptionShort": "Bola de basquete. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-140.webp",
+      "price": 89.9,
+      "category": "Basquete",
+      "demonstration": true
+    },
+    {
+      "productName": "Raquete de tênis",
+      "descriptionShort": "Raquete de tênis. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-152.webp",
+      "price": 149.9,
+      "category": "Tênis",
+      "demonstration": true
+    },
+    {
+      "productName": "Bola de vôlei",
+      "descriptionShort": "Bola de vôlei. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-153.webp",
+      "price": 79.9,
+      "category": "Vôlei",
+      "demonstration": true
+    },
+    {
+      "productName": "Bola de tênis",
+      "descriptionShort": "Bola de tênis. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-151.webp",
+      "price": 19.9,
+      "category": "Tênis",
+      "demonstration": true
+    },
+    {
+      "productName": "Aro de basquete",
+      "descriptionShort": "Aro de basquete. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-141.webp",
+      "price": 129.9,
+      "category": "Basquete",
+      "demonstration": true
+    }
+  ],
+  "moda": [
+    {
+      "productName": "Camisa xadrez azul e preta",
+      "descriptionShort": "Camisa xadrez azul e preta. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-83.webp",
+      "price": 89.9,
+      "category": "Camisas",
+      "demonstration": true
+    },
+    {
+      "productName": "Camisa de manga curta",
+      "descriptionShort": "Camisa de manga curta. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-86.webp",
+      "price": 79.9,
+      "category": "Camisas",
+      "demonstration": true
+    },
+    {
+      "productName": "Vestido longo preto",
+      "descriptionShort": "Vestido longo preto. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-177.webp",
+      "price": 179.9,
+      "category": "Vestidos",
+      "demonstration": true
+    },
+    {
+      "productName": "Vestido estampado",
+      "descriptionShort": "Vestido estampado. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-180.webp",
+      "price": 139.9,
+      "category": "Vestidos",
+      "demonstration": true
+    },
+    {
+      "productName": "Sandália preta e marrom",
+      "descriptionShort": "Sandália preta e marrom. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-185.webp",
+      "price": 69.9,
+      "category": "Calçados",
+      "demonstration": true
+    },
+    {
+      "productName": "Sapatos vermelhos",
+      "descriptionShort": "Sapatos vermelhos. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-189.webp",
+      "price": 119.9,
+      "category": "Calçados",
+      "demonstration": true
+    },
+    {
+      "productName": "Bolsa feminina azul",
+      "descriptionShort": "Bolsa feminina azul. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-172.webp",
+      "price": 129.9,
+      "category": "Acessórios",
+      "demonstration": true
+    },
+    {
+      "productName": "Mochila branca",
+      "descriptionShort": "Mochila branca. Imagem ilustrativa. Produto e preço demonstrativos, sem oferta de venda.",
+      "photo": "/images/catalog/product-175.webp",
+      "price": 99.9,
+      "category": "Acessórios",
+      "demonstration": true
+    }
+  ],
+  "ferramentas": [
+    {
+      "productName": "Furadeira sem fio",
+      "descriptionShort": "Furadeira sem fio. Fotografia ilustrativa, sem especificação de marca ou modelo para venda. Preço demonstrativo.",
+      "photo": "/images/catalog/furadeira.jpg",
+      "price": 249.9,
+      "category": "Furadeiras",
+      "demonstration": true
+    },
+    {
+      "productName": "Alicate universal",
+      "descriptionShort": "Alicate universal. Fotografia ilustrativa, sem especificação de marca ou modelo para venda. Preço demonstrativo.",
+      "photo": "/images/catalog/alicate.jpg",
+      "price": 39.9,
+      "category": "Alicates",
+      "demonstration": true
+    },
+    {
+      "productName": "Trena retrátil",
+      "descriptionShort": "Trena retrátil. Fotografia ilustrativa, sem especificação de marca ou modelo para venda. Preço demonstrativo.",
+      "photo": "/images/catalog/trena.jpg",
+      "price": 29.9,
+      "category": "Medição",
+      "demonstration": true
+    },
+    {
+      "productName": "Martelo de unha",
+      "descriptionShort": "Martelo de unha. Fotografia ilustrativa, sem especificação de marca ou modelo para venda. Preço demonstrativo.",
+      "photo": "/images/catalog/martelo.jpg",
+      "price": 44.9,
+      "category": "Manuais",
+      "demonstration": true
+    },
+    {
+      "productName": "Parafusadeira sem fio",
+      "descriptionShort": "Parafusadeira sem fio. Fotografia ilustrativa, sem especificação de marca ou modelo para venda. Preço demonstrativo.",
+      "photo": "/images/catalog/parafusadeira.jpg",
+      "price": 159.9,
+      "category": "Furadeiras",
+      "demonstration": true
+    }
+  ]
+}

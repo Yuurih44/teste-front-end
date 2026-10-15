@@ -43,7 +43,9 @@ export default function ProductCard({
         {product.reference ? (
           <p className="reference-caption">Preço consultado · Seminovo</p>
         ) : (
-          <p className="free-shipping">Frete grátis</p>
+          <p className="free-shipping">
+            {product.demonstration ? "Preço demonstrativo" : "Frete grátis"}
+          </p>
         )}
       </div>
       {product.reference ? (

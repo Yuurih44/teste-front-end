@@ -1,18 +1,12 @@
+import { departments } from "../model/departments";
 import { sortProducts, type ProductSort } from "../model/queries";
 import ProductSkeleton from "./ProductSkeleton";
 import { useCarousel } from "../hooks/useCarousel";
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import type { Product } from "../model/product";
-const categories = [
-  "Celular",
-  "Acessórios",
-  "Tablets",
-  "Notebooks",
-  "TVs",
-  "Ver todos",
-];
 interface Props {
+  categories?: readonly string[];
   id: string;
   products: Product[];
   loading: boolean;
@@ -23,6 +17,7 @@ interface Props {
   query?: string;
 }
 export default function Showcase({
+  categories = departments[0].categories,
   id,
   products,
   loading,
@@ -32,10 +27,12 @@ export default function Showcase({
   withCategories = false,
   query = "",
 }: Props) {
-  const [category, setCategory] = useState("Celular");
+  const [category, setCategory] = useState(categories[0]);
   const [sort, setSort] = useState<ProductSort>("relevance");
   const filtered =
-    category === "Celular" || category === "Ver todos" ? products : [];
+    category === categories[0] || category === "Ver todos"
+      ? products
+      : products.filter((product) => product.category === category);
   const visible = sortProducts(filtered, sort);
   const { track, canScroll, scroll } = useCarousel(visible.length);
   return (

@@ -1,31 +1,29 @@
-import { goToProducts } from "../../utils/navigation";
-const departments = [
-  ["Tecnologia", "tecnologia"],
-  ["Supermercado", "supermercado"],
-  ["Bebidas", "bebidas"],
-  ["Ferramentas", "ferramentas"],
-  ["Saúde", "saude"],
-  ["Esportes e Fitness", "esportes"],
-  ["Moda", "moda"],
-];
+import {
+  departments,
+  type DepartmentId,
+} from "../../features/catalog/model/departments";
+
 export default function DepartmentTiles({
-  onInfo,
+  active,
+  onSelect,
 }: {
-  onInfo: (title: string) => void;
+  active: DepartmentId;
+  onSelect: (department: DepartmentId) => void;
 }) {
   return (
     <nav
       className="department-tiles container"
       aria-label="Navegar por departamento"
     >
-      {departments.map(([title, image], index) => (
+      {departments.map(({ id, title }) => (
         <button
-          className={index === 0 ? "active" : ""}
-          key={image}
-          onClick={() => (index === 0 ? goToProducts() : onInfo(title))}
+          className={active === id ? "active" : ""}
+          key={id}
+          aria-pressed={active === id}
+          onClick={() => onSelect(id)}
         >
           <span>
-            <img src={`/images/${image}.png`} alt="" width="64" height="64" />
+            <img src={`/images/${id}.png`} alt="" width="64" height="64" />
           </span>
           {title}
         </button>
