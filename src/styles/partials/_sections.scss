@@ -1,0 +1,224 @@
+@use "sass:color";
+@use "tokens" as *;
+
+.partners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-bottom: 90px;
+}
+.partner-card {
+  min-height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: white;
+  background:
+    linear-gradient(0deg, #000b, transparent),
+    url("/images/parceiros.webp") center / cover;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px 44px 39px;
+  h2 {
+    font-size: 40px;
+    line-height: 1.5;
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 16px;
+    margin: 0 0 32px;
+    line-height: 1.5;
+  }
+  .yellow-button {
+    min-width: 145px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+}
+.brands {
+  margin-bottom: 90px;
+  h2 {
+    font-size: 30px;
+    color: $primary;
+    text-align: center;
+    margin: 0 0 32px;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    margin: 0;
+    padding: 0 20px 12px;
+  }
+  button {
+    background: white;
+    width: 211px;
+    aspect-ratio: 1;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 7px 15px #0002;
+    .logo {
+      width: 119px;
+      height: 35px;
+      margin: auto;
+    }
+    &:hover {
+      box-shadow: 0 7px 20px #3442b533;
+    }
+  }
+}
+.newsletter {
+  background: $purple;
+  color: white;
+  &__inner {
+    min-height: 162px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding-block: 32px;
+  }
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.4;
+    letter-spacing: -0.6px;
+  }
+  p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 300;
+  }
+  &__fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 157px;
+    gap: 8px;
+    input {
+      min-width: 0;
+      width: 100%;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: white;
+      padding: 12px 22px;
+      font-size: 14px;
+    }
+    .yellow-button {
+      font-size: 14px;
+      color: #080808;
+      text-transform: uppercase;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+  }
+  &__consent {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 7px;
+    font-size: 14px;
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    input {
+      margin: 0;
+      accent-color: $yellow;
+      width: 14px;
+      height: 14px;
+    }
+    button {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: inherit;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__feedback {
+    margin-top: 8px !important;
+    font-size: 12px !important;
+  }
+}
+.footer-main {
+  background: #f4f4f4;
+  &__inner {
+    min-height: 282px;
+    padding-block: 42px;
+    display: grid;
+    grid-template-columns: 445px 1fr;
+    gap: 88px;
+  }
+}
+.footer-about {
+  border-right: 1px solid #d8d8d8;
+  padding: 20px 30px 20px 0;
+  .logo {
+    width: 164px;
+    height: 49px;
+  }
+  p {
+    font-size: 14px;
+    margin: 18px 0 26px;
+    font-weight: 300;
+  }
+  nav {
+    display: flex;
+    gap: 24px;
+    button {
+      color: #535353;
+      display: flex;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+  }
+}
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1.5fr;
+  gap: 40px;
+  align-content: center;
+  h2 {
+    font-size: 16px;
+    color: #606060;
+    margin: 0 0 14px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin: 0 0 10px;
+  }
+  button {
+    border: 0;
+    background: transparent;
+    color: #606060;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+  padding: 16px 20px;
+  font-weight: 300;
+}

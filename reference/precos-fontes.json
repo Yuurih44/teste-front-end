@@ -1,0 +1,98 @@
+{
+  "catalogEndpoints": [
+    "https://www.trocafone.com.br/api/catalog_system/pub/products/search?ft=iphone%2011%20pro%20max",
+    "https://www.trocafone.com.br/api/catalog_system/pub/products/search?ft=iphone%2013%20mini"
+  ],
+  "items": [
+    {
+      "sku": "26008",
+      "name": "iPhone 11 Pro Max 64GB Prateado Muito Bom",
+      "price": 1849.0,
+      "stockAtCapture": 1,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/316879/smpapl0024prte-p.jpg?v=638737519967830000",
+      "url": "https://www.trocafone.com.br/iphone-11-pro-max-64gb/p?skuId=26008",
+      "checkedAt": "2026-10-15T17:14:42.113011+00:00"
+    },
+    {
+      "sku": "39492",
+      "name": "iPhone 13 Mini 256GB Verde Muito Bom",
+      "price": 2549.0,
+      "stockAtCapture": 1,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/338726/smpapl0030verd-p.jpg?v=638890665650070000",
+      "url": "https://www.trocafone.com.br/iphone-13-mini-256gb/p?skuId=39492",
+      "checkedAt": "2026-10-15T17:14:42.940597+00:00"
+    },
+    {
+      "sku": "26007",
+      "name": "iPhone 11 Pro Max 64GB Prateado Bom",
+      "price": 1739.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/316787/smpapl0024prte-p.jpg?v=638737519967530000",
+      "url": "https://www.trocafone.com.br/iphone-11-pro-max-64gb/p?skuId=26007",
+      "checkedAt": "2026-10-15T17:14:43.572281+00:00"
+    },
+    {
+      "sku": "34649",
+      "name": "iPhone 13 Mini 256GB Azul Excelente",
+      "price": 2679.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/338662/smpapl0030azul-p.jpg?v=638890665646800000",
+      "url": "https://www.trocafone.com.br/iphone-13-mini-256gb/p?skuId=34649",
+      "checkedAt": "2026-10-15T17:14:44.355889+00:00"
+    },
+    {
+      "sku": "26009",
+      "name": "iPhone 11 Pro Max 64GB Prateado Excelente",
+      "price": 1949.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/316835/smpapl0024prte-p.jpg?v=638737519968000000",
+      "url": "https://www.trocafone.com.br/iphone-11-pro-max-64gb/p?skuId=26009",
+      "checkedAt": "2026-10-15T17:14:44.967583+00:00"
+    },
+    {
+      "sku": "34653",
+      "name": "iPhone 13 Mini 256GB Rosa Muito Bom",
+      "price": 2549.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/338674/smpapl0030rosa-p.jpg?v=638890665647870000",
+      "url": "https://www.trocafone.com.br/iphone-13-mini-256gb/p?skuId=34653",
+      "checkedAt": "2026-10-15T17:14:46.091021+00:00"
+    },
+    {
+      "sku": "25967",
+      "name": "iPhone 11 Pro Max 256GB Prateado Bom",
+      "price": 1919.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/316803/smpapl0024prte-p.jpg?v=638911268149870000",
+      "url": "https://www.trocafone.com.br/iphone-11-pro-max-256gb/p?skuId=25967",
+      "checkedAt": "2026-10-15T17:14:46.778677+00:00"
+    },
+    {
+      "sku": "33145",
+      "name": "iPhone 13 Mini 512GB Meia Noite Bom",
+      "price": 2729.0,
+      "stockAtCapture": 1,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/353799/smpapl0030meno-p.jpg?v=638539051929770000",
+      "url": "https://www.trocafone.com.br/iphone-13-mini-512gb/p?skuId=33145",
+      "checkedAt": "2026-10-15T17:14:47.258437+00:00"
+    },
+    {
+      "sku": "25968",
+      "name": "iPhone 11 Pro Max 256GB Prateado Muito Bom",
+      "price": 2039.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/316899/smpapl0024prte-p.jpg?v=638911268150630000",
+      "url": "https://www.trocafone.com.br/iphone-11-pro-max-256gb/p?skuId=25968",
+      "checkedAt": "2026-10-15T17:14:47.922105+00:00"
+    },
+    {
+      "sku": "33141",
+      "name": "iPhone 13 Mini 256GB Meia Noite Bom",
+      "price": 2399.0,
+      "stockAtCapture": 0,
+      "image": "https://trocafone.vteximg.com.br/arquivos/ids/338538/smpapl0030meno-p.jpg?v=638890665641670000",
+      "url": "https://www.trocafone.com.br/iphone-13-mini-256gb/p?skuId=33141",
+      "checkedAt": "2026-10-15T17:14:48.797667+00:00"
+    }
+  ]
+}

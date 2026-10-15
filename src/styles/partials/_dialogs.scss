@@ -1,0 +1,142 @@
+@use "sass:color";
+@use "tokens" as *;
+
+.product-modal,
+.info-modal {
+  position: fixed;
+  width: min(769px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  border: 0;
+  border-radius: 6px;
+  padding: 54px 40px 36px;
+  color: $text;
+  box-shadow: 0 20px 80px #0004;
+  &::backdrop {
+    background: #0009;
+  }
+}
+.product-modal {
+  &[open] {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 42px;
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+    }
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 4px 0 5px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  &__price {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  &__content > p:not(.purchase-feedback) {
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.5px;
+    margin: 26px 0 3px;
+  }
+  &__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 28px;
+    .yellow-button {
+      flex: 1;
+      min-height: 36px;
+      font-size: 14px;
+      padding: 8px 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}
+.details-link {
+  color: $primary;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.extra-details {
+  font-size: 12px;
+  p {
+    margin: 8px 0 0;
+  }
+}
+.close-button {
+  position: absolute;
+  top: 7px;
+  right: 23px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  font-weight: 300;
+  color: #707070;
+}
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  height: 36px;
+  color: $purple;
+  button {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    color: inherit;
+  }
+  output {
+    font-size: 16px;
+    min-width: 40px;
+    text-align: center;
+  }
+}
+.purchase-feedback {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+  &:empty {
+    display: none;
+  }
+}
+.info-modal {
+  width: min(500px, calc(100% - 32px));
+  h2 {
+    margin-top: 0;
+    font-size: 22px;
+  }
+  p {
+    font-size: 14px;
+    margin: 20px 0;
+  }
+}
+.product-source {
+  margin-top: 12px;
+  font-size: 11px;
+  p {
+    margin: 4px 0;
+    color: #606060;
+  }
+}

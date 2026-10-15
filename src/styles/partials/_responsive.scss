@@ -1,0 +1,357 @@
+@use "sass:color";
+@use "tokens" as *;
+
+@media (min-width: 1600px) {
+  .hero {
+    background-size: cover;
+  }
+}
+@media (max-width: 1250px) {
+  .header-actions {
+    margin-left: 0;
+    gap: 18px;
+  }
+  .header-main {
+    gap: 24px;
+  }
+  .department-tiles {
+    overflow-x: auto;
+    justify-content: space-between;
+    padding-inline: 10px;
+    gap: 22px;
+    button span {
+      width: 110px;
+      height: 110px;
+    }
+  }
+  .brands button {
+    width: clamp(130px, 15vw, 211px);
+  }
+  .brands ul {
+    padding-inline: 0;
+  }
+  .newsletter__inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .newsletter__fields {
+    grid-template-columns: 1fr 1fr 157px;
+  }
+  .footer-main__inner {
+    grid-template-columns: 32% 1fr;
+    gap: 50px;
+  }
+  .footer-columns {
+    gap: 24px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    width: calc(100% - 64px);
+  }
+  .benefits {
+    gap: 40px;
+    font-size: 10px;
+  }
+  .header-main {
+    flex-wrap: wrap;
+    padding-block: 16px;
+    gap: 18px;
+  }
+  .search {
+    order: 3;
+    width: 100%;
+  }
+  .header-actions {
+    margin-left: auto;
+  }
+  .departments {
+    overflow-x: auto;
+    justify-content: space-between;
+    gap: 22px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .section-title {
+    margin-inline: 20px;
+    font-size: 28px;
+    gap: 20px;
+  }
+  .product-list {
+    grid-auto-columns: calc((100% - 36px) / 3);
+  }
+  .carousel__arrow--previous {
+    left: -26px;
+  }
+  .carousel__arrow--next {
+    right: -26px;
+  }
+  .partner-card {
+    padding-inline: 28px;
+  }
+  .footer-main__inner {
+    gap: 30px;
+  }
+  .footer-columns {
+    gap: 18px;
+    grid-template-columns: 1fr 1fr 1.2fr;
+  }
+  .footer-columns button {
+    font-size: 12px;
+  }
+  .footer-about .logo {
+    width: 139px;
+    height: 41px;
+  }
+}
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .benefits {
+    min-height: 30px;
+    justify-content: center;
+    > span:not(:first-child) {
+      display: none;
+    }
+  }
+  .departments {
+    box-shadow: none;
+    width: 100%;
+    padding-inline: 20px;
+  }
+  .hero {
+    height: 360px;
+    background-position: 60% center;
+    background-image:
+      linear-gradient(90deg, #000b, #0003), url("/images/black-friday.webp");
+    &__content {
+      padding-top: 65px;
+    }
+    h1 {
+      font-size: 36px;
+      max-width: 480px;
+    }
+    p {
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
+  }
+  .department-tiles {
+    width: 100%;
+    padding: 28px 20px 12px;
+    margin-bottom: 48px;
+    gap: 22px;
+    button {
+      font-size: 12px;
+      gap: 12px;
+      span {
+        width: 92px;
+        height: 92px;
+      }
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+  .section-title {
+    margin-inline: 0;
+    font-size: 24px;
+    gap: 12px;
+  }
+  .categories {
+    flex-wrap: wrap;
+    button {
+      flex: 1 0 33.33%;
+      height: 42px;
+      font-size: 12px;
+      border: 1px solid #bdbdbd;
+      margin: -1px 0 0 -1px;
+    }
+  }
+  .product-list {
+    grid-auto-columns: calc((100% - 18px) / 2);
+  }
+  .product-card {
+    min-height: 460px;
+    &__image {
+      height: 210px;
+    }
+  }
+  .carousel__arrow--previous {
+    left: -14px;
+  }
+  .carousel__arrow--next {
+    right: -14px;
+  }
+  .showcase {
+    margin-bottom: 40px;
+  }
+  .partners {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .partner-card {
+    min-height: 310px;
+    h2 {
+      font-size: 36px;
+    }
+  }
+  .brands {
+    margin-bottom: 48px;
+    h2 {
+      font-size: 24px;
+    }
+    ul {
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 0 8px 20px;
+      gap: 22px;
+    }
+    button {
+      width: 150px;
+    }
+  }
+  .newsletter__inner {
+    padding-block: 32px;
+  }
+  .newsletter h2 {
+    font-size: 25px;
+  }
+  .newsletter__fields {
+    grid-template-columns: 1fr 1fr;
+    .yellow-button {
+      grid-column: 1/-1;
+    }
+  }
+  .newsletter__consent {
+    font-size: 12px;
+  }
+  .footer-main__inner {
+    grid-template-columns: 1fr;
+    padding-block: 32px;
+  }
+  .footer-about {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    padding: 0 0 28px;
+  }
+  .footer-columns {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1.3fr;
+  }
+  .footer-columns h2 {
+    font-size: 14px;
+  }
+  .product-modal[open] {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 40px 24px 28px;
+  }
+  .product-modal__image img {
+    height: 180px;
+  }
+  .product-modal h2 {
+    font-size: 18px;
+  }
+  .product-modal__content > p:not(.purchase-feedback) {
+    margin-top: 16px;
+  }
+  .product-modal__actions {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 440px) {
+  .header-actions {
+    gap: 16px;
+    button:first-child {
+      display: none;
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  .logo {
+    width: 126px;
+    height: 37px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 24px;
+  }
+  .desktop-break {
+    display: none;
+  }
+  .section-title {
+    font-size: 21px;
+    gap: 8px;
+  }
+  .product-list {
+    grid-auto-columns: 100%;
+  }
+  .product-card {
+    min-height: 490px;
+    &__image {
+      height: 260px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    &__pricing p {
+      font-size: 13px;
+    }
+  }
+  .newsletter__fields {
+    grid-template-columns: 1fr;
+  }
+  .newsletter h2 {
+    font-size: 23px;
+  }
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+  }
+  .footer-columns > div:last-child {
+    grid-column: 1/-1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+// Alinhamento dos cartões e recorte do banner conforme o protótipo de 1440px.
+@media (min-width: 761px) {
+  .hero {
+    background-size:
+      auto,
+      1920px auto;
+    background-position:
+      center,
+      -40px 34%;
+  }
+}
+@media (min-width: 1251px) {
+  .department-tiles {
+    margin-bottom: 90px;
+  }
+  .newsletter__inner {
+    gap: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .brands ul {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+  }
+}
