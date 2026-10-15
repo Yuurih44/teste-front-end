@@ -4,28 +4,29 @@ A aplicação usa React, TypeScript e Sass. A organização separa composição 
 
 ## Áreas
 
-| Diretório                          | Responsabilidade                                                                     |
-| ---------------------------------- | ------------------------------------------------------------------------------------ |
-| `src/app`                          | Inicialização dos providers e composição da página em `Storefront`                   |
-| `src/components/layout`            | Cabeçalho e rodapé                                                                   |
-| `src/components/sections`          | Seções institucionais e promocionais da página                                       |
-| `src/components/ui`                | Elementos reutilizáveis: diálogo, ícones, logo e controle de quantidade              |
-| `src/features/catalog/api`         | Consulta HTTP e validação da resposta externa                                        |
-| `src/features/catalog/model`       | Contrato do produto, busca e ordenação                                               |
-| `src/features/catalog/hooks`       | Carregamento assíncrono e comportamento do carrossel                                 |
-| `src/features/catalog/components`  | Vitrine, cartão, imagem, skeleton e modal do produto                                 |
-| `src/features/account`             | Diálogos de perfil e assinatura demonstrativos, com preferências validadas na sessão |
-| `src/features/shopping/model`      | Persistência, quantidades, montagem do carrinho e total                              |
-| `src/features/shopping/context`    | Estado compartilhado e ações de carrinho/favoritos                                   |
-| `src/features/shopping/hooks`      | Acesso ao contexto da loja                                                           |
-| `src/features/shopping/components` | Diálogos do carrinho e dos favoritos                                                 |
-| `src/utils`                        | Formatação monetária e navegação compartilhadas                                      |
-| `src/styles`                       | Sass por seção, tokens e regras responsivas                                          |
+| Diretório                          | Responsabilidade                                                        |
+| ---------------------------------- | ----------------------------------------------------------------------- |
+| `src/app`                          | Inicialização dos providers e composição da página em `Storefront`      |
+| `src/components/layout`            | Cabeçalho e rodapé                                                      |
+| `src/components/sections`          | Seções institucionais e promocionais da página                          |
+| `src/components/ui`                | Elementos reutilizáveis: diálogo, ícones, logo e controle de quantidade |
+| `src/features/catalog/api`         | Consulta HTTP e validação da resposta externa                           |
+| `src/features/catalog/model`       | Contrato do produto, busca e ordenação                                  |
+| `src/features/catalog/hooks`       | Carregamento assíncrono e comportamento do carrossel                    |
+| `src/features/catalog/components`  | Vitrine, cartão, imagem, skeleton e modal do produto                    |
+| `src/features/account/components`  | Diálogos de perfil e assinatura demonstrativos                          |
+| `src/features/account/model`       | Leitura e validação das preferências guardadas na sessão                |
+| `src/features/shopping/model`      | Persistência, quantidades, montagem do carrinho e total                 |
+| `src/features/shopping/context`    | Estado compartilhado e ações de carrinho/favoritos                      |
+| `src/features/shopping/hooks`      | Acesso ao contexto da loja                                              |
+| `src/features/shopping/components` | Diálogos do carrinho e dos favoritos                                    |
+| `src/utils`                        | Formatação monetária e navegação compartilhadas                         |
+| `src/styles`                       | Sass por seção, tokens e regras responsivas                             |
 
 ## Fluxo dos dados
 
 1. `App` escolhe o modo de catálogo a partir da URL e chama `useProducts` para Tecnologia. O departamento ativo também é registrado na URL, com suporte ao histórico do navegador.
-2. O serviço consulta o endpoint, valida o contrato e devolve produtos tipados. O hook controla carregamento, erro, cancelamento e nova tentativa.
+2. O módulo `catalog/api` consulta o endpoint, valida o contrato e devolve produtos tipados. O hook controla carregamento, erro, cancelamento e nova tentativa.
 3. `Storefront` compõe as seções, seleciona os produtos do departamento e controla a busca e os diálogos. As funções de busca e ordenação não modificam a sequência original do catálogo.
 4. `StoreProvider` recebe a união dos produtos de Tecnologia e dos departamentos demonstrativos, compartilhando as ações da loja entre os departamentos. O navegador guarda identificadores e quantidades; preços e fotos sempre vêm do catálogo carregado.
 5. As regras de carrinho derivam os itens válidos e calculam totais em centavos. Produtos removidos do catálogo não entram no total; quantidades ficam entre 1 e 99.

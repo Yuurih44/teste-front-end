@@ -61,24 +61,45 @@ A versão também foi verificada no Chromium com a API real, nas larguras de 320
 
 ```text
 src/
-  app/                Inicialização, providers e composição da página
+  app/                    Entrada React, providers, página e teste de integração
   components/
-    layout/           Cabeçalho e rodapé
-    sections/         Banner, departamentos, parceiros, marcas e newsletter
-    ui/               Diálogo, ícones, logo e controle de quantidade
+    layout/               Cabeçalho e rodapé
+    sections/             Hero, departamentos, parceiros, marcas e newsletter
+    ui/                   Diálogos, ícones, logo e controles compartilhados
   features/
-    catalog/          API, modelos, busca, ordenação, hooks e componentes
-    shopping/         Carrinho, favoritos, contexto e persistência
-  utils/              Moeda e navegação
-  styles/             Sass por seção, tokens e responsividade
-e2e/                  Testes de navegador e fixture da API
-public/               Fontes, imagens e catálogo opcional
-docs/                 Arquitetura e capturas da implementação
-reference/            Enunciado, fontes dos recursos e validação
-server.mjs            Servidor de produção e proxy do catálogo
+    account/              Perfil e assinatura demonstrativos
+    catalog/
+      api/                Consulta e validação da API
+      components/         Vitrine, cartões, imagens, skeleton e modal
+      data/               Categorias e catálogo demonstrativo em JSON
+      hooks/              Carregamento e carrossel
+      model/              Tipos, seleção, busca e ordenação
+    shopping/
+      components/         Diálogos do carrinho e favoritos
+      context/            Estado compartilhado da loja
+      hooks/              Acesso ao contexto
+      model/              Regras de carrinho, favoritos e armazenamento
+  styles/                 Sass principal, tokens e parciais por área
+  utils/                  Formatação monetária e navegação
+  test-setup.ts           Configuração comum do Vitest
+
+e2e/                      Playwright e fixtures dos testes de navegador
+public/
+  data/                   Catálogo opcional servido como arquivo estático
+  fonts/                  Poppins e licença
+  images/
+    catalog/              Imagens dos produtos demonstrativos
+    phones/               Fotos do catálogo opcional de celulares
+    ...                   Banner, logo e imagens das seções
+
+docs/                     Arquitetura, créditos e capturas da implementação
+reference/                Enunciado, validação e fontes dos dados e recursos
+.github/workflows/        Verificações automáticas em push e pull request
 ```
 
-Os testes unitários ficam próximos dos módulos que verificam. `App` inicializa a aplicação e `Storefront` compõe a página. Regras de busca, ordenação, quantidades e total são funções independentes da interface. Veja as responsabilidades, o fluxo dos dados e as decisões em [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Cada funcionalidade mantém seus dados, regras, componentes e testes próximos. `components/` guarda apenas peças compartilhadas entre áreas; `app/` compõe a página e conecta os providers. Os testes unitários ficam junto ao módulo verificado, enquanto cenários completos do navegador ficam em `e2e/`. Arquivos de configuração de ferramentas permanecem na raiz para que Vite, TypeScript, ESLint, Prettier e Playwright os encontrem pelos padrões convencionais. Saídas de build e relatórios de teste são gerados localmente e ignorados pelo Git.
+
+`App` inicializa a aplicação e `Storefront` compõe a página. Regras de busca, ordenação, quantidades e total são funções independentes da interface. Veja responsabilidades, fluxo de dados e decisões em [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## API e decisões
 
