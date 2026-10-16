@@ -24,7 +24,7 @@
     gap: 42px;
   }
   &--reference {
-    height: auto;
+    height: fit-content;
   }
   &__image {
     display: flex;
@@ -141,9 +141,10 @@
   font-size: 11px;
   line-height: 1.5;
   margin: 12px 0 0;
-  &:empty {
-    display: none;
-  }
+  min-height: 3em;
+}
+.view-cart-slot {
+  min-height: 36px;
 }
 .info-modal {
   width: min(500px, calc(100% - 32px));

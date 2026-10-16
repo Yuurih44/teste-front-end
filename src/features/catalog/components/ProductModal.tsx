@@ -106,10 +106,14 @@ export default function ProductModal({
             ? `${cartQuantity} ${cartQuantity === 1 ? "unidade no carrinho" : "unidades no carrinho"}. Total: ${money((Math.round(product.price * 100) * cartQuantity) / 100)}. Compra demonstrativa, sem cobrança.`
             : ""}
         </p>
-        {expanded && added && (
-          <button className="text-button view-cart" onClick={onViewCart}>
-            Ver meu carrinho →
-          </button>
+        {expanded && (
+          <div className="view-cart-slot">
+            {added && (
+              <button className="text-button view-cart" onClick={onViewCart}>
+                Ver meu carrinho →
+              </button>
+            )}
+          </div>
         )}
       </div>
     </Dialog>

@@ -120,6 +120,34 @@ test("versão do teste preserva os controles do modal do protótipo", async ({
   );
 });
 
+test("comprar mantém o modal de produto real na mesma posição", async ({
+  page,
+}) => {
+  await page.goto("/?catalog=real");
+  const card = page.locator("#produtos .product-card").first();
+  await expect(card).toBeVisible();
+  await card.getByRole("button", { name: /Ver detalhes/ }).click();
+
+  const dialog = page.getByRole("dialog");
+  const image = dialog.locator(".product-modal__image");
+  await image.locator("img").evaluate(async (element: HTMLImageElement) => {
+    await element.decode();
+  });
+  const before = {
+    dialog: await dialog.boundingBox(),
+    image: await image.boundingBox(),
+  };
+  expect(before.dialog?.height).toBeLessThan(650);
+
+  await dialog.getByRole("button", { name: "Comprar", exact: true }).click();
+  await expect(dialog.locator(".purchase-feedback")).toContainText(
+    "unidade no carrinho",
+  );
+
+  expect(await dialog.boundingBox()).toEqual(before.dialog);
+  expect(await image.boundingBox()).toEqual(before.image);
+});
+
 test("busca, categorias e nova tentativa funcionam no navegador", async ({
   page,
 }) => {

@@ -247,9 +247,11 @@
     font-size: 14px;
   }
   .product-modal[open] {
+    align-content: start;
     grid-template-columns: 1fr;
+    grid-template-rows: 180px auto;
     gap: 16px;
-    height: auto;
+    height: fit-content;
     padding: 40px 24px 28px;
   }
   .product-modal__image img {
