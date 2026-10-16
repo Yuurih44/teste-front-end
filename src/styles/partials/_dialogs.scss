@@ -17,10 +17,14 @@
   }
 }
 .product-modal {
+  height: 299px;
   &[open] {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 42px;
+  }
+  &--reference {
+    height: auto;
   }
   &__image {
     display: flex;
@@ -61,6 +65,26 @@
       padding: 8px 20px;
       text-transform: uppercase;
       font-weight: 700;
+    }
+  }
+}
+@media (min-width: 761px) {
+  .product-modal__image {
+    position: relative;
+    &::before,
+    &::after {
+      position: absolute;
+      left: 16px;
+      width: 81%;
+      height: 1px;
+      background: #e5e5e5;
+      content: "";
+    }
+    &::before {
+      top: 4px;
+    }
+    &::after {
+      bottom: 17px;
     }
   }
 }

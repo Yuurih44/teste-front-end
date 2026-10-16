@@ -82,7 +82,12 @@ test("versão do teste oculta os recursos extras", async () => {
   await user.click(trigger[0]);
   const dialog = screen.getByRole("dialog", { name: "Iphone mini" });
   expect(dialog).toHaveTextContent("Descrição do mini");
-  expect(dialog.querySelector(".yellow-button")).not.toBeInTheDocument();
+  expect(
+    within(dialog).getByRole("group", { name: "Quantidade" }),
+  ).toBeInTheDocument();
+  expect(
+    within(dialog).getByRole("button", { name: "Comprar" }),
+  ).toBeInTheDocument();
   await user.click(
     within(dialog).getByRole("button", { name: /Veja mais detalhes/ }),
   );

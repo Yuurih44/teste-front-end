@@ -71,6 +71,55 @@ test("modal usa o produto clicado e mantém o foco acessível", async ({
   await expect(dialog).not.toBeVisible();
 });
 
+test("versão do teste preserva os controles do modal do protótipo", async ({
+  page,
+}, info) => {
+  if (info.project.name === "desktop") {
+    await page.setViewportSize({ width: 1440, height: 834 });
+  }
+  await page.goto("/?versao=teste");
+  await expect(page.locator("#produtos .product-card")).toHaveCount(
+    catalog.products.length,
+  );
+  await expect(page.locator("#produtos .favorite-button")).toHaveCount(0);
+
+  const trigger = page
+    .locator("#produtos .product-card")
+    .first()
+    .getByRole("button", { name: /Ver detalhes/ });
+  await trigger.click();
+  const dialog = page.getByRole("dialog");
+  await dialog.locator("img").evaluate(async (image: HTMLImageElement) => {
+    await image.decode();
+  });
+  await expect(dialog.getByRole("heading")).toContainText(
+    catalog.products[0].productName,
+  );
+  await expect(dialog.getByRole("group", { name: "Quantidade" })).toBeVisible();
+  await expect(
+    dialog.getByRole("button", { name: "Comprar", exact: true }),
+  ).toBeVisible();
+  if (info.project.name === "desktop") {
+    const geometry = await dialog.evaluate((element) => {
+      const rect = element.getBoundingClientRect();
+      return { x: rect.x, y: rect.y, width: rect.width, height: rect.height };
+    });
+    expect(geometry).toEqual({ x: 335.5, y: 267.5, width: 769, height: 299 });
+    await expect(dialog.locator(".yellow-button")).toHaveCSS(
+      "background-color",
+      "rgb(247, 202, 17)",
+    );
+    await expect(dialog.locator(".details-link")).toHaveCSS(
+      "color",
+      "rgb(52, 66, 181)",
+    );
+  }
+  await dialog.getByRole("button", { name: "Comprar", exact: true }).click();
+  await expect(dialog.locator(".purchase-feedback")).toContainText(
+    "unidade no carrinho",
+  );
+});
+
 test("busca, categorias e nova tentativa funcionam no navegador", async ({
   page,
 }) => {

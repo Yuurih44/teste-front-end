@@ -249,6 +249,7 @@
   .product-modal[open] {
     grid-template-columns: 1fr;
     gap: 16px;
+    height: auto;
     padding: 40px 24px 28px;
   }
   .product-modal__image img {

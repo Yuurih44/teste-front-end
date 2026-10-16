@@ -27,7 +27,7 @@ export default function ProductModal({
   const [details, setDetails] = useState(false);
   return (
     <Dialog
-      className="product-modal"
+      className={`product-modal${product.reference ? " product-modal--reference" : ""}`}
       titleId="product-title"
       closeLabel="Fechar detalhes do produto"
       onClose={onClose}
@@ -83,33 +83,29 @@ export default function ProductModal({
             </p>
           </div>
         )}
-        {expanded && (
-          <div className="product-modal__actions">
-            <QuantityControl
-              quantity={quantity}
-              onChange={(value) => {
-                setQuantity(value);
-                setAdded(false);
-              }}
-            />
-            <button
-              className="yellow-button"
-              onClick={() => {
-                onAdd(quantity);
-                setAdded(true);
-              }}
-            >
-              Comprar
-            </button>
-          </div>
-        )}
-        {expanded && (
-          <p className="purchase-feedback" role="status">
-            {added
-              ? `${cartQuantity} ${cartQuantity === 1 ? "unidade no carrinho" : "unidades no carrinho"}. Total: ${money((Math.round(product.price * 100) * cartQuantity) / 100)}. Compra demonstrativa, sem cobrança.`
-              : ""}
-          </p>
-        )}
+        <div className="product-modal__actions">
+          <QuantityControl
+            quantity={quantity}
+            onChange={(value) => {
+              setQuantity(value);
+              setAdded(false);
+            }}
+          />
+          <button
+            className="yellow-button"
+            onClick={() => {
+              onAdd(quantity);
+              setAdded(true);
+            }}
+          >
+            Comprar
+          </button>
+        </div>
+        <p className="purchase-feedback" role="status">
+          {added
+            ? `${cartQuantity} ${cartQuantity === 1 ? "unidade no carrinho" : "unidades no carrinho"}. Total: ${money((Math.round(product.price * 100) * cartQuantity) / 100)}. Compra demonstrativa, sem cobrança.`
+            : ""}
+        </p>
         {expanded && added && (
           <button className="text-button view-cart" onClick={onViewCart}>
             Ver meu carrinho →
