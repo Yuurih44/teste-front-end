@@ -21,20 +21,26 @@ Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porq
 
 ## Requisitos
 
-No Windows, instale o **Node.js 22**, que já inclui o **npm**.
+No Windows, você só precisa instalar o **Node.js** e o **npm** se ainda não estiverem no computador. Se já tiver uma versão compatível do Node.js e o npm, pule a instalação e vá direto ao passo 3.
 
-1. Abra o **Prompt de Comando (cmd)** e execute:
-
-   ```bat
-   winget install --id OpenJS.NodeJS.22 --exact --source winget
-   ```
-
-2. Depois da instalação, feche e abra novamente o Prompt de Comando. Confira se os dois estão instalados:
+1. Abra o **Prompt de Comando (cmd)** e confira se já estão instalados:
 
    ```bat
    node -v
    npm -v
    ```
+
+   O projeto aceita Node.js 22.13 ou superior da linha 22, Node.js 24 ou versões a partir da 26.
+
+2. Se não estiverem instalados, instale o **Node.js 22**, que já inclui o **npm**:
+
+   ```bat
+   winget install --id OpenJS.NodeJS.22 --exact --source winget
+   ```
+
+   Se sua versão do Node.js não for compatível, atualize-a antes de continuar. Depois da instalação, feche e abra novamente o Prompt de Comando e confira com `node -v` e `npm -v`.
+
+   Se o comando `winget` não estiver disponível, use o [instalador oficial do Node.js](https://nodejs.org/en/download).
 
 3. Na pasta do projeto, instale as dependências e inicie a aplicação:
 
@@ -42,8 +48,6 @@ No Windows, instale o **Node.js 22**, que já inclui o **npm**.
    npm ci
    npm run dev
    ```
-
-Se o comando `winget` não estiver disponível, instale o Node.js 22 pelo [site oficial](https://nodejs.org/en/download) e continue a partir do passo 2.
 
 ## Scripts
 
