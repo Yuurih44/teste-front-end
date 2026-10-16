@@ -4,7 +4,11 @@ Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End 
 
 ![Página inicial em desktop com produtos da API da Econverse](docs/screenshots/desktop.png)
 
-**Demonstração online:** [Acessar o site](https://yuurih44.github.io/teste-front-end/)
+**Versão do teste (somente o escopo solicitado):** [Abrir versão do teste](https://yuurih44.github.io/teste-front-end/?versao=teste)
+
+**Versão ampliada (com funcionalidades e departamentos extras):** [Abrir versão ampliada](https://yuurih44.github.io/teste-front-end/)
+
+As duas versões preservam a mesma base visual. A versão do teste apresenta o catálogo oficial e o fluxo de detalhes dos produtos; a versão ampliada inclui os recursos adicionais descritos abaixo.
 
 O GitHub Pages publica a versão atual automaticamente a cada atualização da branch `main`, pelo workflow [`Publicar no GitHub Pages`](.github/workflows/deploy-pages.yml).
 
@@ -21,7 +25,7 @@ O catálogo oficial da Econverse é carregado por padrão. Abra a URL informada 
 http://localhost:5173/
 ```
 
-Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porque esse já é o modo padrão. A página consulta o JSON da Econverse pelo proxy `/api/products`. O catálogo local de iPhones continua disponível em `?catalog=real`. A captura de tela e os departamentos adicionais usam dados locais.
+Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porque esse já é o modo padrão. A página consulta o JSON da Econverse pelo proxy `/api/products`. Na versão ampliada, o catálogo local de iPhones continua disponível em `?catalog=real`. A captura de tela e os departamentos adicionais usam dados locais.
 
 ## Requisitos
 
@@ -74,7 +78,7 @@ O endpoint consultado é `https://app.econverse.com.br/teste-front-end/junior/te
 
 Na demonstração online, o catálogo oficial é capturado durante a publicação e servido em `/api/products`; ele é atualizado a cada nova publicação.
 
-Os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente.
+Na versão ampliada, os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente.
 
 ## Extras demonstrativos
 

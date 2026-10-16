@@ -23,6 +23,7 @@ import { useStore } from "../features/shopping/hooks/useStore";
 import CartDialog from "../features/shopping/components/CartDialog";
 import FavoritesDialog from "../features/shopping/components/FavoritesDialog";
 export default function Storefront({
+  expanded,
   departmentId,
   onDepartmentChange,
   products,
@@ -30,6 +31,7 @@ export default function Storefront({
   error,
   retry,
 }: {
+  expanded: boolean;
   departmentId: DepartmentId;
   onDepartmentChange: (id: DepartmentId) => void;
   products: Product[];
@@ -57,9 +59,15 @@ export default function Storefront({
     return () => window.removeEventListener("popstate", resetNavigation);
   }, []);
   const department = getDepartment(departmentId);
-  const departmentProducts = getDepartmentProducts(departmentId, products);
+  const departmentProducts = expanded
+    ? getDepartmentProducts(departmentId, products)
+    : products;
   const filtered = searchProducts(departmentProducts, query);
   function selectDepartment(id: DepartmentId) {
+    if (!expanded && id !== "tecnologia") {
+      setInfo("Os outros departamentos estão na versão ampliada.");
+      return;
+    }
     setQuery("");
     setSearchInput("");
     setSelected(null);
@@ -79,13 +87,30 @@ export default function Storefront({
         Pular para o conteúdo
       </a>
       <Header
+        expanded={expanded}
         onDepartment={selectDepartment}
         query={searchInput}
         onQueryChange={setSearchInput}
-        onCart={() => setPanel("cart")}
-        onFavorites={() => setPanel("favorites")}
-        onAccount={() => setPanel("account")}
-        onSubscription={() => setPanel("subscription")}
+        onCart={() =>
+          expanded
+            ? setPanel("cart")
+            : setInfo("Veja o carrinho na versão ampliada.")
+        }
+        onFavorites={() =>
+          expanded
+            ? setPanel("favorites")
+            : setInfo("Veja os favoritos na versão ampliada.")
+        }
+        onAccount={() =>
+          expanded
+            ? setPanel("account")
+            : setInfo("A conta está na versão ampliada.")
+        }
+        onSubscription={() =>
+          expanded
+            ? setPanel("subscription")
+            : setInfo("A assinatura está na versão ampliada.")
+        }
         onInfo={setInfo}
         onSearch={(value) => {
           setQuery(value);
@@ -99,6 +124,7 @@ export default function Storefront({
         <Showcase
           key={`${departmentId}:${query}`}
           {...showcaseProps}
+          expanded={expanded}
           products={filtered}
           query={query}
           id="produtos"
@@ -108,6 +134,7 @@ export default function Storefront({
         <Showcase
           key={`destaques:${departmentId}`}
           {...showcaseProps}
+          expanded={expanded}
           id="destaques"
         />
         <Partners id="mais-parceiros" />
@@ -115,6 +142,7 @@ export default function Storefront({
         <Showcase
           key={`mais:${departmentId}`}
           {...showcaseProps}
+          expanded={expanded}
           id="mais-produtos"
         />
         <Newsletter onTerms={() => setInfo("Termos e Condições")} />
@@ -123,6 +151,7 @@ export default function Storefront({
       {selected && (
         <ProductModal
           product={selected}
+          expanded={expanded}
           onClose={() => setSelected(null)}
           onAdd={(quantity) => addToCart(selected, quantity)}
           onViewCart={() => {
@@ -131,8 +160,10 @@ export default function Storefront({
           }}
         />
       )}
-      {panel === "cart" && <CartDialog onClose={() => setPanel(null)} />}
-      {panel === "favorites" && (
+      {expanded && panel === "cart" && (
+        <CartDialog onClose={() => setPanel(null)} />
+      )}
+      {expanded && panel === "favorites" && (
         <FavoritesDialog
           onClose={() => setPanel(null)}
           onSelect={(product) => {
@@ -141,8 +172,10 @@ export default function Storefront({
           }}
         />
       )}
-      {panel === "account" && <AccountDialog onClose={() => setPanel(null)} />}
-      {panel === "subscription" && (
+      {expanded && panel === "account" && (
+        <AccountDialog onClose={() => setPanel(null)} />
+      )}
+      {expanded && panel === "subscription" && (
         <SubscriptionDialog onClose={() => setPanel(null)} />
       )}
       {info && <InfoModal title={info} onClose={() => setInfo(null)} />}

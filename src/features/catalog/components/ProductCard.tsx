@@ -4,9 +4,11 @@ import { money } from "../../../utils/currency";
 import type { Product } from "../model/product";
 import ProductImage from "./ProductImage";
 export default function ProductCard({
+  expanded,
   product,
   onSelect,
 }: {
+  expanded: boolean;
   product: Product;
   onSelect: (product: Product) => void;
 }) {
@@ -17,14 +19,16 @@ export default function ProductCard({
   const favorite = isFavorite(product);
   return (
     <article className="product-card">
-      <button
-        className={`favorite-button${favorite ? " is-favorite" : ""}`}
-        aria-label={`${favorite ? "Remover" : "Adicionar"} ${product.productName} ${favorite ? "dos" : "aos"} favoritos`}
-        aria-pressed={favorite}
-        onClick={() => toggleFavorite(product)}
-      >
-        <Icon name="heart" size={21} />
-      </button>
+      {expanded && (
+        <button
+          className={`favorite-button${favorite ? " is-favorite" : ""}`}
+          aria-label={`${favorite ? "Remover" : "Adicionar"} ${product.productName} ${favorite ? "dos" : "aos"} favoritos`}
+          aria-pressed={favorite}
+          onClick={() => toggleFavorite(product)}
+        >
+          <Icon name="heart" size={21} />
+        </button>
+      )}
       <h3 className="product-card__heading">
         <button
           className="product-card__details"

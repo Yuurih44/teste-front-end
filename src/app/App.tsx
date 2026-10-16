@@ -8,27 +8,30 @@ import { useProducts } from "../features/catalog/hooks/useProducts";
 import StoreProvider from "../features/shopping/context/StoreProvider";
 import Storefront from "./Storefront";
 export default function App() {
+  const params = new URLSearchParams(window.location.search);
+  const expanded = params.get("versao") !== "teste";
   const mode =
-    new URLSearchParams(window.location.search).get("catalog") === "real"
-      ? "real"
-      : "assessment";
+    expanded && params.get("catalog") === "real" ? "real" : "assessment";
   const [department, setDepartment] = useState(
     () =>
-      getDepartment(
-        new URLSearchParams(window.location.search).get("department"),
-      ).id,
+      expanded
+        ? getDepartment(params.get("department")).id
+        : "tecnologia",
   );
   useEffect(() => {
-    const syncDepartment = () =>
+    const syncDepartment = () => {
+      const current = new URLSearchParams(window.location.search);
       setDepartment(
-        getDepartment(
-          new URLSearchParams(window.location.search).get("department"),
-        ).id,
+        current.get("versao") === "teste"
+          ? "tecnologia"
+          : getDepartment(current.get("department")).id,
       );
+    };
     window.addEventListener("popstate", syncDepartment);
     return () => window.removeEventListener("popstate", syncDepartment);
   }, []);
   function changeDepartment(id: DepartmentId) {
+    if (!expanded && id !== "tecnologia") return;
     const url = new URL(window.location.href);
     if (id === "tecnologia") url.searchParams.delete("department");
     else url.searchParams.set("department", id);
@@ -41,9 +44,10 @@ export default function App() {
     <StoreProvider
       key={mode}
       mode={mode}
-      products={[...products, ...demoProducts]}
+      products={expanded ? [...products, ...demoProducts] : products}
     >
       <Storefront
+        expanded={expanded}
         departmentId={department}
         onDepartmentChange={changeDepartment}
         products={products}

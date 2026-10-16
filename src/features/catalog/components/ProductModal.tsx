@@ -6,11 +6,13 @@ import { money } from "../../../utils/currency";
 import type { Product } from "../model/product";
 import ProductImage from "./ProductImage";
 export default function ProductModal({
+  expanded,
   product,
   onClose,
   onAdd,
   onViewCart,
 }: {
+  expanded: boolean;
   product: Product;
   onClose: () => void;
   onAdd: (quantity: number) => void;
@@ -46,15 +48,17 @@ export default function ProductModal({
         </button>
         {details && (
           <div className="extra-details">
-            <button
-              className="text-button"
-              aria-pressed={isFavorite(product)}
-              onClick={() => toggleFavorite(product)}
-            >
-              {isFavorite(product)
-                ? "Remover dos favoritos"
-                : "Salvar nos favoritos"}
-            </button>
+            {expanded && (
+              <button
+                className="text-button"
+                aria-pressed={isFavorite(product)}
+                onClick={() => toggleFavorite(product)}
+              >
+                {isFavorite(product)
+                  ? "Remover dos favoritos"
+                  : "Salvar nos favoritos"}
+              </button>
+            )}
             <p className="installments">
               ou 2x de {money(product.price / 2)} sem juros
             </p>
@@ -65,7 +69,7 @@ export default function ProductModal({
             )}
           </div>
         )}
-        {product.reference && (
+        {expanded && product.reference && (
           <div className="product-source">
             <p>
               Consulta:{" "}
@@ -79,30 +83,34 @@ export default function ProductModal({
             </p>
           </div>
         )}
-        <div className="product-modal__actions">
-          <QuantityControl
-            quantity={quantity}
-            onChange={(value) => {
-              setQuantity(value);
-              setAdded(false);
-            }}
-          />
-          <button
-            className="yellow-button"
-            onClick={() => {
-              onAdd(quantity);
-              setAdded(true);
-            }}
-          >
-            Comprar
-          </button>
-        </div>
-        <p className="purchase-feedback" role="status">
-          {added
-            ? `${cartQuantity} ${cartQuantity === 1 ? "unidade no carrinho" : "unidades no carrinho"}. Total: ${money((Math.round(product.price * 100) * cartQuantity) / 100)}. Compra demonstrativa, sem cobrança.`
-            : ""}
-        </p>
-        {added && (
+        {expanded && (
+          <div className="product-modal__actions">
+            <QuantityControl
+              quantity={quantity}
+              onChange={(value) => {
+                setQuantity(value);
+                setAdded(false);
+              }}
+            />
+            <button
+              className="yellow-button"
+              onClick={() => {
+                onAdd(quantity);
+                setAdded(true);
+              }}
+            >
+              Comprar
+            </button>
+          </div>
+        )}
+        {expanded && (
+          <p className="purchase-feedback" role="status">
+            {added
+              ? `${cartQuantity} ${cartQuantity === 1 ? "unidade no carrinho" : "unidades no carrinho"}. Total: ${money((Math.round(product.price * 100) * cartQuantity) / 100)}. Compra demonstrativa, sem cobrança.`
+              : ""}
+          </p>
+        )}
+        {expanded && added && (
           <button className="text-button view-cart" onClick={onViewCart}>
             Ver meu carrinho →
           </button>

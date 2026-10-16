@@ -4,6 +4,7 @@ import { type FormEvent } from "react";
 import Icon, { type IconName } from "../ui/Icon";
 import Logo from "../ui/Logo";
 export default function Header({
+  expanded,
   onDepartment,
   onSearch,
   onInfo,
@@ -14,6 +15,7 @@ export default function Header({
   onAccount,
   onSubscription,
 }: {
+  expanded: boolean;
   onDepartment: (id: DepartmentId) => void;
   onSearch: (value: string) => void;
   onInfo: (title: string) => void;
@@ -74,24 +76,22 @@ export default function Header({
             <button
               className="header-action"
               key={icon}
-              onClick={() =>
-                icon === "cart"
-                  ? onCart()
-                  : icon === "heart"
-                    ? onFavorites()
-                    : icon === "user"
-                      ? onAccount()
-                      : onInfo(title)
-              }
+              onClick={() => {
+                if (icon === "cart") return onCart();
+                if (icon === "heart") return onFavorites();
+                if (icon === "user") return onAccount();
+                return onInfo(title);
+              }}
               aria-label={title}
             >
               <Icon name={icon} size={30} />
-              {((icon === "cart" && cartCount > 0) ||
-                (icon === "heart" && favorites.length > 0)) && (
-                <span className="action-count" aria-hidden="true">
-                  {icon === "cart" ? cartCount : favorites.length}
-                </span>
-              )}
+              {expanded &&
+                ((icon === "cart" && cartCount > 0) ||
+                  (icon === "heart" && favorites.length > 0)) && (
+                  <span className="action-count" aria-hidden="true">
+                    {icon === "cart" ? cartCount : favorites.length}
+                  </span>
+                )}
             </button>
           ))}
         </nav>

@@ -6,6 +6,7 @@ import { useState } from "react";
 import ProductCard from "./ProductCard";
 import type { Product } from "../model/product";
 interface Props {
+  expanded: boolean;
   categories?: readonly string[];
   id: string;
   products: Product[];
@@ -17,6 +18,7 @@ interface Props {
   query?: string;
 }
 export default function Showcase({
+  expanded,
   categories = departments[0].categories,
   id,
   products,
@@ -139,7 +141,11 @@ export default function Showcase({
           >
             {visible.map((product, index) => (
               <li key={`${product.productName}-${index}`}>
-                <ProductCard product={product} onSelect={onSelect} />
+                <ProductCard
+                  product={product}
+                  onSelect={onSelect}
+                  expanded={expanded}
+                />
               </li>
             ))}
           </ul>

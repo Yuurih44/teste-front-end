@@ -63,6 +63,36 @@ test("usa a API da Econverse por padrão e abre o produto selecionado", async ()
   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   expect(trigger).toHaveFocus();
 });
+test("versão do teste oculta os recursos extras", async () => {
+  window.history.replaceState(null, "", "/?versao=teste");
+  vi.stubGlobal("fetch", vi.fn(success));
+  const user = userEvent.setup();
+  render(<App />);
+
+  const trigger = await screen.findAllByRole("button", {
+    name: "Ver detalhes de Iphone mini",
+  });
+  expect(document.querySelectorAll("#produtos .product-card")).toHaveLength(2);
+  expect(
+    screen.queryByRole("button", {
+      name: "Adicionar Iphone mini aos favoritos",
+    }),
+  ).not.toBeInTheDocument();
+
+  await user.click(trigger[0]);
+  const dialog = screen.getByRole("dialog", { name: "Iphone mini" });
+  expect(dialog).toHaveTextContent("Descrição do mini");
+  expect(
+    within(dialog).queryByRole("button", { name: "Comprar", exact: true }),
+  ).not.toBeInTheDocument();
+  await user.click(
+    within(dialog).getByRole("button", { name: /Veja mais detalhes/ }),
+  );
+  expect(dialog).toHaveTextContent("Frete grátis");
+  expect(
+    within(dialog).queryByRole("button", { name: "Salvar nos favoritos" }),
+  ).not.toBeInTheDocument();
+});
 test("mostra erro e permite tentar novamente", async () => {
   vi.stubGlobal(
     "fetch",
