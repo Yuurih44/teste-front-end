@@ -4,11 +4,14 @@ Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End 
 
 ![Página inicial em desktop com produtos da API da Econverse](docs/screenshots/desktop.png)
 
-**Versão do teste (somente o escopo solicitado):** [Abrir versão do teste](https://yuurih44.github.io/teste-front-end/?versao=teste)
+## O projeto tem 2 versões
 
-**Versão ampliada (com funcionalidades e departamentos extras):** [Abrir versão ampliada](https://yuurih44.github.io/teste-front-end/)
+| Versão                         | O que inclui                                                                                                 | Acesso                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| **1. Versão oficial do teste** | Somente o escopo solicitado pela Econverse: layout, catálogo oficial em JSON e modal de detalhes do produto. | [ABRIR VERSÃO OFICIAL DO TESTE](https://yuurih44.github.io/teste-front-end/?versao=teste) |
+| **2. Versão ampliada**         | O mesmo layout, com departamentos e funcionalidades extras, como favoritos, carrinho, conta e assinatura.    | [ABRIR VERSÃO AMPLIADA](https://yuurih44.github.io/teste-front-end/)                      |
 
-As duas versões preservam a mesma base visual. A versão do teste apresenta o catálogo oficial e o fluxo de detalhes dos produtos; a versão ampliada inclui os recursos adicionais descritos abaixo.
+**São dois modos no mesmo projeto.** Para avaliar os requisitos da vaga, comece pela **Versão oficial do teste**. A **Versão ampliada** está disponível separadamente para demonstrar as melhorias extras.
 
 O GitHub Pages publica a versão atual automaticamente a cada atualização da branch `main`, pelo workflow [`Publicar no GitHub Pages`](.github/workflows/deploy-pages.yml).
 
