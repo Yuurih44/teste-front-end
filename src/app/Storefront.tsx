@@ -61,7 +61,7 @@ export default function Storefront({
   const department = getDepartment(departmentId);
   const departmentProducts = expanded
     ? getDepartmentProducts(departmentId, products)
-    : products;
+    : products.map((product) => ({ ...product, category: "Celular" }));
   const filtered = searchProducts(departmentProducts, query);
   function selectDepartment(id: DepartmentId) {
     if (!expanded && id !== "tecnologia") {

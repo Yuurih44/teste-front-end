@@ -12,11 +12,8 @@ export default function App() {
   const expanded = params.get("versao") !== "teste";
   const mode =
     expanded && params.get("catalog") === "real" ? "real" : "assessment";
-  const [department, setDepartment] = useState(
-    () =>
-      expanded
-        ? getDepartment(params.get("department")).id
-        : "tecnologia",
+  const [department, setDepartment] = useState(() =>
+    expanded ? getDepartment(params.get("department")).id : "tecnologia",
   );
   useEffect(() => {
     const syncDepartment = () => {
