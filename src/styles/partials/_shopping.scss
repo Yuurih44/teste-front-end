@@ -110,7 +110,10 @@
   text-underline-offset: 3px;
 }
 .view-cart {
-  margin-top: 10px;
+  position: absolute;
+  right: 40px;
+  bottom: 12px;
+  margin: 0;
   font-size: 12px;
   font-weight: 600;
 }

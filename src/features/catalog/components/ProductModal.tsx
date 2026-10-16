@@ -98,22 +98,18 @@ export default function ProductModal({
               setAdded(true);
             }}
           >
-            Comprar
+            {added ? "Adicionado ✓" : "Comprar"}
           </button>
         </div>
-        <p className="purchase-feedback" role="status">
+        <p className="purchase-feedback sr-only" role="status">
           {added
             ? `${cartQuantity} ${cartQuantity === 1 ? "unidade no carrinho" : "unidades no carrinho"}. Total: ${money((Math.round(product.price * 100) * cartQuantity) / 100)}. Compra demonstrativa, sem cobrança.`
             : ""}
         </p>
-        {expanded && (
-          <div className="view-cart-slot">
-            {added && (
-              <button className="text-button view-cart" onClick={onViewCart}>
-                Ver meu carrinho →
-              </button>
-            )}
-          </div>
+        {expanded && added && (
+          <button className="text-button view-cart" onClick={onViewCart}>
+            Ver meu carrinho →
+          </button>
         )}
       </div>
     </Dialog>

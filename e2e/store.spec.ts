@@ -115,6 +115,9 @@ test("versão do teste preserva os controles do modal do protótipo", async ({
     );
   }
   await dialog.getByRole("button", { name: "Comprar", exact: true }).click();
+  await expect(
+    dialog.getByRole("button", { name: "Adicionado ✓", exact: true }),
+  ).toBeVisible();
   await expect(dialog.locator(".purchase-feedback")).toContainText(
     "unidade no carrinho",
   );
@@ -140,6 +143,9 @@ test("comprar mantém o modal de produto real na mesma posição", async ({
   expect(before.dialog?.height).toBeLessThan(650);
 
   await dialog.getByRole("button", { name: "Comprar", exact: true }).click();
+  await expect(
+    dialog.getByRole("button", { name: "Adicionado ✓", exact: true }),
+  ).toBeVisible();
   await expect(dialog.locator(".purchase-feedback")).toContainText(
     "unidade no carrinho",
   );
