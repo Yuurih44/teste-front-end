@@ -19,11 +19,11 @@ npm run format:check
 - Busca, categoria vazia, erro da API e nova tentativa.
 - Limites das setas do carrossel e navegação pelo teclado.
 - Ausência de transbordamento horizontal em desktop e celular.
-- Auditoria axe-core da página, do modal e do carrinho, com regras WCAG 2 A/AA e 2.1 AA no modo padrão e em `prefers-contrast: more`.
+- Auditoria axe-core da página e dos diálogos. No modo padrão, preserva as cores do protótipo e audita as regras exceto contraste; em `prefers-contrast: more`, audita todas as regras WCAG 2 A/AA e 2.1 AA.
 - Catálogo local de iPhones com nomes, preços e imagens por variante; modo escuro do sistema preserva a página clara.
 - Separação do catálogo de referência, fotos por variante e ausência de links de lojas no modal. As fontes permanecem na documentação.
 
-Os testes usam a cópia do JSON em `e2e/fixtures/` exclusivamente para tornar a execução independente do serviço externo. A página inicial consulta a API da Econverse; os testes do catálogo local usam `?catalog=real`. A auditoria automática auxilia a encontrar problemas, mas não substitui uma avaliação manual completa de acessibilidade.
+Os testes usam a cópia do JSON em `e2e/fixtures/` exclusivamente para tornar a execução independente do serviço externo. A página inicial consulta a API da Econverse; os testes do catálogo local usam `?catalog=real`. Os tons padrão seguem a referência, inclusive os textos cinza que não atingem contraste AA; usuários que preferem contraste reforçado recebem cores mais escuras. A auditoria automática auxilia a encontrar problemas, mas não substitui uma avaliação manual completa de acessibilidade.
 
 ## Referência comercial
 
@@ -50,4 +50,4 @@ Os testes de navegador percorrem os seis departamentos demonstrativos em desktop
 
 ## Favoritos, livros, conta e assinatura
 
-Os testes também verificam os corações nos cartões, sincronização dos favoritos, catálogo de livros e pesquisa por Enter; a cor do ícone selecionado e manutenção da posição vertical ao trocar de departamento; formulário de perfil, edição, saída, assinatura com consentimento obrigatório, recarga e cancelamento. Conta e assinatura recebem auditoria axe nos dois modos de contraste, como os demais diálogos. O modelo rejeita preferências de sessão inválidas.
+Os testes também verificam os corações nos cartões, sincronização dos favoritos, catálogo de livros e pesquisa por Enter; a cor do ícone selecionado e manutenção da posição vertical ao trocar de departamento; formulário de perfil, edição, saída, assinatura com consentimento obrigatório, recarga e cancelamento. Conta e assinatura recebem auditoria axe em alto contraste, como os demais diálogos. O modelo rejeita preferências de sessão inválidas.

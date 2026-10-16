@@ -14,7 +14,7 @@
   justify-content: center;
   gap: 116px;
   font-size: 12px;
-  color: #606060;
+  color: #9f9f9f;
   > span {
     display: flex;
     align-items: center;
@@ -56,7 +56,7 @@
     font-size: 14px;
     outline-offset: -3px;
     &::placeholder {
-      color: #606060;
+      color: #9f9f9f;
     }
   }
   button {
@@ -64,7 +64,7 @@
     border: 0;
     background: transparent;
     padding: 10px 22px;
-    color: #606060;
+    color: #9f9f9f;
   }
 }
 .header-actions {
@@ -74,7 +74,7 @@
   button {
     display: flex;
     padding: 0;
-    color: #606060;
+    color: #9f9f9f;
     border: 0;
     background: transparent;
     &:hover {
@@ -97,7 +97,7 @@
     border: 0;
     background: white;
     text-transform: uppercase;
-    color: #606060;
+    color: #9f9f9f;
     font-size: 12px;
     font-weight: 600;
     padding: 8px;

@@ -21,6 +21,19 @@
     padding-inline: 52px;
   }
 }
+// Preserva os tons do protótipo por padrão e reforça o contraste sob demanda.
+@media (prefers-contrast: more) {
+  .benefits,
+  .departments button:not(.highlight),
+  .header-actions button,
+  .search button,
+  .product-modal__content > p:not(.purchase-feedback) {
+    color: #606060;
+  }
+  .search input::placeholder {
+    color: #606060;
+  }
+}
 @media (min-width: 1360px) {
   .department-tiles {
     margin-bottom: 89px;
