@@ -1,11 +1,12 @@
 import type { Product, ProductReference, CatalogMode } from "../model/product";
-export const PRODUCTS_URL = "/api/products";
+const baseUrl = import.meta.env.BASE_URL;
+export const PRODUCTS_URL = `${baseUrl}api/products`;
 export async function getProducts(
   signal?: AbortSignal,
   mode: CatalogMode = "assessment",
 ): Promise<Product[]> {
   const response = await fetch(
-    mode === "real" ? "/data/products-real.json" : PRODUCTS_URL,
+    mode === "real" ? `${baseUrl}data/products-real.json` : PRODUCTS_URL,
     { signal },
   );
   if (!response.ok) throw new Error("Não foi possível carregar os produtos.");

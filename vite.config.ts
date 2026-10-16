@@ -11,6 +11,7 @@ const catalogProxy = {
   },
 };
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? "/teste-front-end/" : "/",
   plugins: [react()],
   server: { proxy: catalogProxy },
   preview: { proxy: catalogProxy },

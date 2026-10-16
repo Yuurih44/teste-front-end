@@ -26,7 +26,7 @@ export default function DepartmentIcon({ image }: { image: string }) {
         </filter>
       </defs>
       <image
-        href={`/images/${image}.png`}
+        href={`${import.meta.env.BASE_URL}images/${image}.png`}
         width="64"
         height="64"
         preserveAspectRatio="xMidYMid meet"

@@ -4,7 +4,9 @@ Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End 
 
 ![Página inicial em desktop com produtos da API da Econverse](docs/screenshots/desktop.png)
 
-**Demonstração online:** [Acessar o site](https://econverse-teste-frontend.mellow-ghost-7957.chatgpt.site)
+**Demonstração online:** [Acessar o site](https://yuurih44.github.io/teste-front-end/)
+
+O GitHub Pages publica a versão atual automaticamente a cada atualização da branch `main`. Na primeira publicação, ative **Settings → Pages → Build and deployment → Source: GitHub Actions** no repositório.
 
 ## Executar o teste
 

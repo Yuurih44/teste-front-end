@@ -6,7 +6,11 @@ export default function ProductImage({ product }: { product: Product }) {
     <span className="image-fallback">Imagem indisponível</span>
   ) : (
     <img
-      src={product.photo}
+      src={
+        product.photo.startsWith("/images/")
+          ? `${import.meta.env.BASE_URL}${product.photo.slice(1)}`
+          : product.photo
+      }
       alt={product.productName}
       loading="lazy"
       onError={() => setFailed(true)}
