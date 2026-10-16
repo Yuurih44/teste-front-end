@@ -29,7 +29,8 @@ jobs:
         run: |
           if ! output="$(npx vite build --base=/teste-front-end/ 2>&1)"; then
             echo "$output"
-            echo "::error title=Vite build output::$(echo "$output" | tail -c 7000)"
+            details="$(echo "$output" | tail -c 7000 | tr '\n' ' ')"
+            echo "::error title=Vite build output::$details"
             exit 1
           fi
           echo "$output"
