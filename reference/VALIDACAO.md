@@ -34,7 +34,7 @@ Esses valores são referências registradas na coleta, sem promessa de atualiza�
 
 ## Ampliação da experiência e fidelidade visual
 
-A suíte tem 30 testes unitários e 15 cenários de navegador executados em desktop e celular: 29 execuções passam e uma verificação exclusiva de geometria desktop é ignorada no projeto mobile.
+A suíte contém 31 testes unitários e 17 cenários de navegador, executados em desktop e celular. O Playwright lista 34 execuções: 33 aplicáveis e uma verificação exclusiva de geometria desktop ignorada no projeto mobile. Esses números descrevem a composição atual da suíte; os resultados de cada execução devem ser consultados no terminal ou no workflow de qualidade.
 
 Os fluxos adicionais verificam carrinho, totais, quantidades, persistência após recarregar, favoritos, ordenação e ações diretas nos cartões da visualização com fotos reais. Os dados de carrinho/favoritos são separados entre os catálogos e não incluem dados pessoais. Nenhum checkout ou pedido real é enviado.
 

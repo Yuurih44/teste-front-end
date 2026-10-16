@@ -16,7 +16,9 @@ A aplicação separa a composição da página, os componentes compartilhados e 
 
 ## Dados e estado
 
-Sem parâmetros, `App` consulta a API da Econverse pelo proxy `/api/products`. Com `?catalog=real`, carrega o catálogo local de iPhones. A resposta da API é validada antes de chegar à página. O departamento ativo fica na URL, permitindo usar voltar e avançar no navegador.
+Sem parâmetros, `App` abre a versão ampliada com o catálogo oficial da Econverse. `?versao=teste` seleciona a versão focada no enunciado, que usa sempre o catálogo oficial e oculta os recursos extras. Na versão ampliada, `?catalog=real` carrega o catálogo local de iPhones; `?catalog=assessment`, o padrão, seleciona o catálogo oficial.
+
+O catálogo oficial é consultado em `api/products`, relativo ao caminho base da aplicação. Em desenvolvimento e na produção com Node, esse endereço usa um proxy para a API da Econverse. No GitHub Pages, ele fornece a cópia obtida durante a publicação. A resposta é validada antes de chegar à página. Na versão ampliada, o departamento ativo fica na URL, permitindo usar voltar e avançar no navegador.
 
 `Storefront` monta as seções, seleciona os produtos do departamento e controla busca e diálogos. Busca, filtros e ordenação são funções separadas da apresentação. `StoreProvider` compartilha carrinho e favoritos entre departamentos; o navegador armazena identificadores e quantidades, enquanto preços e imagens vêm do catálogo carregado.
 
@@ -26,8 +28,12 @@ O endpoint não inclui identificador ou categoria. Por isso, o nome do produto i
 
 As regras do carrinho calculam valores em centavos e limitam quantidades a 99. Itens que não existem mais no catálogo não entram no total. Carrinho e favoritos usam `localStorage`; perfil e preferências de assinatura ficam em `sessionStorage`.
 
-Perfil e assinatura não estão ligados a um serviço externo. O fluxo de compra termina na conferência do carrinho, sem cobrança ou envio de pedido.
+Perfil e assinatura não estão ligados a um serviço externo. O fluxo de compra da versão ampliada termina na conferência do carrinho, sem cobrança ou envio de pedido. A newsletter apenas valida o formulário em memória, sem persistir o cadastro ou enviar dados.
 
 ## Desenvolvimento e testes
 
-Os testes unitários ficam próximos dos módulos. Os cenários completos do navegador ficam em `e2e/`. O proxy do Vite atende o desenvolvimento; `server.mjs` fornece o mesmo encaminhamento na versão de produção. O workflow do GitHub executa formatação, lint, tipos, testes e build.
+Os testes unitários ficam próximos dos módulos. Os cenários completos do navegador ficam em `e2e/`. O workflow de qualidade executa formatação, lint, tipos, testes e build.
+
+O proxy do Vite atende o desenvolvimento. Na produção com Node, `npm run build` gera `dist/` e `npm start` executa `server.mjs`, que serve os arquivos e encaminha as consultas à API.
+
+Na hospedagem estática do GitHub Pages, o workflow `deploy-pages.yml` compila com o caminho base `/teste-front-end/` e executa `scripts/prepare-static-catalog.mjs` com `SITES_STATIC_CATALOG=1`. O script consulta a API oficial e grava o JSON em `dist/api/products`. O navegador acessa essa cópia, renovada em cada publicação; a hospedagem não executa `server.mjs`.

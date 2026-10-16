@@ -22,13 +22,17 @@ npm ci
 npm run dev
 ```
 
-O catálogo oficial da Econverse é carregado por padrão. Abra a URL informada pelo Vite, normalmente:
+Depois de iniciar o Vite, abra a versão desejada no endereço informado pelo terminal, normalmente:
 
-```text
-http://localhost:5173/
-```
+| Versão                                 | Endereço local                        |
+| -------------------------------------- | ------------------------------------- |
+| Oficial do teste                       | `http://localhost:5173/?versao=teste` |
+| Ampliada com catálogo oficial          | `http://localhost:5173/`              |
+| Ampliada com catálogo local de iPhones | `http://localhost:5173/?catalog=real` |
 
-Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porque esse já é o modo padrão. A página consulta o JSON da Econverse pelo proxy `/api/products`. Na versão ampliada, o catálogo local de iPhones continua disponível em `?catalog=real`. A captura de tela e os departamentos adicionais usam dados locais.
+O parâmetro `versao=teste` seleciona a versão focada no enunciado. Sem ele, a aplicação abre a versão ampliada. O parâmetro `catalog` escolhe os dados, não a versão: `assessment` usa o catálogo oficial e é o padrão; `real` usa o catálogo local de iPhones, disponível somente na versão ampliada. Na versão oficial do teste, o catálogo é sempre o da Econverse.
+
+Em desenvolvimento, a página consulta o JSON oficial pelo proxy `/api/products`. Os departamentos adicionais usam dados demonstrativos locais.
 
 ## Requisitos
 
@@ -73,15 +77,19 @@ No Windows, você só precisa instalar o **Node.js** e o **npm** se ainda não e
 
 Para rodar os testes de navegador pela primeira vez, instale o Chromium com `npx playwright install chromium`.
 
+Para executar a versão de produção localmente, use `npm run build` e depois `npm start`. O servidor usa a porta 3000 por padrão; a versão oficial fica em `http://localhost:3000/?versao=teste`.
+
 ## Catálogos
 
 A página sem parâmetros consome o JSON oficial da Econverse. Para consultar os dez modelos de iPhone com nomes, preços e fotos por variante, abra `?catalog=real`. Os SKUs, a origem e a data da consulta estão em [`reference/precos-fontes.json`](reference/precos-fontes.json); a aplicação usa a cópia em `public/data/products-real.json`.
 
-O endpoint consultado é `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, `/api/products` encaminha a solicitação. O proxy está configurado no Vite e no servidor Node de produção; a aplicação precisa ser servida com Node ou um proxy equivalente.
+O endpoint consultado é `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, o Vite e o servidor Node de produção encaminham as solicitações de `/api/products` para esse endpoint.
 
-Na demonstração online, o catálogo oficial é capturado durante a publicação e servido em `/api/products`; ele é atualizado a cada nova publicação.
+No GitHub Pages, a hospedagem é estática: o workflow obtém o JSON oficial durante a publicação e salva uma cópia em `api/products`, dentro da pasta do site. A demonstração consulta essa cópia em `/teste-front-end/api/products`, atualizada a cada nova publicação, sem precisar de um servidor Node em execução.
 
-Na versão ampliada, os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente.
+Na versão ampliada, os outros departamentos e as categorias adicionais de Tecnologia usam dados demonstrativos locais. Seus preços são exemplos e estão identificados na interface.
+
+Carrinho e favoritos persistem em `localStorage`. Conta e assinatura são demonstrações locais, sem autenticação, cobrança ou envio de e-mails; o perfil e as preferências ficam em `sessionStorage`. A newsletter apenas valida o formulário, sem enviar ou persistir o cadastro. O fluxo de compra termina na conferência do carrinho, sem pagamento ou envio de pedido.
 
 ## Extras demonstrativos
 
