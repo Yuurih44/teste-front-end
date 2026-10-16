@@ -336,6 +336,9 @@ test("dimensões e cores principais correspondem à referência desktop", async 
   });
   expect(boxes[".search"]).toMatchObject({ x: 405, width: 630, height: 48 });
   expect(boxes["#produtos .product-card"].y).toBeCloseTo(947, 0);
+  expect(
+    await page.locator("body").evaluate((element) => element.scrollHeight),
+  ).toBe(4660);
   await expect(page.locator(".hero .yellow-button")).toHaveCSS(
     "background-color",
     "rgb(247, 202, 17)",

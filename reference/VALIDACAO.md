@@ -38,7 +38,7 @@ A suíte tem 30 testes unitários e 15 cenários de navegador executados em desk
 
 Os fluxos adicionais verificam carrinho, totais, quantidades, persistência após recarregar, favoritos, ordenação e ações diretas nos cartões da visualização com fotos reais. Os dados de carrinho/favoritos são separados entre os catálogos e não incluem dados pessoais. Nenhum checkout ou pedido real é enviado.
 
-O teste de geometria verifica os parâmetros observados no protótipo: cabeçalho 144px, banner 390px, campo de busca 630 × 48px em x=405, primeiro cartão em y=947 e cores primárias dos botões. Isso impede regressões nesses pontos, mas não substitui a comparação integral com o Figma.
+O teste de geometria verifica os parâmetros medidos no PDF em viewport de 1440px: cabeçalho 144px, banner 390px, campo de busca 630 × 48px em x=405, primeiro cartão em y=947, altura total da página de 4660px e cores primárias dos botões. O modal, em viewport de 1440 × 834px, mede 769 × 299px e fica centralizado. O conteúdo comercial, os textos e os controles de favoritos foram adaptados conforme os requisitos posteriores; essas diferenças de conteúdo não mudam a geometria principal.
 
 ## Organização do código
 
