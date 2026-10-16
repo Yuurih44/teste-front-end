@@ -25,15 +25,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx tsc -b
-      - name: Build static site
-        run: |
-          if ! output="$(npx vite build --base=/teste-front-end/ 2>&1)"; then
-            echo "$output"
-            details="$(echo "$output" | tail -c 7000 | tr '\n' ' ')"
-            echo "::error title=Vite build output::$details"
-            exit 1
-          fi
-          echo "$output"
+      - run: npx vite build --base=/teste-front-end/
       - run: node scripts/prepare-static-catalog.mjs
         env:
           SITES_STATIC_CATALOG: "1"
