@@ -6,7 +6,7 @@ Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End 
 
 **Demonstração online:** [Acessar o site](https://yuurih44.github.io/teste-front-end/)
 
-O GitHub Pages publica a versão atual automaticamente a cada atualização da branch `main`. Na primeira publicação, ative **Settings → Pages → Build and deployment → Source: GitHub Actions** no repositório.
+O GitHub Pages publica a versão atual automaticamente a cada atualização da branch `main`. Na primeira publicação, ative **Settings → Pages → Build and deployment → Source: GitHub Actions** no repositório e execute **Actions → Publicar no GitHub Pages → Run workflow**.
 
 ## Executar o teste
 
