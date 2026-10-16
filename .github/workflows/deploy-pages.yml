@@ -24,9 +24,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - run: npx tsc -b
+      - run: npx vite build --base=/teste-front-end/
+      - run: node scripts/prepare-static-catalog.mjs
         env:
-          GITHUB_PAGES: "true"
           SITES_STATIC_CATALOG: "1"
       - uses: actions/upload-pages-artifact@v3
         with:
