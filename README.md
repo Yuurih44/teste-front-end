@@ -21,27 +21,29 @@ Para abrir diretamente, use `?catalog=assessment`; o parâmetro é opcional porq
 
 ## Requisitos
 
-- **Node.js**: versão 22.13 ou superior
-- **npm**: gerenciador de pacotes do Node.js (instalado junto com o Node.js)
+No Windows, instale o **Node.js 22**, que já inclui o **npm**.
 
-Para instalar no Linux, macOS ou Windows com WSL, use o [nvm](https://github.com/nvm-sh/nvm#installing-and-updating):
+1. Abra o **Prompt de Comando (cmd)** e execute:
 
-```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-```
+   ```bat
+   winget install --id OpenJS.NodeJS.22 --exact --source winget
+   ```
 
-Na pasta do projeto, instale e ative a versão definida em `.nvmrc`. O npm será instalado junto:
+2. Depois da instalação, feche e abra novamente o Prompt de Comando. Confira se os dois estão instalados:
 
-```sh
-nvm install
-nvm use
-node -v
-npm -v
-```
+   ```bat
+   node -v
+   npm -v
+   ```
 
-No Windows sem WSL, use o [instalador oficial do Node.js](https://nodejs.org/en/download), que também inclui o npm. Depois, reabra o terminal e confira com `node -v` e `npm -v`.
+3. Na pasta do projeto, instale as dependências e inicie a aplicação:
+
+   ```bat
+   npm ci
+   npm run dev
+   ```
+
+Se o comando `winget` não estiver disponível, instale o Node.js 22 pelo [site oficial](https://nodejs.org/en/download) e continue a partir do passo 2.
 
 ## Scripts
 
