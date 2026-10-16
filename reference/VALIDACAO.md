@@ -19,7 +19,7 @@ npm run format:check
 - Busca, categoria vazia, erro da API e nova tentativa.
 - Limites das setas do carrossel e navegação pelo teclado.
 - Ausência de transbordamento horizontal em desktop e celular.
-- Auditoria axe-core da página, do modal e do carrinho, com regras WCAG 2 A/AA e 2.1 AA no modo `prefers-contrast: more`. O modo padrão preserva os tons cinza do protótipo, que não atendem ao contraste AA em alguns textos.
+- Auditoria axe-core da página, do modal e do carrinho, com regras WCAG 2 A/AA e 2.1 AA no modo padrão e em `prefers-contrast: more`.
 - Catálogo local de iPhones com nomes, preços e imagens por variante; modo escuro do sistema preserva a página clara.
 - Separação do catálogo de referência, fotos por variante e ausência de links de lojas no modal. As fontes permanecem na documentação.
 
@@ -50,4 +50,4 @@ Os testes de navegador percorrem os seis departamentos demonstrativos em desktop
 
 ## Favoritos, livros, conta e assinatura
 
-Os testes também verificam os corações nos cartões, sincronização dos favoritos, catálogo de livros e pesquisa por Enter; a cor do ícone selecionado e manutenção da posição vertical ao trocar de departamento; formulário de perfil, edição, saída, assinatura com consentimento obrigatório, recarga e cancelamento. Conta e assinatura recebem auditoria axe em alto contraste, como os demais diálogos. O modelo rejeita preferências de sessão inválidas.
+Os testes também verificam os corações nos cartões, sincronização dos favoritos, catálogo de livros e pesquisa por Enter; a cor do ícone selecionado e manutenção da posição vertical ao trocar de departamento; formulário de perfil, edição, saída, assinatura com consentimento obrigatório, recarga e cancelamento. Conta e assinatura recebem auditoria axe nos dois modos de contraste, como os demais diálogos. O modelo rejeita preferências de sessão inválidas.

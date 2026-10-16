@@ -25,16 +25,18 @@ export default function ProductCard({
       >
         <Icon name="heart" size={21} />
       </button>
-      <button
-        className="product-card__details"
-        onClick={() => onSelect(product)}
-        aria-label={`Ver detalhes de ${product.productName}`}
-      >
-        <span className="product-card__image">
-          <ProductImage product={product} />
-        </span>
-        <h3>{product.productName}</h3>
-      </button>
+      <h3 className="product-card__heading">
+        <button
+          className="product-card__details"
+          onClick={() => onSelect(product)}
+          aria-label={`Ver detalhes de ${product.productName}`}
+        >
+          <span className="product-card__image">
+            <ProductImage product={product} />
+          </span>
+          <span>{product.productName}</span>
+        </button>
+      </h3>
       <div className="product-card__pricing">
         <strong>{money(product.price)}</strong>
         <p>ou 2x de {money(product.price / 2)} sem juros</p>

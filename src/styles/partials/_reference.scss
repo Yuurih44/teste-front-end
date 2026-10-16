@@ -21,19 +21,6 @@
     padding-inline: 52px;
   }
 }
-// A opção do sistema oferece contraste maior sem alterar os tons padrão do Figma.
-@media (prefers-contrast: more) {
-  .benefits,
-  .departments button:not(.highlight),
-  .header-actions button,
-  .search button,
-  .product-modal__content > p:not(.purchase-feedback) {
-    color: #606060;
-  }
-  .search input::placeholder {
-    color: #606060;
-  }
-}
 @media (min-width: 1360px) {
   .department-tiles {
     margin-bottom: 89px;

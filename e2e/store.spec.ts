@@ -51,13 +51,13 @@ test("modal usa o produto clicado e mantém o foco acessível", async ({
       ),
     ).toBe(true);
   }
-  await page.emulateMedia({ contrast: "more" });
-  const violations = (
-    await new AxeBuilder({ page })
+  const audit = () =>
+    new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-      .analyze()
-  ).violations;
-  expect(violations).toEqual([]);
+      .analyze();
+  expect((await audit()).violations).toEqual([]);
+  await page.emulateMedia({ contrast: "more" });
+  expect((await audit()).violations).toEqual([]);
   await page.keyboard.press("Escape");
   await expect(dialog).not.toBeVisible();
   await expect(trigger).toBeFocused();
@@ -114,11 +114,13 @@ test("carrossel respeita os limites, layout não transborda e alto contraste pas
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
+  const audit = () =>
+    new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+      .analyze();
+  expect((await audit()).violations).toEqual([]);
   await page.emulateMedia({ contrast: "more" });
-  const result = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-    .analyze();
-  expect(result.violations).toEqual([]);
+  expect((await audit()).violations).toEqual([]);
 });
 
 test("abre com os iPhones reais e fotos correspondentes sem consultar a API genérica", async ({
