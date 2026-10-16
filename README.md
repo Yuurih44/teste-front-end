@@ -4,6 +4,8 @@ Implementação responsiva do protótipo do [teste para Desenvolvedor Front-End 
 
 ![Página inicial em desktop com produtos da API da Econverse](docs/screenshots/desktop.png)
 
+**Demonstração online:** [Acessar o site](https://econverse-teste-frontend.mellow-ghost-7957.chatgpt.site)
+
 ## Executar o teste
 
 ```sh
@@ -68,7 +70,13 @@ A página sem parâmetros consome o JSON oficial da Econverse. Para consultar os
 
 O endpoint consultado é `https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`. Como a API não habilita CORS para o navegador, `/api/products` encaminha a solicitação. O proxy está configurado no Vite e no servidor Node de produção; a aplicação precisa ser servida com Node ou um proxy equivalente.
 
-Os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente; não há checkout, autenticação ou envio de dados a serviços externos.
+Na demonstração online, o catálogo oficial é capturado durante a publicação e servido em `/api/products`; ele é atualizado a cada nova publicação.
+
+Os outros departamentos e as categorias adicionais de Tecnologia usam dados locais. Seus preços são exemplos e estão identificados na interface. Carrinho, favoritos, conta, assinatura e newsletter funcionam localmente.
+
+## Extras demonstrativos
+
+Além dos requisitos do teste, optei por incluir favoritos, carrinho, conta, assinatura e navegação por departamentos. Também adicionei produtos de outras categorias para tornar a experiência mais realista, sem me limitar aos celulares e mantendo o mesmo layout do protótipo. Achei que essas melhorias deixariam a loja mais completa e eficiente.
 
 ## Projeto
 
